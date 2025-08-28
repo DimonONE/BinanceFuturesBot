@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: repl-nix-workspace
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.11
+Requires-Dist: binance>=0.3.65
+Requires-Dist: cryptography>=45.0.6
+Requires-Dist: numpy>=2.3.2
+Requires-Dist: pytelegrambotapi>=4.28.0
+Requires-Dist: python-binance==1.0.19
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: python-telegram-bot>=22.3

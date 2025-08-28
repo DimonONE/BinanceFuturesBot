@@ -1,0 +1,243 @@
+2025-08-28 17:44:19,389 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:45:48,978 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:45:49,214 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:50:22,528 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:50:22,548 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:01,022 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:01,022 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:07,120 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:51,332 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:51,494 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:51:57,888 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 17:56:43,987 - data_storage - INFO - No existing data file found, starting with default data
+2025-08-28 17:56:43,990 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 17:56:45,170 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 17:56:45,705 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00967374 USDT
+2025-08-28 17:56:45,705 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 17:56:45,706 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 17:56:45,708 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 17:56:45,710 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 17:56:45,712 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 17:56:45,712 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 17:56:45,712 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 17:57:01,820 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 17:57:01,822 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 17:57:02,948 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 17:57:03,466 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00955057 USDT
+2025-08-28 17:57:03,466 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 17:57:03,466 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 17:57:03,467 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 17:57:03,467 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 17:57:03,467 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 17:57:03,467 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 17:57:03,468 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 17:57:31,629 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 17:57:31,630 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 17:57:31,630 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 17:57:53,330 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:06:21,161 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:06:21,162 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:06:21,163 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:06:37,100 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:06:41,360 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:06:44,269 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:06:44,270 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:06:44,270 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:09:51,510 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,511 - websocket_handler - INFO - Ticker stream closed for BTCUSDT
+2025-08-28 18:09:51,511 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,511 - websocket_handler - INFO - Kline stream closed for ETHUSDT
+2025-08-28 18:09:51,511 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,511 - websocket_handler - INFO - Kline stream closed for LINKUSDT
+2025-08-28 18:09:51,511 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,512 - websocket_handler - INFO - Kline stream closed for ADAUSDT
+2025-08-28 18:09:51,512 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,512 - websocket_handler - INFO - Ticker stream closed for DOTUSDT
+2025-08-28 18:09:51,512 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,512 - websocket_handler - INFO - Kline stream closed for DOTUSDT
+2025-08-28 18:09:51,512 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,512 - websocket_handler - INFO - Ticker stream closed for ADAUSDT
+2025-08-28 18:09:51,512 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,512 - websocket_handler - INFO - Ticker stream closed for LINKUSDT
+2025-08-28 18:09:51,512 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,513 - websocket_handler - INFO - Kline stream closed for BTCUSDT
+2025-08-28 18:09:51,513 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 18:09:51,513 - websocket_handler - INFO - Ticker stream closed for ETHUSDT
+2025-08-28 18:14:27,943 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 18:14:27,948 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 18:14:29,109 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 18:14:29,587 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00963928 USDT
+2025-08-28 18:14:29,588 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 18:14:29,588 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 18:14:29,588 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 18:14:29,588 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 18:14:29,589 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 18:14:29,589 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 18:14:29,589 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 18:17:21,599 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,356 - telegram_bot - INFO - Trading loop started
+2025-08-28 18:21:15,357 - binance_client - ERROR - Error getting klines for BTCUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,357 - trading_strategy - WARNING - No klines data for BTCUSDT
+2025-08-28 18:21:15,357 - binance_client - ERROR - Error getting klines for ETHUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,357 - trading_strategy - WARNING - No klines data for ETHUSDT
+2025-08-28 18:21:15,357 - binance_client - ERROR - Error getting klines for ADAUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,357 - trading_strategy - WARNING - No klines data for ADAUSDT
+2025-08-28 18:21:15,358 - binance_client - ERROR - Error getting klines for DOTUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,358 - trading_strategy - WARNING - No klines data for DOTUSDT
+2025-08-28 18:21:15,358 - binance_client - ERROR - Error getting klines for LINKUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:21:15,358 - trading_strategy - WARNING - No klines data for LINKUSDT
+2025-08-28 18:22:15,418 - binance_client - ERROR - Error getting klines for BTCUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:22:15,418 - trading_strategy - WARNING - No klines data for BTCUSDT
+2025-08-28 18:22:15,418 - binance_client - ERROR - Error getting klines for ETHUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:22:15,418 - trading_strategy - WARNING - No klines data for ETHUSDT
+2025-08-28 18:22:15,419 - binance_client - ERROR - Error getting klines for ADAUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:22:15,419 - trading_strategy - WARNING - No klines data for ADAUSDT
+2025-08-28 18:22:15,419 - binance_client - ERROR - Error getting klines for DOTUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:22:15,419 - trading_strategy - WARNING - No klines data for DOTUSDT
+2025-08-28 18:22:15,419 - binance_client - ERROR - Error getting klines for LINKUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:22:15,419 - trading_strategy - WARNING - No klines data for LINKUSDT
+2025-08-28 18:23:15,479 - telegram_bot - INFO - Trading loop stopped
+2025-08-28 18:24:22,455 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:24:22,457 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:24:22,458 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:26:01,422 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 18:26:01,423 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 18:26:02,389 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 18:26:02,838 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00968367 USDT
+2025-08-28 18:26:02,841 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 18:26:02,846 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 18:26:02,849 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 18:26:02,852 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 18:26:02,852 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 18:26:02,853 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 18:26:02,855 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 18:26:23,842 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:26:23,844 - binance_client - ERROR - Error getting balance: Timeout context manager should be used inside a task
+2025-08-28 18:26:23,844 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,721 - telegram_bot - INFO - Trading loop started
+2025-08-28 18:26:47,722 - binance_client - ERROR - Error getting klines for BTCUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,722 - trading_strategy - WARNING - No klines data for BTCUSDT
+2025-08-28 18:26:47,722 - binance_client - ERROR - Error getting klines for ETHUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,723 - trading_strategy - WARNING - No klines data for ETHUSDT
+2025-08-28 18:26:47,723 - binance_client - ERROR - Error getting klines for ADAUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,723 - trading_strategy - WARNING - No klines data for ADAUSDT
+2025-08-28 18:26:47,723 - binance_client - ERROR - Error getting klines for DOTUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,723 - trading_strategy - WARNING - No klines data for DOTUSDT
+2025-08-28 18:26:47,723 - binance_client - ERROR - Error getting klines for LINKUSDT: Timeout context manager should be used inside a task
+2025-08-28 18:26:47,725 - trading_strategy - WARNING - No klines data for LINKUSDT
+2025-08-28 18:27:47,785 - telegram_bot - INFO - Trading loop stopped
+2025-08-28 18:30:19,928 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 18:30:19,939 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 18:30:21,318 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 18:30:21,843 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00965581 USDT
+2025-08-28 18:30:21,845 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 18:30:21,845 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 18:30:21,845 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 18:30:21,846 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 18:30:21,846 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 18:30:21,846 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 18:30:21,846 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 18:31:10,462 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 18:31:10,464 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 18:31:11,563 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 18:31:12,002 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00961207 USDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 18:31:12,006 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 18:31:12,007 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 18:32:34,552 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:41:31,645 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:41:31,645 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:41:33,092 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:41:33,548 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00970603 USDT
+2025-08-28 22:41:33,549 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 22:41:33,549 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 22:41:33,549 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 22:41:33,550 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 22:41:33,550 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 22:41:33,550 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 22:41:33,550 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:42:40,081 - binance_client - ERROR - Error getting positions: Timeout context manager should be used inside a task
+2025-08-28 22:42:45,067 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:46:45,445 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,445 - websocket_handler - INFO - Kline stream closed for LINKUSDT
+2025-08-28 22:46:45,445 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,445 - websocket_handler - INFO - Kline stream closed for BTCUSDT
+2025-08-28 22:46:45,446 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,446 - websocket_handler - INFO - Ticker stream closed for ADAUSDT
+2025-08-28 22:46:45,446 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,446 - websocket_handler - INFO - Kline stream closed for DOTUSDT
+2025-08-28 22:46:45,447 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,447 - websocket_handler - INFO - Ticker stream closed for ETHUSDT
+2025-08-28 22:46:45,447 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,447 - websocket_handler - INFO - Kline stream closed for ADAUSDT
+2025-08-28 22:46:45,447 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,448 - websocket_handler - INFO - Ticker stream closed for LINKUSDT
+2025-08-28 22:46:45,448 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,448 - websocket_handler - INFO - Ticker stream closed for BTCUSDT
+2025-08-28 22:46:45,448 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,448 - websocket_handler - INFO - Kline stream closed for ETHUSDT
+2025-08-28 22:46:45,449 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 22:46:45,449 - websocket_handler - INFO - Ticker stream closed for DOTUSDT
+2025-08-28 22:46:47,331 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:46:47,331 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:46:48,735 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:46:49,151 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00951732 USDT
+2025-08-28 22:46:49,151 - websocket_handler - INFO - Started WebSocket streams for BTCUSDT
+2025-08-28 22:46:49,152 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 22:46:49,152 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 22:46:49,152 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 22:46:49,153 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 22:46:49,153 - websocket_handler - INFO - WebSocket streams started for 5 symbols
+2025-08-28 22:46:49,153 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:49:58,745 - telegram_bot - INFO - Trading loop started
+2025-08-28 23:07:07,112 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,112 - websocket_handler - INFO - Ticker stream closed for BTCUSDT
+2025-08-28 23:07:07,112 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,112 - websocket_handler - INFO - Kline stream closed for ETHUSDT
+2025-08-28 23:07:07,113 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,113 - websocket_handler - INFO - Ticker stream closed for DOTUSDT
+2025-08-28 23:07:07,113 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,113 - websocket_handler - INFO - Kline stream closed for LINKUSDT
+2025-08-28 23:07:07,113 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,113 - websocket_handler - INFO - Kline stream closed for BTCUSDT
+2025-08-28 23:07:07,113 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,114 - websocket_handler - INFO - Ticker stream closed for ADAUSDT
+2025-08-28 23:07:07,114 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,114 - websocket_handler - INFO - Kline stream closed for DOTUSDT
+2025-08-28 23:07:07,114 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,115 - websocket_handler - INFO - Ticker stream closed for ETHUSDT
+2025-08-28 23:07:07,115 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,115 - websocket_handler - INFO - Kline stream closed for ADAUSDT
+2025-08-28 23:07:07,115 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:07:07,115 - websocket_handler - INFO - Ticker stream closed for LINKUSDT
+2025-08-28 23:07:09,546 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 23:07:09,546 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 23:07:10,873 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 23:07:11,343 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00968949 USDT
+2025-08-28 23:07:11,343 - websocket_handler - INFO - Started WebSocket streams for ETHUSDT
+2025-08-28 23:07:11,344 - websocket_handler - INFO - Started WebSocket streams for ADAUSDT
+2025-08-28 23:07:11,344 - websocket_handler - INFO - Started WebSocket streams for DOTUSDT
+2025-08-28 23:07:11,344 - websocket_handler - INFO - Started WebSocket streams for LINKUSDT
+2025-08-28 23:07:11,344 - websocket_handler - INFO - WebSocket streams started for 4 symbols
+2025-08-28 23:07:11,345 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 23:07:52,032 - telegram_bot - INFO - Trading loop started
+2025-08-28 23:10:45,831 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,831 - websocket_handler - INFO - Ticker stream closed for ADAUSDT
+2025-08-28 23:10:45,832 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,832 - websocket_handler - INFO - Kline stream closed for DOTUSDT
+2025-08-28 23:10:45,832 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,833 - websocket_handler - INFO - Ticker stream closed for ETHUSDT
+2025-08-28 23:10:45,833 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,833 - websocket_handler - INFO - Kline stream closed for ADAUSDT
+2025-08-28 23:10:45,833 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,833 - websocket_handler - INFO - Ticker stream closed for LINKUSDT
+2025-08-28 23:10:45,834 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,834 - websocket_handler - INFO - Kline stream closed for ETHUSDT
+2025-08-28 23:10:45,834 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,834 - websocket_handler - INFO - Ticker stream closed for DOTUSDT
+2025-08-28 23:10:45,834 - binance.streams - ERROR - CANCEL read_loop
+2025-08-28 23:10:45,835 - websocket_handler - INFO - Kline stream closed for LINKUSDT

@@ -1,0 +1,7 @@
+binance>=0.3.65
+cryptography>=45.0.6
+numpy>=2.3.2
+pytelegrambotapi>=4.28.0
+python-binance==1.0.19
+python-dotenv>=1.1.1
+python-telegram-bot>=22.3

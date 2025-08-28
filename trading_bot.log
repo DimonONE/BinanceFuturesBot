@@ -1080,3 +1080,163 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 22:24:49,350 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
 2025-08-28 22:24:49,527 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8575 | Trend=DOWN | RSI=41.8 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
 2025-08-28 22:24:49,528 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:49,703 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:24:49,704 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:49,877 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1720 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:24:49,878 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:50,061 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:24:50,062 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:50,229 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:24:50,229 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:50,413 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3449 | Trend=DOWN | RSI=42.6 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:24:50,413 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:50,588 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:24:50,588 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:24:50,588 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:25:01,047 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:25:01,528 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9900 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:25:01,529 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:01,705 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8575 | Trend=DOWN | RSI=41.8 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:25:01,705 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:01,889 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:25:01,889 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:02,061 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1720 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:25:02,061 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:02,239 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:25:02,239 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:02,709 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:25:02,709 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:02,876 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3449 | Trend=DOWN | RSI=42.6 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:25:02,876 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:03,051 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:25:03,051 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:03,051 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:25:24,189 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:25:24,670 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9900 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:25:24,670 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:25,156 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8575 | Trend=DOWN | RSI=41.8 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:25:25,156 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:25,327 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:25:25,327 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:25,505 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1720 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:25:25,506 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:25,677 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:25:25,678 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:25,848 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:25:25,848 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:26,020 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:25:26,021 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:26,194 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:25:26,194 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:26,194 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:25:50,648 - telegram_bot - INFO - Trading loop stopped
+2025-08-28 22:25:54,679 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:25:54,679 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:25:54,861 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9900 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:25:54,862 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:55,039 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8575 | Trend=DOWN | RSI=41.8 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:25:55,039 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:55,519 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:25:55,520 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:55,696 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1720 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:25:55,696 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:55,865 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:25:55,865 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:56,034 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:25:56,035 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:56,203 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:25:56,203 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:56,676 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:25:56,676 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:25:56,676 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:26:03,112 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:26:03,289 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:26:03,290 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:03,459 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8569 | Trend=DOWN | RSI=41.4 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:26:03,459 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:03,930 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:26:03,931 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,110 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1720 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:26:04,110 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,284 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:26:04,284 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,455 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:26:04,455 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,643 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:26:04,644 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,816 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:26:04,816 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:04,816 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:26:24,777 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 22:26:26,254 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:26:26,777 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:26:26,778 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:26,957 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8569 | Trend=DOWN | RSI=41.4 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:26:26,957 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:27,126 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:26:27,126 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:27,296 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1730 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:26:27,297 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:27,473 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:26:27,473 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:27,642 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:26:27,643 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:28,115 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:26:28,116 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:28,284 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:26:28,284 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:28,284 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:26:56,736 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:26:57,207 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:26:57,207 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:57,378 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8569 | Trend=DOWN | RSI=41.4 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:26:57,379 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:57,555 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:26:57,555 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:57,733 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1730 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:26:57,733 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:57,905 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:26:57,905 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:58,082 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:26:58,082 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:58,251 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:26:58,252 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:58,423 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:26:58,423 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:26:58,423 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:27:04,876 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:27:05,048 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:27:05,048 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:05,519 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8569 | Trend=DOWN | RSI=41.4 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:27:05,519 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:05,690 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9680 | Trend=UP | RSI=50.3 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:27:05,690 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:06,174 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1730 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:27:06,174 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:06,347 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:27:06,347 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:06,516 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:27:06,516 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:06,988 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:27:06,989 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:07,156 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:27:07,157 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:07,157 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols
+2025-08-28 22:27:28,344 - telegram_bot - INFO - 🔍 Scanning 8 symbols for trading opportunities...
+2025-08-28 22:27:28,515 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:27:28,515 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:28,692 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8569 | Trend=DOWN | RSI=41.4 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:27:28,693 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:28,866 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9690 | Trend=UP | RSI=50.5 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:27:28,866 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,034 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.1730 | Trend=UP | RSI=64.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:27:29,035 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,204 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:27:29,205 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,378 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:27:29,379 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,548 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.5 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:27:29,549 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,723 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:27:29,723 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:27:29,724 - telegram_bot - INFO - ⏸️ No trading signals found across 8 symbols

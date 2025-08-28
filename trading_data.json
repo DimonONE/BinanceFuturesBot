@@ -9,7 +9,6 @@
         "1000000MOGUSDT",
         "TRXUSDT",
         "TONUSDT",
-        "1000CHEEMSUSDT",
         "1000CATUSDT",
         "1000BONKUSDT",
         "1000000BOBUSDT"
@@ -27,5 +26,5 @@
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-28T22:22:06.046534"
+  "last_update": "2025-08-28T22:26:24.777103"
 }

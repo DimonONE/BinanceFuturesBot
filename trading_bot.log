@@ -572,3 +572,15 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 21:39:11,867 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00971242 USDT
 2025-08-28 21:39:11,868 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 21:39:11,868 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:39:25,518 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-28 21:39:26,183 - binance_client - INFO - Found 486 USDT perpetual futures symbols
+2025-08-28 21:39:26,188 - telegram_bot - INFO - Cached 486 symbols
+2025-08-28 21:39:39,676 - telegram_bot - INFO - Processing search query: 'TON' from user 930901908
+2025-08-28 21:39:40,657 - telegram_bot - ERROR - Error showing pairs page: 'FakeCall' object has no attribute 'id'
+2025-08-28 21:39:40,657 - telegram_bot - ERROR - Error processing search input: 'FakeCall' object has no attribute 'id'
+2025-08-28 21:40:58,711 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:40:58,715 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:40:59,639 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:41:00,125 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00961146 USDT
+2025-08-28 21:41:00,126 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:41:00,127 - telegram_bot - INFO - Starting Telegram bot...

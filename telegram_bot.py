@@ -932,7 +932,10 @@ class TradingBot:
             # Update message
             self.bot.edit_message_text(pairs_text, call.message.chat.id, call.message.message_id, 
                                       parse_mode='Markdown', reply_markup=keyboard)
-            self.bot.answer_callback_query(call.id)
+            
+            # Only answer callback query if it's a real callback (has valid id)
+            if hasattr(call, 'id') and call.id != "fake_search_call":
+                self.bot.answer_callback_query(call.id)
             
         except Exception as e:
             logger.error(f"Error showing pairs page: {e}")
@@ -1222,6 +1225,7 @@ class TradingBot:
                     def __init__(self, chat_id, message_id, user_id):
                         self.message = type('', (), {'chat': type('', (), {'id': chat_id})(), 'message_id': message_id})()
                         self.from_user = type('', (), {'id': user_id})()
+                        self.id = "fake_search_call"  # Add missing id attribute
                 
                 fake_call = FakeCall(message.chat.id, original_msg_id, user_id)
                 await self.show_pairs_page(fake_call, 0)

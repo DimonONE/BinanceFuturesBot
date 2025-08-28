@@ -42,8 +42,13 @@ class TradingBot:
         self.is_trading_active = False
         self.monitoring_symbols = config.DEFAULT_PAIRS.copy()
         
+        # Cache for symbols and user sessions
+        self._cached_symbols = None
+        self._user_search_sessions = {}  # user_id -> {"symbols": [...], "search_query": ""}
+        
         # Setup message handlers
         self._setup_handlers()
+        self._setup_search_handler()
         
     def _setup_handlers(self):
         """Setup message and callback handlers"""
@@ -524,6 +529,10 @@ class TradingBot:
                 await self.handle_pairs_page_callback(call)
             elif call.data.startswith("toggle_pair_"):
                 await self.handle_toggle_pair_callback(call)
+            elif call.data == "search_pairs":
+                await self.handle_search_pairs_callback(call)
+            elif call.data == "clear_search":
+                await self.handle_clear_search_callback(call)
             elif call.data == "modify_settings":
                 await self.handle_modify_settings_callback(call)
             elif call.data == "apply_pairs":
@@ -813,32 +822,57 @@ class TradingBot:
             logger.error(f"Error starting bot: {e}")
             raise
     
+    def _get_cached_symbols(self):
+        """Get cached symbols, fetch if not cached"""
+        if self._cached_symbols is None:
+            logger.info("Fetching exchange symbols for the first time...")
+            self._cached_symbols = self.binance_client.get_exchange_symbols_sync()
+            if not self._cached_symbols:
+                self._cached_symbols = ["ETHUSDT", "BTCUSDT", "ADAUSDT", "DOTUSDT", "LINKUSDT", "BNBUSDT", "XRPUSDT", "SOLUSDT", "AVAXUSDT", "MATICUSDT"]
+            logger.info(f"Cached {len(self._cached_symbols)} symbols")
+        return self._cached_symbols
+
+    def _init_user_session(self, user_id: int):
+        """Initialize user session for pairs selection"""
+        if user_id not in self._user_search_sessions:
+            self._user_search_sessions[user_id] = {
+                "symbols": self._get_cached_symbols().copy(),
+                "search_query": ""
+            }
+
     async def handle_view_pairs_callback(self, call):
         """Handle view pairs callback"""
+        self._init_user_session(call.from_user.id)
         await self.show_pairs_page(call, 0)
         
     async def show_pairs_page(self, call, page: int):
         """Show trading pairs with pagination"""
         try:
+            user_id = call.from_user.id
+            self._init_user_session(user_id)
+            
             # Get user settings
-            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            user_settings = self.data_storage.get_user_settings(user_id)
             selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
             
-            # Get all available symbols
-            all_symbols = self.binance_client.get_exchange_symbols_sync()
-            if not all_symbols:
-                all_symbols = ["ETHUSDT", "BTCUSDT", "ADAUSDT", "DOTUSDT", "LINKUSDT", "BNBUSDT", "XRPUSDT", "SOLUSDT", "AVAXUSDT", "MATICUSDT"]
+            # Get filtered symbols from user session
+            session = self._user_search_sessions[user_id]
+            filtered_symbols = session["symbols"]
+            search_query = session["search_query"]
             
             # Pagination settings
             pairs_per_page = 5
-            total_pages = (len(all_symbols) + pairs_per_page - 1) // pairs_per_page
+            total_pages = (len(filtered_symbols) + pairs_per_page - 1) // pairs_per_page
             start_idx = page * pairs_per_page
-            end_idx = min(start_idx + pairs_per_page, len(all_symbols))
-            page_symbols = all_symbols[start_idx:end_idx]
+            end_idx = min(start_idx + pairs_per_page, len(filtered_symbols))
+            page_symbols = filtered_symbols[start_idx:end_idx]
             
-            pairs_text = f"""📋 **Торгові Пари** (Сторінка {page + 1}/{total_pages})
+            # Build header text
+            search_info = f" (Пошук: '{search_query}')" if search_query else ""
+            pairs_text = f"""📋 **Торгові Пари** (Сторінка {page + 1}/{total_pages}){search_info}
 
 **Вибрані пари:** {len(selected_pairs)}
+**Знайдено пар:** {len(filtered_symbols)}
 """
             
             # Create inline keyboard with pairs
@@ -866,12 +900,23 @@ class TradingBot:
             if nav_buttons:
                 keyboard.row(*nav_buttons)
             
+            # Search and control buttons
+            search_buttons = []
+            if search_query:
+                search_buttons.append(types.InlineKeyboardButton("❌ Очистити пошук", callback_data="clear_search"))
+            search_buttons.append(types.InlineKeyboardButton("🔍 Пошук", callback_data="search_pairs"))
+            keyboard.row(*search_buttons)
+            
             # Control buttons
             keyboard.add(
                 types.InlineKeyboardButton("💾 Зберегти та Застосувати", callback_data="apply_pairs"),
                 types.InlineKeyboardButton("🔄 Скинути до стандартних", callback_data="reset_pairs")
             )
             keyboard.add(types.InlineKeyboardButton("⚙️ Назад до Налаштувань", callback_data="settings"))
+            
+            # Clear session when going back to settings
+            if user_id in self._user_search_sessions:
+                del self._user_search_sessions[user_id]
             
             # Update message
             self.bot.edit_message_text(pairs_text, call.message.chat.id, call.message.message_id, 
@@ -957,9 +1002,15 @@ class TradingBot:
             # Show feedback and refresh page
             self.bot.answer_callback_query(call.id, f"✅ {symbol} {action}")
             
-            # Refresh current page
-            page = getattr(call, '_current_page', 0)
-            await self.show_pairs_page(call, page)
+            # Refresh current page - try to determine current page from filtered symbols
+            session = self._user_search_sessions[call.from_user.id]
+            try:
+                symbol_index = session["symbols"].index(symbol) if symbol in session["symbols"] else 0
+                current_page = symbol_index // 5  # 5 pairs per page
+            except:
+                current_page = 0
+            
+            await self.show_pairs_page(call, current_page)
             
         except Exception as e:
             logger.error(f"Error toggling pair: {e}")
@@ -1044,3 +1095,126 @@ class TradingBot:
                 
         except Exception as e:
             logger.error(f"Error updating monitoring symbols: {e}")
+    
+    async def handle_search_pairs_callback(self, call):
+        """Handle search pairs callback"""
+        try:
+            # Send a message asking for search query
+            search_text = """🔍 **Пошук Торгових Пар**
+
+Введіть назву криптовалюти або частину назви для пошуку:
+
+**Приклади:**
+• BTC (знайде BTCUSDT)
+• ETH (знайде ETHUSDT) 
+• DOG (знайде DOGEUSDT)
+• 1INCH (знайде 1INCHUSDT)
+
+Відправте повідомлення з пошуковим запитом або натисніть "Скасувати" для відміни."""
+            
+            keyboard = types.InlineKeyboardMarkup()
+            keyboard.add(types.InlineKeyboardButton("❌ Скасувати", callback_data="view_pairs"))
+            
+            # Send new message for search input
+            sent_msg = self.bot.send_message(call.message.chat.id, search_text, parse_mode='Markdown', reply_markup=keyboard)
+            
+            # Store message info for cleanup
+            self._user_search_sessions[call.from_user.id]["search_message_id"] = sent_msg.message_id
+            self._user_search_sessions[call.from_user.id]["original_message_id"] = call.message.message_id
+            
+            self.bot.answer_callback_query(call.id)
+            
+        except Exception as e:
+            logger.error(f"Error handling search: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка пошуку.")
+    
+    async def handle_clear_search_callback(self, call):
+        """Handle clear search callback"""
+        try:
+            user_id = call.from_user.id
+            self._init_user_session(user_id)
+            
+            # Reset search
+            session = self._user_search_sessions[user_id]
+            session["search_query"] = ""
+            session["symbols"] = self._get_cached_symbols().copy()
+            
+            self.bot.answer_callback_query(call.id, "🔍 Пошук очищено")
+            await self.show_pairs_page(call, 0)
+            
+        except Exception as e:
+            logger.error(f"Error clearing search: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка очищення пошуку.")
+    
+    def _setup_search_handler(self):
+        """Setup search message handler"""
+        @self.bot.message_handler(func=lambda message: message.from_user.id in self._user_search_sessions and 
+                                  self._user_search_sessions[message.from_user.id].get("search_message_id"))
+        def handle_search_input(message):
+            def run_async():
+                asyncio.run(self.process_search_input(message))
+            thread = threading.Thread(target=run_async)
+            thread.start()
+    
+    async def process_search_input(self, message):
+        """Process search input from user"""
+        try:
+            user_id = message.from_user.id
+            if user_id not in self._user_search_sessions:
+                return
+                
+            session = self._user_search_sessions[user_id]
+            search_query = message.text.strip().upper()
+            
+            # Filter symbols based on search
+            all_symbols = self._get_cached_symbols()
+            if search_query:
+                filtered_symbols = [symbol for symbol in all_symbols if search_query in symbol]
+            else:
+                filtered_symbols = all_symbols.copy()
+            
+            # Update session
+            session["search_query"] = search_query
+            session["symbols"] = filtered_symbols
+            
+            # Delete search message and user input
+            try:
+                self.bot.delete_message(message.chat.id, session.get("search_message_id"))
+                self.bot.delete_message(message.chat.id, message.message_id)
+            except:
+                pass
+            
+            # Update original pairs message
+            original_msg_id = session.get("original_message_id")
+            if original_msg_id:
+                # Create fake call object for show_pairs_page
+                class FakeCall:
+                    def __init__(self, chat_id, message_id, user_id):
+                        self.message = type('', (), {'chat': type('', (), {'id': chat_id})(), 'message_id': message_id})()
+                        self.from_user = type('', (), {'id': user_id})()
+                
+                fake_call = FakeCall(message.chat.id, original_msg_id, user_id)
+                await self.show_pairs_page(fake_call, 0)
+                
+                # Send feedback
+                feedback_msg = f"🔍 Знайдено {len(filtered_symbols)} пар за запитом '{search_query}'" if search_query else "🔍 Показано всі пари"
+                feedback = self.bot.send_message(message.chat.id, feedback_msg)
+                
+                # Delete feedback after 2 seconds
+                import time
+                time.sleep(2)
+                try:
+                    self.bot.delete_message(message.chat.id, feedback.message_id)
+                except:
+                    pass
+            
+            # Clean up session search state
+            session.pop("search_message_id", None)
+            session.pop("original_message_id", None)
+            
+        except Exception as e:
+            logger.error(f"Error processing search: {e}")
+            try:
+                self.bot.send_message(message.chat.id, "❌ Помилка обробки пошуку.")
+            except:
+                pass

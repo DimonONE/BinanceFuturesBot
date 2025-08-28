@@ -652,3 +652,6 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 22:03:32,523 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
 2025-08-28 22:03:32,898 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
 2025-08-28 22:03:32,899 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:07:26,283 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 22:07:34,104 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 22:07:50,465 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required

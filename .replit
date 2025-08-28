@@ -1,4 +1,5 @@
 modules = ["python-3.11"]
+run = "ok"
 [agent]
 expertMode = true
 
@@ -28,3 +29,6 @@ outputType = "console"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python main.py"
+
+[deployment]
+run = ["sh", "-c", "ok"]

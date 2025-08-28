@@ -222,6 +222,35 @@ class BinanceClient:
             logger.error(f"Error getting klines for {symbol}: {e}")
             return []
     
+    def get_exchange_symbols_sync(self) -> List[str]:
+        """Get all available USDT futures symbols (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return []
+                
+            exchange_info = self.sync_client.futures_exchange_info()
+            usdt_symbols = []
+            
+            for symbol_info in exchange_info['symbols']:
+                symbol = symbol_info['symbol']
+                if (symbol.endswith('USDT') and 
+                    symbol_info['status'] == 'TRADING' and
+                    symbol_info['contractType'] == 'PERPETUAL'):
+                    usdt_symbols.append(symbol)
+            
+            # Sort symbols alphabetically
+            usdt_symbols.sort()
+            logger.info(f"Found {len(usdt_symbols)} USDT perpetual futures symbols")
+            return usdt_symbols
+            
+        except BinanceAPIException as e:
+            logger.error(f"API error getting exchange symbols: {e}")
+            return []
+        except Exception as e:
+            logger.error(f"Error getting exchange symbols: {e}")
+            return []
+
     async def get_klines(self, symbol: str, interval: str, limit: int = 100) -> List[Dict]:
         """Get kline/candlestick data"""
         try:

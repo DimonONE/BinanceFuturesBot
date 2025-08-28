@@ -11,4 +11,5 @@ dependencies = [
     "python-binance==1.0.19",
     "python-dotenv>=1.1.1",
     "python-telegram-bot>=22.3",
+    "binance>=0.3.65",
 ]

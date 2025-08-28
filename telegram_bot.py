@@ -520,8 +520,16 @@ class TradingBot:
                 await self.handle_main_menu_callback(call)
             elif call.data == "view_pairs":
                 await self.handle_view_pairs_callback(call)
+            elif call.data.startswith("pairs_page_"):
+                await self.handle_pairs_page_callback(call)
+            elif call.data.startswith("toggle_pair_"):
+                await self.handle_toggle_pair_callback(call)
             elif call.data == "modify_settings":
                 await self.handle_modify_settings_callback(call)
+            elif call.data == "apply_pairs":
+                await self.handle_apply_pairs_callback(call)
+            elif call.data == "reset_pairs":
+                await self.handle_reset_pairs_callback(call)
             else:
                 self.bot.answer_callback_query(call.id, "❌ Невідома команда.")
                 
@@ -636,7 +644,10 @@ class TradingBot:
                     
                     # Save trade record
                     current_price = await self.binance_client.get_current_price(symbol)
-                    pnl = calculate_pnl(position['entry_price'], current_price, quantity, position['side'])
+                    if current_price:
+                        pnl = calculate_pnl(position['entry_price'], current_price, quantity, position['side'])
+                    else:
+                        pnl = 0.0
                     
                     trade_data = {
                         'symbol': symbol,
@@ -804,40 +815,72 @@ class TradingBot:
     
     async def handle_view_pairs_callback(self, call):
         """Handle view pairs callback"""
+        await self.show_pairs_page(call, 0)
+        
+    async def show_pairs_page(self, call, page: int):
+        """Show trading pairs with pagination"""
         try:
-            pairs_text = f"""
-📋 **Торгові Пари**
+            # Get user settings
+            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
+            
+            # Get all available symbols
+            all_symbols = self.binance_client.get_exchange_symbols_sync()
+            if not all_symbols:
+                all_symbols = ["ETHUSDT", "BTCUSDT", "ADAUSDT", "DOTUSDT", "LINKUSDT", "BNBUSDT", "XRPUSDT", "SOLUSDT", "AVAXUSDT", "MATICUSDT"]
+            
+            # Pagination settings
+            pairs_per_page = 5
+            total_pages = (len(all_symbols) + pairs_per_page - 1) // pairs_per_page
+            start_idx = page * pairs_per_page
+            end_idx = min(start_idx + pairs_per_page, len(all_symbols))
+            page_symbols = all_symbols[start_idx:end_idx]
+            
+            pairs_text = f"""📋 **Торгові Пари** (Сторінка {page + 1}/{total_pages})
 
-**Активні пари для моніторингу:**
+**Вибрані пари:** {len(selected_pairs)}
 """
-            for i, pair in enumerate(self.monitoring_symbols, 1):
-                # Get current price
+            
+            # Create inline keyboard with pairs
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            
+            for symbol in page_symbols:
+                is_selected = symbol in selected_pairs
+                status_emoji = "✅" if is_selected else "❌"
                 try:
-                    current_price = self.websocket_handler.get_current_price(pair)
-                    if current_price:
-                        pairs_text += f"{i}. {pair}: ${format_number(current_price)}\n"
-                    else:
-                        pairs_text += f"{i}. {pair}: Завантаження...\n"
+                    current_price = self.binance_client.get_current_price_sync(symbol)
+                    price_str = f" - {format_number(current_price)} USDT" if current_price else ""
                 except:
-                    pairs_text += f"{i}. {pair}: Завантаження...\n"
+                    price_str = ""
+                
+                button_text = f"{status_emoji} {symbol}{price_str}"
+                keyboard.add(types.InlineKeyboardButton(button_text, callback_data=f"toggle_pair_{symbol}"))
             
-            pairs_text += f"""
-**Загальна кількість:** {len(self.monitoring_symbols)} пар
-
-ℹ️ Ці пари автоматично моніторяться для торгових сигналів
-"""
+            # Navigation buttons
+            nav_buttons = []
+            if page > 0:
+                nav_buttons.append(types.InlineKeyboardButton("⬅️ Попередня", callback_data=f"pairs_page_{page-1}"))
+            if page < total_pages - 1:
+                nav_buttons.append(types.InlineKeyboardButton("Наступна ➡️", callback_data=f"pairs_page_{page+1}"))
             
-            keyboard = types.InlineKeyboardMarkup()
-            keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
-            keyboard.add(types.InlineKeyboardButton("⚙️ Налаштування", callback_data="settings"))
+            if nav_buttons:
+                keyboard.row(*nav_buttons)
             
-            self.bot.edit_message_text(pairs_text, call.message.chat.id, call.message.message_id,
+            # Control buttons
+            keyboard.add(
+                types.InlineKeyboardButton("💾 Зберегти та Застосувати", callback_data="apply_pairs"),
+                types.InlineKeyboardButton("🔄 Скинути до стандартних", callback_data="reset_pairs")
+            )
+            keyboard.add(types.InlineKeyboardButton("⚙️ Назад до Налаштувань", callback_data="settings"))
+            
+            # Update message
+            self.bot.edit_message_text(pairs_text, call.message.chat.id, call.message.message_id, 
                                       parse_mode='Markdown', reply_markup=keyboard)
             self.bot.answer_callback_query(call.id)
             
         except Exception as e:
-            logger.error(f"Error showing pairs: {e}")
-            self.bot.answer_callback_query(call.id, "❌ Помилка при завантаженні пар.")
+            logger.error(f"Error showing pairs page: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка відображення пар.")
     
     async def handle_modify_settings_callback(self, call):
         """Handle modify settings callback"""
@@ -880,3 +923,124 @@ class TradingBot:
         except Exception as e:
             logger.error(f"Error showing modify settings: {e}")
             self.bot.answer_callback_query(call.id, "❌ Помилка при завантаженні налаштувань.")
+    
+    async def handle_pairs_page_callback(self, call):
+        """Handle pagination for pairs"""
+        try:
+            page = int(call.data.split("_")[-1])
+            await self.show_pairs_page(call, page)
+        except Exception as e:
+            logger.error(f"Error handling pairs page: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка навігації.")
+    
+    async def handle_toggle_pair_callback(self, call):
+        """Handle toggling a trading pair"""
+        try:
+            symbol = call.data.replace("toggle_pair_", "")
+            
+            # Get current user settings
+            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
+            
+            # Toggle the pair
+            if symbol in selected_pairs:
+                selected_pairs.remove(symbol)
+                action = "вимкнено"
+            else:
+                selected_pairs.append(symbol)
+                action = "увімкнено"
+            
+            # Save updated settings
+            user_settings['selected_pairs'] = selected_pairs
+            self.data_storage.save_user_settings(call.from_user.id, user_settings)
+            
+            # Show feedback and refresh page
+            self.bot.answer_callback_query(call.id, f"✅ {symbol} {action}")
+            
+            # Refresh current page
+            page = getattr(call, '_current_page', 0)
+            await self.show_pairs_page(call, page)
+            
+        except Exception as e:
+            logger.error(f"Error toggling pair: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка зміни пари.")
+    
+    async def handle_apply_pairs_callback(self, call):
+        """Apply selected pairs to monitoring"""
+        try:
+            # Get user settings
+            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
+            
+            if not selected_pairs:
+                self.bot.answer_callback_query(call.id, "❌ Виберіть хоча б одну пару!")
+                return
+            
+            # Update monitoring symbols
+            old_symbols = self.monitoring_symbols.copy()
+            self.monitoring_symbols = selected_pairs.copy()
+            
+            # Restart WebSocket handler with new symbols
+            self.websocket_handler.stop()
+            await asyncio.sleep(1)  # Give it time to stop
+            self.websocket_handler.start(self.monitoring_symbols)
+            
+            # Show success message
+            success_text = f"""✅ **Налаштування Застосовано**
+            
+**Пари для моніторингу оновлено:**
+• Кількість пар: {len(selected_pairs)}
+• Активні пари: {', '.join(selected_pairs[:5])}{'...' if len(selected_pairs) > 5 else ''}
+
+🔄 WebSocket підключення перезапущено з новими парами.
+"""
+            
+            keyboard = types.InlineKeyboardMarkup()
+            keyboard.add(types.InlineKeyboardButton("⚙️ Назад до Налаштувань", callback_data="settings"))
+            keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
+            
+            self.bot.edit_message_text(success_text, call.message.chat.id, call.message.message_id,
+                                      parse_mode='Markdown', reply_markup=keyboard)
+            self.bot.answer_callback_query(call.id, f"✅ Застосовано {len(selected_pairs)} пар!")
+            
+            logger.info(f"Monitoring symbols updated: {old_symbols} -> {self.monitoring_symbols}")
+            
+        except Exception as e:
+            logger.error(f"Error applying pairs: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка застосування налаштувань.")
+    
+    async def handle_reset_pairs_callback(self, call):
+        """Reset pairs to default"""
+        try:
+            # Get user settings
+            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            user_settings['selected_pairs'] = self.config.DEFAULT_PAIRS.copy()
+            self.data_storage.save_user_settings(call.from_user.id, user_settings)
+            
+            self.bot.answer_callback_query(call.id, "🔄 Скинуто до стандартних пар!")
+            
+            # Refresh current page
+            await self.show_pairs_page(call, 0)
+            
+        except Exception as e:
+            logger.error(f"Error resetting pairs: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка скидання налаштувань.")
+    
+    def update_monitoring_symbols_from_user(self, user_id: int):
+        """Update monitoring symbols from user settings"""
+        try:
+            user_settings = self.data_storage.get_user_settings(user_id)
+            selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
+            
+            if selected_pairs and selected_pairs != self.monitoring_symbols:
+                old_symbols = self.monitoring_symbols.copy()
+                self.monitoring_symbols = selected_pairs.copy()
+                
+                # Restart WebSocket handler
+                self.websocket_handler.stop()
+                self.websocket_handler.start(self.monitoring_symbols)
+                
+                logger.info(f"Monitoring symbols updated from user settings: {old_symbols} -> {self.monitoring_symbols}")
+                
+        except Exception as e:
+            logger.error(f"Error updating monitoring symbols: {e}")

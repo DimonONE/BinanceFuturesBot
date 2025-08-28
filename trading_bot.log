@@ -513,3 +513,31 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 20:57:16,363 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 20:57:16,364 - telegram_bot - INFO - Starting Telegram bot...
 2025-08-28 20:58:15,177 - telegram_bot - INFO - Trading loop started
+2025-08-28 21:17:03,026 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 21:17:05,093 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 21:17:10,446 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 21:17:56,245 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:17:56,247 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:17:57,100 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:17:57,580 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00962986 USDT
+2025-08-28 21:17:57,581 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:17:57,581 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:18:56,844 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:18:56,845 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:18:58,490 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:18:58,947 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00972152 USDT
+2025-08-28 21:18:58,948 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:18:58,948 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:18:59,674 - telegram_bot - INFO - Trading loop started
+2025-08-28 21:24:08,228 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:24:08,235 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:24:09,711 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:24:10,188 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00961081 USDT
+2025-08-28 21:24:10,188 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:24:10,188 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:24:20,884 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:24:20,884 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:24:22,450 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:24:22,885 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00964246 USDT
+2025-08-28 21:24:22,886 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:24:22,886 - telegram_bot - INFO - Starting Telegram bot...

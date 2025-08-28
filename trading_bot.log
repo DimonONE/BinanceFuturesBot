@@ -512,3 +512,4 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 20:57:16,363 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00971565 USDT
 2025-08-28 20:57:16,363 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 20:57:16,364 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 20:58:15,177 - telegram_bot - INFO - Trading loop started

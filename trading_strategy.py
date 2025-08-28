@@ -193,7 +193,7 @@ class TrendFollowingStrategy:
         elif trend != TrendDirection.UP and not existing_position:
             logger.debug(f"⏸️ {symbol}: No uptrend (trend={trend.value})")
         
-        # Short entry conditions (if enabled)
+        # Short entry conditions (если тренд вниз и overbought)
         elif trend == TrendDirection.DOWN and overbought and not existing_position:
             stop_loss = current_price * (1 + self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 - self.config.TAKE_PROFIT_PERCENT / 100)
@@ -210,7 +210,9 @@ class TrendFollowingStrategy:
                 reason="Downtrend with overbought RSI"
             )
         elif trend == TrendDirection.DOWN and not overbought and not existing_position:
-            logger.debug(f"⏸️ {symbol}: Downtrend but not overbought (waiting for better entry)")
+            logger.info(f"⏸️ {symbol}: Downtrend но НЕ overbought (RSI={self.calculate_rsi([float(k['close']) for k in self.binance_client.get_klines_sync(symbol, '1h', self.config.RSI_PERIOD + 10)], self.config.RSI_PERIOD):.1f}, нужно >{self.config.RSI_OVERBOUGHT}) - ждем лучшего входа")
+        elif trend != TrendDirection.DOWN and overbought and not existing_position:
+            logger.info(f"⚠️ {symbol}: Overbought но НЕ downtrend (trend={trend.value}) - нет SELL сигнала")
         
         # Position averaging - add to winning positions on pullbacks
         elif existing_position and trend == TrendDirection.UP:

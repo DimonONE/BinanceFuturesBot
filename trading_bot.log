@@ -1365,3 +1365,385 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 22:30:19,955 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
 2025-08-28 22:30:19,955 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
 2025-08-28 22:30:19,955 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:32:33,435 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:32:33,436 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:32:34,516 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:32:35,071 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00955357 USDT
+2025-08-28 22:32:35,078 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:32:35,078 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-28 22:32:35,078 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:32:42,328 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:32:42,329 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:32:42,329 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:32:42,329 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:32:42,329 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:32:42,329 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:32:42,329 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:32:42,533 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:32:42,533 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,016 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8597 | Trend=DOWN | RSI=43.1 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:32:43,018 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,188 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9870 | Trend=UP | RSI=52.4 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:32:43,188 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,363 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.2750 | Trend=UP | RSI=64.9 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:32:43,363 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,537 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:32:43,537 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,712 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3451 | Trend=DOWN | RSI=42.9 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:32:43,712 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:43,885 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:32:43,886 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:44,059 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:32:44,059 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:44,229 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:32:44,230 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:44,402 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:32:44,402 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:44,571 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:32:44,571 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:32:44,572 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:33:44,631 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:33:44,631 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:33:44,632 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:33:44,632 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:33:44,632 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:33:44,632 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:33:45,105 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:33:45,105 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:45,581 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8597 | Trend=DOWN | RSI=43.1 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:33:45,581 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:45,751 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9900 | Trend=UP | RSI=52.8 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:33:45,753 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:46,236 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.3190 | Trend=UP | RSI=65.3 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:33:46,236 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:46,724 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:33:46,725 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:46,894 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3451 | Trend=DOWN | RSI=42.9 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:33:46,894 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:47,069 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:33:47,070 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:47,538 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:33:47,538 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:48,022 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:33:48,022 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:48,507 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:33:48,507 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:48,685 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:33:48,686 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:33:48,686 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:34:48,746 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:34:48,746 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:34:48,747 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:34:48,747 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:34:48,747 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:34:48,747 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:34:48,922 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:34:48,923 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:49,094 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8604 | Trend=DOWN | RSI=43.5 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:34:49,095 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:49,570 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9870 | Trend=UP | RSI=52.4 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:34:49,570 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:50,052 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.3580 | Trend=UP | RSI=65.6 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:34:50,052 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:50,222 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:34:50,222 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:50,407 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3451 | Trend=DOWN | RSI=42.8 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:34:50,407 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:50,578 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:34:50,579 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:50,747 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:34:50,748 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:51,232 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:34:51,232 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:51,705 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:34:51,705 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:51,873 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:34:51,874 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:34:51,874 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:35:51,934 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:35:51,934 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:35:51,934 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:35:51,934 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:35:51,934 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:35:51,935 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:35:52,104 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:35:52,105 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:52,276 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8595 | Trend=DOWN | RSI=43.0 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:35:52,276 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:52,450 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9870 | Trend=UP | RSI=52.4 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:35:52,450 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:52,619 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.3580 | Trend=UP | RSI=65.6 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:35:52,619 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:52,787 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:35:52,788 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:52,958 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3451 | Trend=DOWN | RSI=42.8 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:35:52,958 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:53,433 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:35:53,433 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:53,905 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:35:53,905 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:56,065 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:35:56,066 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:56,534 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:35:56,534 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:56,704 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:35:56,704 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:35:56,704 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:36:56,766 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:36:56,766 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:36:56,766 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:36:56,766 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:36:56,766 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:36:56,766 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:36:57,252 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:36:57,252 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:57,424 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8595 | Trend=DOWN | RSI=43.0 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:36:57,424 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:57,903 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9830 | Trend=UP | RSI=52.0 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:36:57,904 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:58,374 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.2850 | Trend=UP | RSI=65.0 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:36:58,375 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:58,869 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:36:58,869 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:59,046 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3450 | Trend=DOWN | RSI=42.7 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:36:59,046 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:59,217 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:36:59,217 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:59,391 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:36:59,391 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:36:59,864 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:36:59,864 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:37:00,335 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:37:00,335 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:37:00,806 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:37:00,806 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:37:00,806 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:38:00,866 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:38:00,866 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:38:00,866 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:38:00,867 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:38:00,867 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:38:00,867 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:38:01,048 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4480.0000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:38:01,048 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:01,523 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8589 | Trend=DOWN | RSI=42.6 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:38:01,524 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:02,008 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9830 | Trend=UP | RSI=52.0 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:38:02,008 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:02,480 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.2930 | Trend=UP | RSI=65.1 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:38:02,480 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:02,955 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:38:02,959 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:03,431 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3448 | Trend=DOWN | RSI=42.4 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:38:03,431 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:03,602 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:38:03,602 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:04,076 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:38:04,076 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:04,247 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:38:04,248 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:04,721 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:38:04,722 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:04,896 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:38:04,896 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:38:04,897 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:39:04,957 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:39:04,957 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-28 22:39:04,957 - telegram_bot - INFO - 📋 Current monitoring: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:39:04,957 - telegram_bot - INFO - 📋 User settings: 11 pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:39:04,958 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-28 22:39:04,958 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-28 22:39:05,459 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9900 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:39:05,459 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:05,934 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8584 | Trend=DOWN | RSI=42.3 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:39:05,934 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:06,407 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9840 | Trend=UP | RSI=52.1 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:39:06,407 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:06,577 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$25.3260 | Trend=UP | RSI=65.3 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:39:06,577 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:06,746 - trading_strategy - INFO - 📊 1000000MOGUSDT Analysis: Price=$0.9199 | Trend=DOWN | RSI=14.3 | Oversold=True | Overbought=False | Support=$0.9168 | Resistance=$0.9980
+2025-08-28 22:39:06,746 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:07,217 - trading_strategy - INFO - 📊 TRXUSDT Analysis: Price=$0.3447 | Trend=DOWN | RSI=42.4 | Oversold=False | Overbought=False | Support=$0.3421 | Resistance=$0.3701
+2025-08-28 22:39:07,217 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:07,707 - trading_strategy - INFO - 📊 TONUSDT Analysis: Price=$3.1825 | Trend=SIDEWAYS | RSI=53.9 | Oversold=False | Overbought=False | Support=$2.6729 | Resistance=$3.2610
+2025-08-28 22:39:07,707 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:07,878 - trading_strategy - INFO - 📊 1000CATUSDT Analysis: Price=$0.0079 | Trend=SIDEWAYS | RSI=49.9 | Oversold=False | Overbought=False | Support=$0.0077 | Resistance=$0.0080
+2025-08-28 22:39:07,878 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:08,057 - trading_strategy - INFO - 📊 1000BONKUSDT Analysis: Price=$0.0216 | Trend=SIDEWAYS | RSI=51.6 | Oversold=False | Overbought=False | Support=$0.0179 | Resistance=$0.0219
+2025-08-28 22:39:08,058 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:08,231 - trading_strategy - INFO - 📊 1000000BOBUSDT Analysis: Price=$0.0780 | Trend=SIDEWAYS | RSI=100.0 | Oversold=False | Overbought=True | Support=$0.0780 | Resistance=$0.0780
+2025-08-28 22:39:08,232 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:08,711 - trading_strategy - INFO - 📊 1000CHEEMSUSDT Analysis: Price=$0.0012 | Trend=UP | RSI=70.6 | Oversold=False | Overbought=True | Support=$0.0012 | Resistance=$0.0012
+2025-08-28 22:39:08,711 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:39:08,711 - telegram_bot - INFO - ⏸️ No trading signals found across 11 symbols
+2025-08-28 22:47:33,046 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:47:33,047 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:47:34,720 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:47:35,240 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00959953 USDT
+2025-08-28 22:47:35,241 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:47:35,241 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-28 22:47:35,242 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:47:39,158 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:47:39,160 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:47:43,031 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:47:43,032 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:47:47,648 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:47:47,649 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:47:53,764 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:47:53,765 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:47:59,880 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:47:59,885 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:48:04,644 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:48:04,644 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:48:05,389 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:48:05,892 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00959541 USDT
+2025-08-28 22:48:05,892 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:48:05,893 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-28 22:48:05,893 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:48:14,555 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 22:48:14,556 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 22:48:22,952 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:48:22,953 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:48:23,740 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:48:24,265 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00961142 USDT
+2025-08-28 22:48:24,270 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-28 22:48:24,277 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-28 22:48:24,278 - telegram_bot - INFO - Starting Telegram bot...

@@ -7,9 +7,12 @@
         "DOTUSDT",
         "LINKUSDT",
         "1000000MOGUSDT",
-        "1000CATUSDT",
         "TRXUSDT",
-        "TONUSDT"
+        "TONUSDT",
+        "1000CHEEMSUSDT",
+        "1000CATUSDT",
+        "1000BONKUSDT",
+        "1000000BOBUSDT"
       ]
     }
   },
@@ -24,5 +27,5 @@
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-28T22:13:39.561767"
+  "last_update": "2025-08-28T22:22:06.046534"
 }

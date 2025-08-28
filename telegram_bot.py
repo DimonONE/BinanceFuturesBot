@@ -728,6 +728,25 @@ class TradingBot:
         
         while self.is_trading_active:
             try:
+                # Reload data from file and check for user settings updates before each scan
+                self.data_storage.reload_data()
+                user_data = self.data_storage.data.get("user_settings", {})
+                if user_data:
+                    # Get the first user's settings (since we have only one user configured)
+                    first_user_id = next(iter(user_data.keys()))
+                    user_settings = user_data[first_user_id]
+                    selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS)
+                    if selected_pairs and selected_pairs != self.monitoring_symbols:
+                        logger.info(f"🔄 User settings changed: {self.monitoring_symbols} -> {selected_pairs}")
+                        self.monitoring_symbols = selected_pairs.copy()
+                        # Restart WebSocket handler with new symbols
+                        try:
+                            self.websocket_handler.stop()
+                            self.websocket_handler.start(self.monitoring_symbols)
+                            logger.info(f"✅ Updated monitoring to {len(self.monitoring_symbols)} symbols")
+                        except Exception as ws_error:
+                            logger.warning(f"WebSocket restart warning: {ws_error}")
+                
                 logger.info(f"🔍 Scanning {len(self.monitoring_symbols)} symbols for trading opportunities...")
                 
                 # Scan for opportunities

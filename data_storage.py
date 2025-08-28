@@ -92,6 +92,10 @@ class DataStorage:
         except Exception as e:
             logger.error(f"Error saving data: {e}")
     
+    def reload_data(self):
+        """Reload data from JSON file"""
+        self._load_data()
+    
     def save_trade(self, trade_data: Dict):
         """Save a trade record"""
         try:

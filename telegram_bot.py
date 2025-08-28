@@ -858,6 +858,17 @@ class TradingBot:
             initial_balance = await self.binance_client.get_usdt_balance()
             await self.risk_manager.initialize(initial_balance)
             
+            # Load user settings and update monitoring symbols
+            user_data = self.data_storage.data.get("user_settings", {})
+            if user_data:
+                # Get the first user's settings (since we have only one user configured)
+                first_user_id = next(iter(user_data.keys()))
+                user_settings = user_data[first_user_id]
+                selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS)
+                if selected_pairs and selected_pairs != self.monitoring_symbols:
+                    logger.info(f"Loading user trading pairs: {self.monitoring_symbols} -> {selected_pairs}")
+                    self.monitoring_symbols = selected_pairs.copy()
+            
             # Start WebSocket handler
             self.websocket_handler.start(self.monitoring_symbols)
             

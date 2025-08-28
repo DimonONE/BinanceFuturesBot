@@ -627,3 +627,28 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 21:58:27,900 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00962514 USDT
 2025-08-28 21:58:27,901 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 21:58:27,901 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:00:26,989 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:00:26,989 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:00:27,362 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:00:27,737 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:00:28,106 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:00:28,479 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:00:28,479 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:01:28,539 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:01:28,908 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:01:29,281 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:01:29,656 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:01:30,030 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:01:30,030 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:02:30,090 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:02:30,228 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:02:30,598 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:02:30,972 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:02:31,346 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:02:31,347 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:03:31,406 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:03:31,777 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:03:32,150 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:03:32,523 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:03:32,898 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:03:32,899 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols

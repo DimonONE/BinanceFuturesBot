@@ -412,3 +412,103 @@ Traceback (most recent call last):
     raise ApiTelegramException(method_name, result, result_json)
 telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
+2025-08-28 20:37:10,055 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 20:37:10,056 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 20:37:58,212 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 20:37:58,212 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 20:39:01,612 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-08-28 20:39:01,613 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 112, in raise_exceptions
+    raise self.exception_info
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/util.py", line 94, in run
+    task(*args, **kwargs)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 332, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/telebot/apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2025-08-28 20:39:50,948 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 20:39:50,948 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 20:39:51,689 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 20:39:52,206 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00959026 USDT
+2025-08-28 20:39:52,206 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 20:39:52,206 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 20:52:42,682 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 20:52:42,683 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 20:52:43,760 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 20:52:44,016 - risk_manager - INFO - Risk Manager initialized with balance: 14678.0095681 USDT
+2025-08-28 20:52:44,021 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 20:52:44,021 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 20:53:10,025 - telegram_bot - INFO - Trading loop started
+2025-08-28 20:56:05,315 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 20:56:05,315 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 20:56:06,453 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 20:56:07,024 - risk_manager - INFO - Risk Manager initialized with balance: 14678.0096053 USDT
+2025-08-28 20:56:07,025 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 20:56:07,025 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 20:57:14,952 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 20:57:14,953 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 20:57:16,116 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 20:57:16,363 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00971565 USDT
+2025-08-28 20:57:16,363 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 20:57:16,364 - telegram_bot - INFO - Starting Telegram bot...

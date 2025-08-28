@@ -296,10 +296,10 @@ class TradingBot:
                     
                     positions_text += f"""
 {side_emoji} **{symbol}** ({side})
-• Size: `{format_number(size)}`
-• Entry: `{format_number(entry_price)} USDT`
-• Current: `{current_price_str} USDT`
-• PnL: `{format_number(unrealized_pnl)} USDT` ({format_percentage(percentage)}%) {pnl_emoji}
+• Розмір: `{format_number(size)}`
+• Вхід: `{format_number(entry_price)} USDT`
+• Поточна: `{current_price_str} USDT`
+• P&L: `{format_number(unrealized_pnl)} USDT` ({format_percentage(percentage)}%) {pnl_emoji}
                     """
             
             # Add buttons
@@ -317,7 +317,7 @@ class TradingBot:
             
         except Exception as e:
             logger.error(f"Error getting positions: {e}")
-            self.bot.reply_to(message, "❌ Error retrieving position information.")
+            self.bot.reply_to(message, "❌ Помилка отримання інформації про позиції.")
     
     async def handle_trades_command(self, message):
         """Handle /trades command"""
@@ -331,9 +331,9 @@ class TradingBot:
             recent_trades = self.data_storage.get_recent_trades(days=7)
             
             if not recent_trades:
-                trades_text = "📝 **Recent Trades (7 days)**\n\nNo trades found in the last 7 days."
+                trades_text = "📝 **Останні торги (7 днів)**\n\nТоргів за останні 7 днів не знайдено."
             else:
-                trades_text = "📝 **Recent Trades (7 days)**\n\n"
+                trades_text = "📝 **Останні торги (7 днів)**\n\n"
                 
                 for trade in recent_trades[:10]:  # Show last 10 trades
                     symbol = trade.get('symbol', 'N/A')
@@ -357,17 +357,17 @@ class TradingBot:
                     
                     trades_text += f"""
 {status_emoji} **{symbol}** - {side}
-• Time: `{time_str}`
-• Quantity: `{format_number(quantity)}`
-• Price: `{format_number(price)} USDT`
-• PnL: `{format_number(pnl)} USDT` {pnl_emoji}
-• Status: `{status.upper()}`
+• Час: `{time_str}`
+• Кількість: `{format_number(quantity)}`
+• Ціна: `{format_number(price)} USDT`
+• P&L: `{format_number(pnl)} USDT` {pnl_emoji}
+• Статус: `{status.upper()}`
                     """
             
             # Add buttons
             keyboard = types.InlineKeyboardMarkup(row_width=2)
             keyboard.add(
-                types.InlineKeyboardButton("📊 Statistics", callback_data="stats"),
+                types.InlineKeyboardButton("📊 Статистика", callback_data="stats"),
                 types.InlineKeyboardButton("💰 Баланс", callback_data="balance")
             )
             keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
@@ -376,7 +376,7 @@ class TradingBot:
             
         except Exception as e:
             logger.error(f"Error getting trades: {e}")
-            self.bot.reply_to(message, "❌ Error retrieving trade history.")
+            self.bot.reply_to(message, "❌ Помилка отримання історії торгів.")
     
     async def handle_stats_command(self, message):
         """Handle /stats command"""
@@ -408,30 +408,30 @@ class TradingBot:
             risk_reducing = self.risk_manager.should_reduce_risk(current_balance)
             
             stats_text = f"""
-📈 **Trading Statistics**
+📈 **Статистика торгівлі**
 
-**Overall Performance:**
-• Total Trades: `{total_trades}`
-• Winning Trades: `{winning_trades}`
-• Losing Trades: `{losing_trades}`
-• Win Rate: `{format_percentage(win_rate)}%`
-• Total PnL: `{format_number(total_pnl)} USDT`
+**Загальна продуктивність:**
+• Всього торгів: `{total_trades}`
+• Прибуткові торги: `{winning_trades}`
+• Збиткові торги: `{losing_trades}`
+• Відсоток виграшів: `{format_percentage(win_rate)}%`
+• Загальний P&L: `{format_number(total_pnl)} USDT`
 
-**Recent Performance:**
-• Daily Trades: `{daily_trades}`
-• Daily PnL: `{format_number(daily_pnl)} USDT`
-• Weekly PnL: `{format_number(weekly_pnl)} USDT`
+**Недавня продуктивність:**
+• Торгів за день: `{daily_trades}`
+• Денний P&L: `{format_number(daily_pnl)} USDT`
+• Тижневий P&L: `{format_number(weekly_pnl)} USDT`
 
-**Bot Status:**
-• Trading Active: `{'✅ Yes' if self.is_trading_active else '❌ No'}`
-• Monitoring Symbols: `{len(self.monitoring_symbols)}`
-• Risk Level: `{'🟢 Low' if not risk_reducing else '🔴 High'}`
+**Статус бота:**
+• Торгівля активна: `{'✅ Так' if self.is_trading_active else '❌ Ні'}`
+• Відстежувані символи: `{len(self.monitoring_symbols)}`
+• Рівень ризику: `{'🟢 Низький' if not risk_reducing else '🔴 Високий'}`
             """
             
             # Add buttons
             keyboard = types.InlineKeyboardMarkup(row_width=2)
             keyboard.add(
-                types.InlineKeyboardButton("📝 Recent Trades", callback_data="trades"),
+                types.InlineKeyboardButton("📝 Останні торги", callback_data="trades"),
                 types.InlineKeyboardButton("📊 Позиції", callback_data="positions")
             )
             keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
@@ -440,7 +440,7 @@ class TradingBot:
             
         except Exception as e:
             logger.error(f"Error getting stats: {e}")
-            self.bot.reply_to(message, "❌ Error retrieving statistics.")
+            self.bot.reply_to(message, "❌ Помилка отримання статистики.")
     
     def handle_settings_command(self, message):
         """Handle /settings command"""
@@ -489,14 +489,14 @@ class TradingBot:
             
         except Exception as e:
             logger.error(f"Error getting settings: {e}")
-            self.bot.reply_to(message, "❌ Error retrieving settings.")
+            self.bot.reply_to(message, "❌ Помилка отримання налаштувань.")
     
     async def handle_callback_query(self, call):
         """Handle callback queries from inline keyboards"""
         user_id = call.from_user.id
         
         if not self._check_authorization(user_id):
-            self.bot.answer_callback_query(call.id, "❌ You are not authorized to use this bot.")
+            self.bot.answer_callback_query(call.id, "❌ Ви не авторизовані для використання цього бота.")
             return
         
         try:
@@ -527,7 +527,7 @@ class TradingBot:
                 
         except Exception as e:
             logger.error(f"Error handling callback {call.data}: {e}")
-            self.bot.answer_callback_query(call.id, "❌ Error processing request.")
+            self.bot.answer_callback_query(call.id, "❌ Помилка обробки запиту.")
     
     async def handle_balance_callback(self, call):
         """Handle balance callback"""
@@ -597,19 +597,19 @@ class TradingBot:
         # Start the trading loop in a separate thread
         threading.Thread(target=self._start_trading_loop, daemon=True).start()
         
-        self.bot.edit_message_text("🚀 Automated trading started!\n\nThe bot will now monitor markets and execute trades based on the strategy.", 
+        self.bot.edit_message_text("🚀 Автоматична торгівля запущена!\n\nБот тепер відстежує ринки та виконує торги відповідно до стратегії.", 
                                   call.message.chat.id, call.message.message_id)
         self.bot.answer_callback_query(call.id)
     
     async def handle_stop_trading_callback(self, call):
         """Handle stop trading callback"""
         if not self.is_trading_active:
-            self.bot.edit_message_text("⏸ Trading is already stopped!", call.message.chat.id, call.message.message_id)
+            self.bot.edit_message_text("⏸ Торгівля вже зупинена!", call.message.chat.id, call.message.message_id)
             self.bot.answer_callback_query(call.id)
             return
         
         self.is_trading_active = False
-        self.bot.edit_message_text("⏸ Automated trading stopped!\n\nThe bot will no longer execute new trades, but existing positions remain open.", 
+        self.bot.edit_message_text("⏸ Автоматична торгівля зупинена!\n\nБот більше не виконуватиме нові торги, але існуючі позиції залишаються відкритими.", 
                                   call.message.chat.id, call.message.message_id)
         self.bot.answer_callback_query(call.id)
     
@@ -619,7 +619,7 @@ class TradingBot:
             positions = await self.binance_client.get_open_positions()
             
             if not positions:
-                self.bot.edit_message_text("No open positions to close.", call.message.chat.id, call.message.message_id)
+                self.bot.edit_message_text("Немає відкритих позицій для закриття.", call.message.chat.id, call.message.message_id)
                 self.bot.answer_callback_query(call.id)
                 return
             
@@ -651,22 +651,22 @@ class TradingBot:
                     
                     self.data_storage.save_trade(trade_data)
             
-            message = f"✅ Closed {closed_count} out of {len(positions)} positions."
+            message = f"✅ Закрито {closed_count} з {len(positions)} позицій."
             self.bot.edit_message_text(message, call.message.chat.id, call.message.message_id)
             self.bot.answer_callback_query(call.id)
             
         except Exception as e:
             logger.error(f"Error closing positions: {e}")
-            self.bot.edit_message_text("❌ Error closing positions.", call.message.chat.id, call.message.message_id)
+            self.bot.edit_message_text("❌ Помилка закриття позицій.", call.message.chat.id, call.message.message_id)
             self.bot.answer_callback_query(call.id)
     
     async def handle_main_menu_callback(self, call):
         """Handle main menu callback"""
         # Recreate the main menu
         welcome_text = """
-🚀 **Binance Futures Trading Bot**
+🚀 **Торговий бот Binance Futures**
 
-Welcome back! Use the buttons below for quick navigation:
+З поверненням! Використовуйте кнопки нижче для швидкої навігації:
         """
         
         keyboard = types.InlineKeyboardMarkup(row_width=2)

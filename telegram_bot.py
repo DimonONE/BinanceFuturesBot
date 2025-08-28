@@ -614,9 +614,18 @@ class TradingBot:
         # Start the trading loop in a separate thread
         threading.Thread(target=self._start_trading_loop, daemon=True).start()
         
-        self.bot.edit_message_text("🚀 Автоматична торгівля запущена!\n\nБот тепер відстежує ринки та виконує торги відповідно до стратегії.", 
-                                  call.message.chat.id, call.message.message_id)
-        self.bot.answer_callback_query(call.id)
+        # Enhanced notification about trading start
+        start_msg = f"""🚀 **Автоматична торгівля запущена!**
+
+**Пари для моніторингу:** {len(self.monitoring_symbols)}
+• {', '.join(self.monitoring_symbols[:3])}{'...' if len(self.monitoring_symbols) > 3 else ''}
+
+🔍 Пошук торгових сигналів кожну хвилину...
+📊 Отримаєте повідомлення про кожну операцію
+"""
+        
+        self.bot.edit_message_text(start_msg, call.message.chat.id, call.message.message_id, parse_mode='Markdown')
+        self.bot.answer_callback_query(call.id, "🚀 Торгівля запущена!")
     
     async def handle_stop_trading_callback(self, call):
         """Handle stop trading callback"""
@@ -722,6 +731,9 @@ class TradingBot:
                 # Scan for opportunities
                 signals = await self.strategy.scan_opportunities(self.monitoring_symbols)
                 
+                if signals:
+                    logger.info(f"Found {len(signals)} trading signals: {[f'{s.symbol}-{s.signal_type.value}' for s in signals[:3]]}")
+                
                 for signal in signals:
                     if not self.is_trading_active:
                         break
@@ -787,10 +799,40 @@ class TradingBot:
                 
                 logger.info(f"Trade executed: {side} {quantity} {symbol} at {signal.entry_price}")
                 
+                # Send notification to user about trade
+                try:
+                    trade_msg = f"""🎯 **Торгова операція виконана!**
+
+**Пара:** {symbol}
+**Операція:** {'Покупка' if side == 'BUY' else 'Продаж'}
+**Кількість:** {quantity}
+**Ціна:** {signal.entry_price} USDT
+**Довіра сигналу:** {signal.confidence:.1%}
+**Причина:** {signal.reason}
+"""
+                    # Send to authorized user
+                    user_ids = [self.config.TELEGRAM_USER_ID] if hasattr(self.config, 'TELEGRAM_USER_ID') else []
+                    if hasattr(self.config, 'TELEGRAM_USER_IDS'):
+                        user_ids.extend(self.config.TELEGRAM_USER_IDS)
+                    
+                    for user_id in user_ids:
+                        try:
+                            self.bot.send_message(user_id, trade_msg, parse_mode='Markdown')
+                        except Exception as e:
+                            logger.error(f"Failed to send trade notification to {user_id}: {e}")
+                except Exception as e:
+                    logger.error(f"Error sending trade notification: {e}")
+                
                 # Place stop-loss order
                 if signal.stop_loss:
                     stop_side = 'SELL' if side == 'BUY' else 'BUY'
-                    await self.binance_client.place_stop_loss_order(symbol, stop_side, quantity, signal.stop_loss)
+                    stop_order = await self.binance_client.place_stop_loss_order(symbol, stop_side, quantity, signal.stop_loss)
+                    if stop_order:
+                        logger.info(f"Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
+                    else:
+                        logger.error(f"Failed to place stop-loss for {symbol}")
+            else:
+                logger.error(f"Failed to execute trade for {symbol}: Order placement failed")
             
         except Exception as e:
             logger.error(f"Error processing signal for {signal.symbol}: {e}")

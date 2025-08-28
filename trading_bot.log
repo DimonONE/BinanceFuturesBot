@@ -604,3 +604,20 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 21:45:05,717 - telegram_bot - INFO - Fetching exchange symbols for the first time...
 2025-08-28 21:45:06,233 - binance_client - INFO - Found 486 USDT perpetual futures symbols
 2025-08-28 21:45:06,234 - telegram_bot - INFO - Cached 486 symbols
+2025-08-28 21:45:15,083 - telegram_bot - INFO - Processing search query: 'TON' from user 930901908
+2025-08-28 21:45:20,044 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 21:45:57,137 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 21:46:50,228 - telegram_bot - INFO - Trading loop started
+2025-08-28 21:50:15,797 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:50:15,799 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:50:16,734 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:50:17,239 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00957963 USDT
+2025-08-28 21:50:17,239 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:50:17,239 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:50:35,358 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:50:35,359 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:50:36,686 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:50:37,111 - risk_manager - INFO - Risk Manager initialized with balance: 14678.0095698 USDT
+2025-08-28 21:50:37,111 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:50:37,111 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:50:37,828 - telegram_bot - INFO - Trading loop started

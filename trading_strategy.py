@@ -143,14 +143,6 @@ class TrendFollowingStrategy:
             oversold, overbought = self.is_oversold_or_overbought(klines)
             support, resistance = self.calculate_support_resistance(klines)
             
-            # Calculate RSI for detailed logging
-            closes = [float(kline['close']) for kline in klines]
-            rsi = self.calculate_rsi(closes, self.config.RSI_PERIOD)
-            
-            # Log detailed analysis
-            logger.info(f"📊 {symbol} Analysis: Price=${current_price:.4f} | Trend={trend.value} | RSI={'N/A' if rsi is None else f'{rsi:.1f}'} | "
-                       f"Oversold={oversold} | Overbought={overbought} | Support=${support:.4f} | Resistance=${resistance:.4f}")
-            
             # Cache trend
             self.trend_cache[symbol] = trend
             

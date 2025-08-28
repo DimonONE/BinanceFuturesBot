@@ -739,9 +739,6 @@ class TradingBot:
                     user_settings = user_data[first_user_id]
                     selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS)
                     
-                    logger.info(f"📋 Current monitoring: {len(self.monitoring_symbols)} pairs: {self.monitoring_symbols}")
-                    logger.info(f"📋 User settings: {len(selected_pairs)} pairs: {selected_pairs}")
-                    
                     if selected_pairs and selected_pairs != self.monitoring_symbols:
                         logger.info(f"🔄 User settings changed: {self.monitoring_symbols} -> {selected_pairs}")
                         self.monitoring_symbols = selected_pairs.copy()

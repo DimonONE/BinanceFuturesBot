@@ -148,7 +148,7 @@ class TrendFollowingStrategy:
             rsi = self.calculate_rsi(closes, self.config.RSI_PERIOD)
             
             # Log detailed analysis
-            logger.info(f"📊 {symbol} Analysis: Price=${current_price:.4f} | Trend={trend.value} | RSI={rsi:.1f if rsi else 'N/A'} | "
+            logger.info(f"📊 {symbol} Analysis: Price=${current_price:.4f} | Trend={trend.value} | RSI={'N/A' if rsi is None else f'{rsi:.1f}'} | "
                        f"Oversold={oversold} | Overbought={overbought} | Support=${support:.4f} | Resistance=${resistance:.4f}")
             
             # Cache trend

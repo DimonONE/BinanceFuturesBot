@@ -655,3 +655,56 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 22:07:26,283 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
 2025-08-28 22:07:34,104 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
 2025-08-28 22:07:50,465 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-08-28 22:08:34,137 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:08:34,139 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:08:35,843 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:08:36,388 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00965109 USDT
+2025-08-28 22:08:36,388 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 22:08:36,388 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:08:46,646 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:08:46,647 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:08:46,822 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:08:46,994 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:08:47,165 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:08:47,335 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:08:47,335 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:09:47,395 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:09:47,565 - trading_strategy - ERROR - ❌ Error analyzing ETHUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:09:47,738 - trading_strategy - ERROR - ❌ Error analyzing ADAUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:09:47,918 - trading_strategy - ERROR - ❌ Error analyzing DOTUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:09:48,095 - trading_strategy - ERROR - ❌ Error analyzing LINKUSDT: Invalid format specifier '.1f if rsi else 'N/A'' for object of type 'float'
+2025-08-28 22:09:48,095 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:10:08,545 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:10:08,546 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:10:09,931 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:10:10,485 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00950586 USDT
+2025-08-28 22:10:10,486 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 22:10:10,486 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:10:20,115 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:10:20,116 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:10:20,628 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:10:20,629 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:21,114 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8525 | Trend=DOWN | RSI=38.5 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:10:21,115 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:21,285 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9560 | Trend=SIDEWAYS | RSI=48.9 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:10:21,285 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:21,457 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$24.9730 | Trend=UP | RSI=62.3 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:10:21,457 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:21,457 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols
+2025-08-28 22:10:42,123 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 22:10:42,125 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 22:10:43,467 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 22:10:43,971 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00954079 USDT
+2025-08-28 22:10:43,971 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 22:10:43,972 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 22:10:49,776 - telegram_bot - INFO - Trading loop started
+2025-08-28 22:10:49,776 - telegram_bot - INFO - 🔍 Scanning 4 symbols for trading opportunities...
+2025-08-28 22:10:49,963 - trading_strategy - INFO - 📊 ETHUSDT Analysis: Price=$4479.9000 | Trend=DOWN | RSI=32.9 | Oversold=False | Overbought=False | Support=$4423.1300 | Resistance=$4900.6900
+2025-08-28 22:10:49,963 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:50,429 - trading_strategy - INFO - 📊 ADAUSDT Analysis: Price=$0.8525 | Trend=DOWN | RSI=38.5 | Oversold=False | Overbought=False | Support=$0.8418 | Resistance=$0.8802
+2025-08-28 22:10:50,430 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:50,600 - trading_strategy - INFO - 📊 DOTUSDT Analysis: Price=$3.9560 | Trend=SIDEWAYS | RSI=48.9 | Oversold=False | Overbought=False | Support=$3.8490 | Resistance=$4.1700
+2025-08-28 22:10:50,600 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:51,074 - trading_strategy - INFO - 📊 LINKUSDT Analysis: Price=$24.9800 | Trend=UP | RSI=62.4 | Oversold=False | Overbought=False | Support=$22.0940 | Resistance=$25.9720
+2025-08-28 22:10:51,075 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-28 22:10:51,075 - telegram_bot - INFO - ⏸️ No trading signals found across 4 symbols

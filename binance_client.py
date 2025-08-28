@@ -5,7 +5,8 @@ Binance API client wrapper for futures trading
 import logging
 import asyncio
 from typing import Dict, List, Optional, Tuple
-from binance import Client, AsyncClient, BinanceSocketManager
+from binance.client import Client, AsyncClient
+from binance.streams import BinanceSocketManager
 from binance.enums import *
 from binance.exceptions import BinanceAPIException, BinanceOrderException
 import json
@@ -326,7 +327,7 @@ class BinanceClient:
             order = await self.client.futures_create_order(
                 symbol=symbol,
                 side=side,
-                type=ORDER_TYPE_STOP_MARKET,
+                type=ORDER_TYPE_STOP_LOSS,
                 quantity=quantity,
                 stopPrice=stop_price
             )

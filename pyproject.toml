@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
 dependencies = [
-    telebot==0.0.5,
+    "telebot==0.0.5",
     "cryptography>=45.0.6",
     "numpy>=2.3.2",
     "pytelegrambotapi>=4.28.0",

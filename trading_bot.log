@@ -241,3 +241,4 @@
 2025-08-28 23:10:45,834 - websocket_handler - INFO - Ticker stream closed for DOTUSDT
 2025-08-28 23:10:45,834 - binance.streams - ERROR - CANCEL read_loop
 2025-08-28 23:10:45,835 - websocket_handler - INFO - Kline stream closed for LINKUSDT
+2025-08-28 20:21:13,611 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required

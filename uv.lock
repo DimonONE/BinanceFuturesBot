@@ -115,15 +115,6 @@ wheels = [
 ]
 
 [[package]]
-name = "binance"
-version = "0.3.65"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/80/b7/3b39fadc775893e2fc79de6f1021829364ed3c9fa2d359a3a49c123e3978/binance-0.3.65.tar.gz", hash = "sha256:c352e4d0de98aafb7f8f3519b08d1ff25093f5012ea1af29fcede94568d1da3c", size = 735011 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e7/cd/468eb7ca5aa8b7b416c3536d603589aebe47264718dfbeaded531c29f319/binance-0.3.65-py3-none-any.whl", hash = "sha256:0460db925356bb98e5a1277980c9faf3b7d73337587072039de5517f67d767ae", size = 853680 },
-]
-
-[[package]]
 name = "certifi"
 version = "2025.8.3"
 source = { registry = "https://pypi.org/simple" }
@@ -890,24 +881,24 @@ name = "repl-nix-workspace"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "binance" },
     { name = "cryptography" },
     { name = "numpy" },
     { name = "pytelegrambotapi" },
     { name = "python-binance" },
     { name = "python-dotenv" },
     { name = "python-telegram-bot" },
+    { name = "telebot" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "binance", specifier = ">=0.3.65" },
     { name = "cryptography", specifier = ">=45.0.6" },
     { name = "numpy", specifier = ">=2.3.2" },
     { name = "pytelegrambotapi", specifier = ">=4.28.0" },
     { name = "python-binance", specifier = "==1.0.19" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "python-telegram-bot", specifier = ">=22.3" },
+    { name = "telebot", specifier = "==0.0.5" },
 ]
 
 [[package]]
@@ -941,6 +932,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc", size = 20372 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235 },
+]
+
+[[package]]
+name = "telebot"
+version = "0.0.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytelegrambotapi" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1f/3b/e4188cffaf370f432f15d518cbb53a438200ee7ef68c6db1acab337634e1/telebot-0.0.5.tar.gz", hash = "sha256:848a5885b57247b65edd0e92647b4372ebd8d41611dca3f344788c11deac2571", size = 4752 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ad/2f/d8d669be86c42dd2075d7b25bb6de73a3181661a79ef6a3c53dc811f17a1/telebot-0.0.5-py3-none-any.whl", hash = "sha256:50327c240243480d40ade4ea5bea4f464bf57d4ff000ea669fcd705396074863", size = 4840 },
 ]
 
 [[package]]

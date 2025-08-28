@@ -5,165 +5,81 @@ WebSocket handler for real-time price data from Binance
 import logging
 import asyncio
 import json
+import time
 from typing import Dict, List, Callable, Optional
-from binance import AsyncClient, BinanceSocketManager
+from binance.client import Client
 from binance.exceptions import BinanceAPIException
 
 logger = logging.getLogger(__name__)
 
 class WebSocketHandler:
-    """Handle real-time price data via WebSocket"""
+    """Handle real-time price data via WebSocket (simplified implementation)"""
     
     def __init__(self, binance_client):
         self.binance_client = binance_client
-        self.socket_manager: Optional[BinanceSocketManager] = None
-        self.streams = {}
         self.price_callbacks: List[Callable] = []
         self.current_prices: Dict[str, Dict] = {}
         self.is_running = False
+        self.price_fetch_task = None
         
-    async def start(self, symbols: List[str]):
-        """Start WebSocket connections for given symbols"""
+    def start(self, symbols: List[str]):
+        """Start price monitoring for given symbols"""
         try:
-            if not self.binance_client.client:
-                logger.error("Binance client not initialized")
+            if not self.binance_client.sync_client:
+                logger.error("Binance sync client not initialized")
                 return False
             
-            self.socket_manager = BinanceSocketManager(self.binance_client.client)
             self.is_running = True
+            self.symbols = symbols
             
-            # Start individual ticker streams
-            for symbol in symbols:
-                await self.start_symbol_stream(symbol)
+            # Start price fetching task
+            self.price_fetch_task = asyncio.create_task(self._fetch_prices_loop())
             
-            logger.info(f"WebSocket streams started for {len(symbols)} symbols")
+            logger.info(f"Price monitoring started for {len(symbols)} symbols")
             return True
             
         except Exception as e:
-            logger.error(f"Error starting WebSocket streams: {e}")
+            logger.error(f"Error starting price monitoring: {e}")
             return False
     
-    async def start_symbol_stream(self, symbol: str):
-        """Start WebSocket stream for a single symbol"""
-        try:
-            # Start ticker stream
-            ticker_stream = self.socket_manager.symbol_ticker_socket(symbol)
-            self.streams[f"{symbol}_ticker"] = ticker_stream
-            
-            # Start the stream processing task
-            asyncio.create_task(self.process_ticker_stream(ticker_stream, symbol))
-            
-            # Start kline stream for 1-minute data
-            kline_stream = self.socket_manager.kline_socket(symbol, "1m")
-            self.streams[f"{symbol}_kline"] = kline_stream
-            
-            # Start the kline processing task
-            asyncio.create_task(self.process_kline_stream(kline_stream, symbol))
-            
-            logger.info(f"Started WebSocket streams for {symbol}")
-            
-        except Exception as e:
-            logger.error(f"Error starting stream for {symbol}: {e}")
+    async def _fetch_prices_loop(self):
+        """Continuously fetch prices for monitored symbols"""
+        while self.is_running:
+            try:
+                if self.binance_client.sync_client:
+                    # Get ticker prices for all symbols
+                    tickers = self.binance_client.sync_client.futures_symbol_ticker()
+                    
+                    # Update prices for monitored symbols
+                    for ticker in tickers:
+                        symbol = ticker['symbol']
+                        if symbol in self.symbols:
+                            price_data = {
+                                'symbol': symbol,
+                                'price': float(ticker['price']),
+                                'timestamp': int(time.time() * 1000)
+                            }
+                            
+                            self.current_prices[symbol] = price_data
+                            self.binance_client._current_prices[symbol] = price_data['price']
+                            
+                            # Call registered callbacks
+                            for callback in self.price_callbacks:
+                                try:
+                                    callback(symbol, price_data)
+                                except Exception as e:
+                                    logger.error(f"Error in price callback: {e}")
+                
+                # Sleep for 1 second before next fetch
+                await asyncio.sleep(1)
+                
+            except Exception as e:
+                logger.error(f"Error fetching prices: {e}")
+                await asyncio.sleep(5)  # Wait longer on error
     
-    async def process_ticker_stream(self, stream, symbol: str):
-        """Process ticker WebSocket messages"""
-        try:
-            async with stream as ticker_socket:
-                while self.is_running:
-                    try:
-                        msg = await ticker_socket.recv()
-                        await self.handle_ticker_message(msg, symbol)
-                    except asyncio.CancelledError:
-                        break
-                    except Exception as e:
-                        logger.error(f"Error processing ticker message for {symbol}: {e}")
-                        await asyncio.sleep(1)
-                        
-        except Exception as e:
-            logger.error(f"Error in ticker stream for {symbol}: {e}")
-        finally:
-            logger.info(f"Ticker stream closed for {symbol}")
+
     
-    async def process_kline_stream(self, stream, symbol: str):
-        """Process kline WebSocket messages"""
-        try:
-            async with stream as kline_socket:
-                while self.is_running:
-                    try:
-                        msg = await kline_socket.recv()
-                        await self.handle_kline_message(msg, symbol)
-                    except asyncio.CancelledError:
-                        break
-                    except Exception as e:
-                        logger.error(f"Error processing kline message for {symbol}: {e}")
-                        await asyncio.sleep(1)
-                        
-        except Exception as e:
-            logger.error(f"Error in kline stream for {symbol}: {e}")
-        finally:
-            logger.info(f"Kline stream closed for {symbol}")
-    
-    async def handle_ticker_message(self, msg: Dict, symbol: str):
-        """Handle ticker WebSocket message"""
-        try:
-            if not isinstance(msg, dict):
-                return
-            
-            # Update current prices
-            price_data = {
-                'symbol': msg.get('s', symbol),
-                'price': float(msg.get('c', 0)),
-                'price_change': float(msg.get('P', 0)),
-                'price_change_percent': float(msg.get('P', 0)),
-                'high': float(msg.get('h', 0)),
-                'low': float(msg.get('l', 0)),
-                'volume': float(msg.get('v', 0)),
-                'timestamp': msg.get('E', 0)
-            }
-            
-            self.current_prices[symbol] = price_data
-            
-            # Update binance client cache
-            self.binance_client._current_prices[symbol] = price_data['price']
-            
-            # Call registered callbacks
-            for callback in self.price_callbacks:
-                try:
-                    await callback(symbol, price_data)
-                except Exception as e:
-                    logger.error(f"Error in price callback: {e}")
-            
-        except Exception as e:
-            logger.error(f"Error handling ticker message for {symbol}: {e}")
-    
-    async def handle_kline_message(self, msg: Dict, symbol: str):
-        """Handle kline WebSocket message"""
-        try:
-            if not isinstance(msg, dict) or 'k' not in msg:
-                return
-            
-            kline = msg['k']
-            
-            # Only process closed klines (completed candles)
-            if not kline.get('x', False):
-                return
-            
-            kline_data = {
-                'symbol': kline.get('s', symbol),
-                'open_time': kline.get('t', 0),
-                'close_time': kline.get('T', 0),
-                'open': float(kline.get('o', 0)),
-                'high': float(kline.get('h', 0)),
-                'low': float(kline.get('l', 0)),
-                'close': float(kline.get('c', 0)),
-                'volume': float(kline.get('v', 0)),
-                'number_of_trades': kline.get('n', 0)
-            }
-            
-            logger.debug(f"Received completed kline for {symbol}: {kline_data['close']}")
-            
-        except Exception as e:
-            logger.error(f"Error handling kline message for {symbol}: {e}")
+
     
     def add_price_callback(self, callback: Callable):
         """Add a callback function for price updates"""
@@ -189,49 +105,43 @@ class WebSocketHandler:
         """Get all current prices"""
         return {symbol: data.get('price', 0) for symbol, data in self.current_prices.items()}
     
-    async def add_symbol(self, symbol: str):
+    def add_symbol(self, symbol: str):
         """Add a new symbol to monitoring"""
         try:
-            if f"{symbol}_ticker" not in self.streams:
-                await self.start_symbol_stream(symbol)
-                logger.info(f"Added {symbol} to WebSocket monitoring")
+            if symbol not in self.symbols:
+                self.symbols.append(symbol)
+                logger.info(f"Added {symbol} to price monitoring")
             else:
                 logger.info(f"{symbol} is already being monitored")
                 
         except Exception as e:
             logger.error(f"Error adding symbol {symbol}: {e}")
     
-    async def remove_symbol(self, symbol: str):
+    def remove_symbol(self, symbol: str):
         """Remove a symbol from monitoring"""
         try:
-            # Close ticker stream
-            ticker_key = f"{symbol}_ticker"
-            if ticker_key in self.streams:
-                # Note: BinanceSocketManager doesn't have a direct close method for individual streams
-                # The stream will close when the context manager exits
-                del self.streams[ticker_key]
-            
-            # Close kline stream
-            kline_key = f"{symbol}_kline"
-            if kline_key in self.streams:
-                del self.streams[kline_key]
+            if symbol in self.symbols:
+                self.symbols.remove(symbol)
             
             # Remove from price cache
             if symbol in self.current_prices:
                 del self.current_prices[symbol]
             
-            logger.info(f"Removed {symbol} from WebSocket monitoring")
+            logger.info(f"Removed {symbol} from price monitoring")
             
         except Exception as e:
             logger.error(f"Error removing symbol {symbol}: {e}")
     
-    async def stop(self):
-        """Stop all WebSocket connections"""
+    def stop(self):
+        """Stop price monitoring"""
         try:
             self.is_running = False
             
-            # Clear streams
-            self.streams.clear()
+            # Cancel price fetch task
+            if self.price_fetch_task:
+                self.price_fetch_task.cancel()
+            
+            self.current_prices.clear()
             
             # Close socket manager
             if self.socket_manager:

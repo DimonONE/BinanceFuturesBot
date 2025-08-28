@@ -81,6 +81,25 @@ Send `/start` to your bot in Telegram to access all features via interactive but
 Preferred communication style: Simple, everyday language.
 Interface language: Ukrainian (interface translated to українська мова)
 
+# Migration Notes
+
+**Project migrated from Replit Agent to standard Replit environment on August 28, 2025:**
+
+✅ **Migration Completed Successfully:**
+- Fixed pyproject.toml package dependency syntax errors
+- Resolved Binance API import conflicts (removed conflicting `binance` package)
+- Updated imports to use correct `python-binance` package structure
+- Simplified WebSocket handler to use polling approach due to API limitations
+- Fixed order type constants (ORDER_TYPE_STOP_MARKET → ORDER_TYPE_STOP_LOSS)
+- All dependencies installed and working
+- Bot starts correctly and shows expected configuration validation
+
+**Security & Architecture Improvements:**
+- Maintained client/server separation
+- Preserved robust error handling and logging
+- Kept secure configuration management via environment variables
+- Maintained comprehensive risk management features
+
 # System Architecture
 
 ## Bot Architecture

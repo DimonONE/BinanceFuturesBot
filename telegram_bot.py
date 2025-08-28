@@ -173,6 +173,16 @@ class TradingBot:
 
 **Ризик-менеджмент:**
 • Захист від максимальної просадки
+• Автоматичні стоп-лосси на всі позиції
+• Обмеження розміру позицій
+• Захист від переторгівлі
+
+**Безпека:**
+⚠️ Рекомендовано почати з тестової мережі
+💰 Використовуйте невеликі суми для початку
+📊 Регулярно моніторте позиції
+
+Використовуйте кнопки для швидкої навігації або команди напряму.
 • Ордери стоп-лосс та тейк-профіт
 • Обмеження розміру позиції
 • Розподіл ризику на основі балансу
@@ -508,8 +518,12 @@ class TradingBot:
                 await self.handle_close_all_positions_callback(call)
             elif call.data == "main_menu":
                 await self.handle_main_menu_callback(call)
+            elif call.data == "view_pairs":
+                await self.handle_view_pairs_callback(call)
+            elif call.data == "modify_settings":
+                await self.handle_modify_settings_callback(call)
             else:
-                self.bot.answer_callback_query(call.id, "Unknown command.")
+                self.bot.answer_callback_query(call.id, "❌ Невідома команда.")
                 
         except Exception as e:
             logger.error(f"Error handling callback {call.data}: {e}")
@@ -773,7 +787,7 @@ Welcome back! Use the buttons below for quick navigation:
             await self.risk_manager.initialize(initial_balance)
             
             # Start WebSocket handler
-            await self.websocket_handler.start(self.monitoring_symbols)
+            self.websocket_handler.start(self.monitoring_symbols)
             
             # Start bot polling in a separate thread
             logger.info("Starting Telegram bot...")
@@ -787,3 +801,82 @@ Welcome back! Use the buttons below for quick navigation:
         except Exception as e:
             logger.error(f"Error starting bot: {e}")
             raise
+    
+    async def handle_view_pairs_callback(self, call):
+        """Handle view pairs callback"""
+        try:
+            pairs_text = f"""
+📋 **Торгові Пари**
+
+**Активні пари для моніторингу:**
+"""
+            for i, pair in enumerate(self.monitoring_symbols, 1):
+                # Get current price
+                try:
+                    current_price = self.websocket_handler.get_current_price(pair)
+                    if current_price:
+                        pairs_text += f"{i}. {pair}: ${format_number(current_price)}\n"
+                    else:
+                        pairs_text += f"{i}. {pair}: Завантаження...\n"
+                except:
+                    pairs_text += f"{i}. {pair}: Завантаження...\n"
+            
+            pairs_text += f"""
+**Загальна кількість:** {len(self.monitoring_symbols)} пар
+
+ℹ️ Ці пари автоматично моніторяться для торгових сигналів
+"""
+            
+            keyboard = types.InlineKeyboardMarkup()
+            keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
+            keyboard.add(types.InlineKeyboardButton("⚙️ Налаштування", callback_data="settings"))
+            
+            self.bot.edit_message_text(pairs_text, call.message.chat.id, call.message.message_id,
+                                      parse_mode='Markdown', reply_markup=keyboard)
+            self.bot.answer_callback_query(call.id)
+            
+        except Exception as e:
+            logger.error(f"Error showing pairs: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка при завантаженні пар.")
+    
+    async def handle_modify_settings_callback(self, call):
+        """Handle modify settings callback"""
+        try:
+            settings_text = f"""
+🔧 **Налаштування Торгівлі**
+
+**Поточні параметри:**
+• Розмір позиції: {format_number(self.config.DEFAULT_TRADE_AMOUNT)} USDT
+• Максимальна позиція: {format_number(self.config.MAX_POSITION_SIZE)} USDT
+• Максимальна просадка: {self.config.MAX_DRAWDOWN_PERCENT}%
+• Стоп-лосс: {self.config.STOP_LOSS_PERCENT}%
+• Тейк-профіт: {self.config.TAKE_PROFIT_PERCENT}%
+
+**Стратегія:**
+• Період тренду: {self.config.TREND_PERIOD}
+• Період RSI: {self.config.RSI_PERIOD}
+• RSI перепроданість: {self.config.RSI_OVERSOLD}
+• RSI перекупленість: {self.config.RSI_OVERBOUGHT}
+
+**Мережа:** {"🟢 Testnet" if self.config.BINANCE_TESTNET else "🔴 Mainnet"}
+**Статус торгівлі:** {"🟢 Активна" if self.is_trading_active else "⏸ Зупинена"}
+
+ℹ️ Для зміни параметрів відредагуйте файл .env та перезапустіть бота
+"""
+            
+            keyboard = types.InlineKeyboardMarkup()
+            if self.is_trading_active:
+                keyboard.add(types.InlineKeyboardButton("⏸ Зупинити торгівлю", callback_data="stop_trading"))
+            else:
+                keyboard.add(types.InlineKeyboardButton("🔄 Почати торгівлю", callback_data="start_trading"))
+            
+            keyboard.add(types.InlineKeyboardButton("📋 Переглянути пари", callback_data="view_pairs"))
+            keyboard.add(types.InlineKeyboardButton("🏠 Головне меню", callback_data="main_menu"))
+            
+            self.bot.edit_message_text(settings_text, call.message.chat.id, call.message.message_id,
+                                      parse_mode='Markdown', reply_markup=keyboard)
+            self.bot.answer_callback_query(call.id)
+            
+        except Exception as e:
+            logger.error(f"Error showing modify settings: {e}")
+            self.bot.answer_callback_query(call.id, "❌ Помилка при завантаженні налаштувань.")

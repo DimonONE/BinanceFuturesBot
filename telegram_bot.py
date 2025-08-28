@@ -728,16 +728,23 @@ class TradingBot:
         
         while self.is_trading_active:
             try:
+                logger.info(f"🔍 Scanning {len(self.monitoring_symbols)} symbols for trading opportunities...")
+                
                 # Scan for opportunities
                 signals = await self.strategy.scan_opportunities(self.monitoring_symbols)
                 
                 if signals:
-                    logger.info(f"Found {len(signals)} trading signals: {[f'{s.symbol}-{s.signal_type.value}' for s in signals[:3]]}")
+                    logger.info(f"🎯 Found {len(signals)} trading signals: {[f'{s.symbol}-{s.signal_type.value}' for s in signals[:3]]}")
+                    for signal in signals:
+                        logger.info(f"  📈 {signal.symbol}: {signal.signal_type.value} (confidence: {signal.confidence:.1%}) - {signal.reason}")
+                else:
+                    logger.info(f"⏸️ No trading signals found across {len(self.monitoring_symbols)} symbols")
                 
                 for signal in signals:
                     if not self.is_trading_active:
                         break
                     
+                    logger.info(f"🔄 Processing signal for {signal.symbol}...")
                     await self.process_trading_signal(signal)
                 
                 # Wait before next scan
@@ -753,7 +760,10 @@ class TradingBot:
         """Process a trading signal"""
         try:
             symbol = signal.symbol
+            logger.info(f"💼 Processing {signal.signal_type.value} signal for {symbol}")
+            
             current_balance = self.binance_client.get_usdt_balance_sync()
+            logger.info(f"💰 Current balance: ${current_balance:.2f} USDT")
             
             # Check risk management
             position_size, can_trade = self.risk_manager.calculate_position_size(
@@ -761,12 +771,12 @@ class TradingBot:
             )
             
             if not can_trade:
-                logger.info(f"Trade rejected by risk management for {symbol}")
+                logger.warning(f"❌ Trade rejected by position size calculation for {symbol}")
                 return
             
             can_place, reason = self.risk_manager.can_place_trade(symbol, position_size, current_balance)
             if not can_place:
-                logger.info(f"Trade blocked: {reason}")
+                logger.warning(f"❌ Trade blocked for {symbol}: {reason}")
                 return
             
             # Calculate quantity from USDT amount

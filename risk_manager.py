@@ -38,8 +38,11 @@ class RiskManager:
                               current_price: float) -> Tuple[float, bool]:
         """Calculate appropriate position size based on risk parameters"""
         try:
+            logger.info(f"💰 Position Size Calculation: Balance=${available_balance:.2f} | Confidence={signal_confidence:.1%}")
+            
             # Base position size from config
             base_amount = self.config.DEFAULT_TRADE_AMOUNT
+            logger.debug(f"📊 Base trade amount: ${base_amount:.2f}")
             
             # Adjust based on confidence
             confidence_multiplier = min(signal_confidence * 1.5, 1.0)
@@ -53,9 +56,10 @@ class RiskManager:
             
             # Check minimum trade amount (usually 10 USDT for Binance)
             if final_amount < 10.0:
+                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $10.00 (minimum)")
                 return 0.0, False
             
-            logger.info(f"Calculated position size: {final_amount} USDT (confidence: {signal_confidence})")
+            logger.info(f"✅ Final position size: {final_amount:.2f} USDT (confidence: {signal_confidence:.1%})")
             return final_amount, True
             
         except Exception as e:
@@ -86,20 +90,26 @@ class RiskManager:
     def can_place_trade(self, symbol: str, trade_amount: float, current_balance: float) -> Tuple[bool, str]:
         """Check if a trade can be placed based on risk rules"""
         try:
+            logger.info(f"🛡️ Risk Check for {symbol}: Amount=${trade_amount:.2f} | Balance=${current_balance:.2f}")
+            
             # Check minimum balance requirement
             if current_balance < 20.0:  # Minimum 20 USDT to trade
+                logger.warning(f"❌ Risk Check Failed: Insufficient balance ${current_balance:.2f} < $20.00")
                 return False, "Insufficient balance for trading"
             
             # Check if trade amount is within limits
             if trade_amount > current_balance * 0.9:
+                logger.warning(f"❌ Risk Check Failed: Trade amount ${trade_amount:.2f} > 90% of balance ${current_balance * 0.9:.2f}")
                 return False, "Trade amount exceeds available balance"
             
             # Check drawdown limits
             if not self.check_drawdown_limits(current_balance):
+                logger.warning(f"❌ Risk Check Failed: Maximum drawdown limit exceeded")
                 return False, "Maximum drawdown limit exceeded"
             
             # Check daily trade limit
             if self.daily_trades >= self.max_daily_trades:
+                logger.warning(f"❌ Risk Check Failed: Daily trade limit reached {self.daily_trades}/{self.max_daily_trades}")
                 return False, "Maximum daily trades limit reached"
             
             # Check if we're not over-exposed to single symbol
@@ -107,13 +117,17 @@ class RiskManager:
             symbol_exposure = sum(pos['usdt_value'] for pos in positions if pos['symbol'] == symbol)
             
             if symbol_exposure + trade_amount > self.config.MAX_POSITION_SIZE:
+                logger.warning(f"❌ Risk Check Failed: Would exceed max position size for {symbol}: ${symbol_exposure + trade_amount:.2f} > ${self.config.MAX_POSITION_SIZE:.2f}")
                 return False, f"Would exceed maximum position size for {symbol}"
             
             # Check total exposure
             total_exposure = sum(pos['usdt_value'] for pos in positions)
-            if total_exposure + trade_amount > current_balance * 0.8:  # Max 80% exposure
+            max_exposure = current_balance * 0.8  # Max 80% exposure
+            if total_exposure + trade_amount > max_exposure:
+                logger.warning(f"❌ Risk Check Failed: Would exceed max total exposure: ${total_exposure + trade_amount:.2f} > ${max_exposure:.2f}")
                 return False, "Would exceed maximum total exposure"
             
+            logger.info(f"✅ Risk Check Passed for {symbol}: All conditions met")
             return True, "Trade approved"
             
         except Exception as e:

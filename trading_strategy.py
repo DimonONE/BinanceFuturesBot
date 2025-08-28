@@ -135,13 +135,21 @@ class TrendFollowingStrategy:
             # Get recent klines
             klines = self.binance_client.get_klines_sync(symbol, "1h", 100)
             if not klines:
-                logger.warning(f"No klines data for {symbol}")
+                logger.warning(f"📊 {symbol}: No klines data available")
                 return None
             
             current_price = float(klines[-1]['close'])
             trend = self.detect_trend(klines)
             oversold, overbought = self.is_oversold_or_overbought(klines)
             support, resistance = self.calculate_support_resistance(klines)
+            
+            # Calculate RSI for detailed logging
+            closes = [float(kline['close']) for kline in klines]
+            rsi = self.calculate_rsi(closes, self.config.RSI_PERIOD)
+            
+            # Log detailed analysis
+            logger.info(f"📊 {symbol} Analysis: Price=${current_price:.4f} | Trend={trend.value} | RSI={rsi:.1f if rsi else 'N/A'} | "
+                       f"Oversold={oversold} | Overbought={overbought} | Support=${support:.4f} | Resistance=${resistance:.4f}")
             
             # Cache trend
             self.trend_cache[symbol] = trend
@@ -151,10 +159,15 @@ class TrendFollowingStrategy:
                 symbol, current_price, trend, oversold, overbought, support, resistance
             )
             
+            if signal:
+                logger.info(f"🎯 {symbol}: Signal generated - {signal.signal_type.value} | Confidence={signal.confidence:.1%} | Reason: {signal.reason}")
+            else:
+                logger.debug(f"⏸️ {symbol}: No signal - conditions not met")
+            
             return signal
             
         except Exception as e:
-            logger.error(f"Error analyzing {symbol}: {e}")
+            logger.error(f"❌ Error analyzing {symbol}: {e}")
             return None
     
     def _generate_signal(self, symbol: str, current_price: float, trend: TrendDirection, 
@@ -164,10 +177,15 @@ class TrendFollowingStrategy:
         # Check if we have an existing position
         existing_position = self.active_positions.get(symbol)
         
+        logger.debug(f"🔍 {symbol} Signal Check: Trend={trend.value} | Oversold={oversold} | Overbought={overbought} | "
+                    f"HasPosition={existing_position is not None}")
+        
         # Long entry conditions
         if trend == TrendDirection.UP and oversold and not existing_position:
             stop_loss = current_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 + self.config.TAKE_PROFIT_PERCENT / 100)
+            
+            logger.info(f"✅ {symbol} BUY Signal: Uptrend + Oversold RSI | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
             
             return TradingSignal(
                 symbol=symbol,
@@ -178,11 +196,17 @@ class TrendFollowingStrategy:
                 take_profit=take_profit,
                 reason="Uptrend with oversold RSI"
             )
+        elif trend == TrendDirection.UP and not oversold and not existing_position:
+            logger.debug(f"⏸️ {symbol}: Uptrend but not oversold (waiting for better entry)")
+        elif trend != TrendDirection.UP and not existing_position:
+            logger.debug(f"⏸️ {symbol}: No uptrend (trend={trend.value})")
         
         # Short entry conditions (if enabled)
         elif trend == TrendDirection.DOWN and overbought and not existing_position:
             stop_loss = current_price * (1 + self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 - self.config.TAKE_PROFIT_PERCENT / 100)
+            
+            logger.info(f"✅ {symbol} SELL Signal: Downtrend + Overbought RSI | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
             
             return TradingSignal(
                 symbol=symbol,
@@ -193,6 +217,8 @@ class TrendFollowingStrategy:
                 take_profit=take_profit,
                 reason="Downtrend with overbought RSI"
             )
+        elif trend == TrendDirection.DOWN and not overbought and not existing_position:
+            logger.debug(f"⏸️ {symbol}: Downtrend but not overbought (waiting for better entry)")
         
         # Position averaging - add to winning positions on pullbacks
         elif existing_position and trend == TrendDirection.UP:
@@ -233,7 +259,12 @@ class TrendFollowingStrategy:
                         reason="Stop loss triggered"
                     )
         
-        # Default: hold
+        # Default: hold - log the reason
+        if existing_position:
+            logger.debug(f"⏸️ {symbol}: Has existing position, no new signals")
+        else:
+            logger.debug(f"⏸️ {symbol}: No suitable entry conditions met")
+        
         return TradingSignal(
             symbol=symbol,
             signal_type=SignalType.HOLD,

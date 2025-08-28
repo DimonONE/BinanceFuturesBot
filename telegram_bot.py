@@ -867,11 +867,22 @@ class TradingBot:
             end_idx = min(start_idx + pairs_per_page, len(filtered_symbols))
             page_symbols = filtered_symbols[start_idx:end_idx]
             
-            # Build header text
+            # Build header text with selected pairs info
             search_info = f" (Пошук: '{search_query}')" if search_query else ""
+            
+            # Show selected pairs (up to 10, then ...)
+            if selected_pairs:
+                if len(selected_pairs) <= 10:
+                    selected_display = ', '.join(selected_pairs)
+                else:
+                    selected_display = ', '.join(selected_pairs[:10]) + '...'
+                selected_info = f"**Вибрані пари ({len(selected_pairs)}):** {selected_display}"
+            else:
+                selected_info = "**Вибрані пари:** Немає"
+            
             pairs_text = f"""📋 **Торгові Пари** (Сторінка {page + 1}/{total_pages}){search_info}
 
-**Вибрані пари:** {len(selected_pairs)}
+{selected_info}
 **Знайдено пар:** {len(filtered_symbols)}
 """
             
@@ -1125,7 +1136,7 @@ class TradingBot:
             self.bot.answer_callback_query(call.id)
             
         except Exception as e:
-            logger.error(f"Error handling search: {e}")
+            logger.error(f"Error handling search callback: {e}")
             self.bot.answer_callback_query(call.id, "❌ Помилка пошуку.")
     
     async def handle_clear_search_callback(self, call):
@@ -1148,8 +1159,11 @@ class TradingBot:
     
     def _setup_search_handler(self):
         """Setup search message handler"""
-        @self.bot.message_handler(func=lambda message: message.from_user.id in self._user_search_sessions and 
-                                  self._user_search_sessions[message.from_user.id].get("search_message_id"))
+        @self.bot.message_handler(func=lambda message: (
+            hasattr(message, 'text') and message.text and 
+            message.from_user.id in self._user_search_sessions and 
+            self._user_search_sessions[message.from_user.id].get("search_message_id") is not None
+        ))
         def handle_search_input(message):
             def run_async():
                 asyncio.run(self.process_search_input(message))

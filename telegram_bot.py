@@ -1110,6 +1110,11 @@ class TradingBot:
     async def handle_search_pairs_callback(self, call):
         """Handle search pairs callback"""
         try:
+            user_id = call.from_user.id
+            
+            # Initialize user session if needed
+            self._init_user_session(user_id)
+            
             # Send a message asking for search query
             search_text = """🔍 **Пошук Торгових Пар**
 
@@ -1130,13 +1135,16 @@ class TradingBot:
             sent_msg = self.bot.send_message(call.message.chat.id, search_text, parse_mode='Markdown', reply_markup=keyboard)
             
             # Store message info for cleanup
-            self._user_search_sessions[call.from_user.id]["search_message_id"] = sent_msg.message_id
-            self._user_search_sessions[call.from_user.id]["original_message_id"] = call.message.message_id
+            if user_id not in self._user_search_sessions:
+                self._init_user_session(user_id)
+                
+            self._user_search_sessions[user_id]["search_message_id"] = sent_msg.message_id
+            self._user_search_sessions[user_id]["original_message_id"] = call.message.message_id
             
             self.bot.answer_callback_query(call.id)
             
         except Exception as e:
-            logger.error(f"Error handling search callback: {e}")
+            logger.error(f"Error in search pairs callback: {str(e)}")
             self.bot.answer_callback_query(call.id, "❌ Помилка пошуку.")
     
     async def handle_clear_search_callback(self, call):
@@ -1175,10 +1183,16 @@ class TradingBot:
         try:
             user_id = message.from_user.id
             if user_id not in self._user_search_sessions:
+                logger.warning(f"User {user_id} not in search sessions")
                 return
                 
             session = self._user_search_sessions[user_id]
+            if not hasattr(message, 'text') or not message.text:
+                logger.warning(f"No text in message from user {user_id}")
+                return
+                
             search_query = message.text.strip().upper()
+            logger.info(f"Processing search query: '{search_query}' from user {user_id}")
             
             # Filter symbols based on search
             all_symbols = self._get_cached_symbols()
@@ -1193,10 +1207,12 @@ class TradingBot:
             
             # Delete search message and user input
             try:
-                self.bot.delete_message(message.chat.id, session.get("search_message_id"))
+                search_msg_id = session.get("search_message_id")
+                if search_msg_id:
+                    self.bot.delete_message(message.chat.id, search_msg_id)
                 self.bot.delete_message(message.chat.id, message.message_id)
-            except:
-                pass
+            except Exception as delete_error:
+                logger.warning(f"Could not delete messages: {delete_error}")
             
             # Update original pairs message
             original_msg_id = session.get("original_message_id")
@@ -1212,22 +1228,29 @@ class TradingBot:
                 
                 # Send feedback
                 feedback_msg = f"🔍 Знайдено {len(filtered_symbols)} пар за запитом '{search_query}'" if search_query else "🔍 Показано всі пари"
-                feedback = self.bot.send_message(message.chat.id, feedback_msg)
-                
-                # Delete feedback after 2 seconds
-                import time
-                time.sleep(2)
                 try:
-                    self.bot.delete_message(message.chat.id, feedback.message_id)
-                except:
-                    pass
+                    feedback = self.bot.send_message(message.chat.id, feedback_msg)
+                    
+                    # Delete feedback after 2 seconds in a separate thread
+                    def delete_feedback():
+                        import time
+                        time.sleep(2)
+                        try:
+                            self.bot.delete_message(message.chat.id, feedback.message_id)
+                        except:
+                            pass
+                    
+                    import threading
+                    threading.Thread(target=delete_feedback, daemon=True).start()
+                except Exception as feedback_error:
+                    logger.warning(f"Could not send feedback: {feedback_error}")
             
             # Clean up session search state
             session.pop("search_message_id", None)
             session.pop("original_message_id", None)
             
         except Exception as e:
-            logger.error(f"Error processing search: {e}")
+            logger.error(f"Error processing search input: {str(e)}")
             try:
                 self.bot.send_message(message.chat.id, "❌ Помилка обробки пошуку.")
             except:

@@ -561,3 +561,14 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 21:37:02,726 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00962381 USDT
 2025-08-28 21:37:02,727 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 21:37:02,727 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:37:18,387 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-28 21:37:18,894 - binance_client - INFO - Found 486 USDT perpetual futures symbols
+2025-08-28 21:37:18,898 - telegram_bot - INFO - Cached 486 symbols
+2025-08-28 21:37:32,678 - telegram_bot - ERROR - Error handling search callback: 930901908
+2025-08-28 21:37:57,074 - telegram_bot - ERROR - Error handling search callback: 930901908
+2025-08-28 21:39:10,214 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:39:10,215 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:39:11,393 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:39:11,867 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00971242 USDT
+2025-08-28 21:39:11,868 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:39:11,868 - telegram_bot - INFO - Starting Telegram bot...

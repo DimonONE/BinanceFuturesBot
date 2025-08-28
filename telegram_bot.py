@@ -938,8 +938,10 @@ class TradingBot:
                 self.bot.answer_callback_query(call.id)
             
         except Exception as e:
-            logger.error(f"Error showing pairs page: {e}")
-            self.bot.answer_callback_query(call.id, "❌ Помилка відображення пар.")
+            logger.error(f"Error showing pairs page: {str(e)}")
+            # Only answer callback query if it's a real callback (has valid id)
+            if hasattr(call, 'id') and call.id != "fake_search_call":
+                self.bot.answer_callback_query(call.id, "❌ Помилка відображення пар.")
     
     async def handle_modify_settings_callback(self, call):
         """Handle modify settings callback"""
@@ -996,9 +998,13 @@ class TradingBot:
         """Handle toggling a trading pair"""
         try:
             symbol = call.data.replace("toggle_pair_", "")
+            user_id = call.from_user.id
+            
+            # Initialize session if needed
+            self._init_user_session(user_id)
             
             # Get current user settings
-            user_settings = self.data_storage.get_user_settings(call.from_user.id)
+            user_settings = self.data_storage.get_user_settings(user_id)
             selected_pairs = user_settings.get('selected_pairs', self.config.DEFAULT_PAIRS.copy())
             
             # Toggle the pair
@@ -1011,23 +1017,26 @@ class TradingBot:
             
             # Save updated settings
             user_settings['selected_pairs'] = selected_pairs
-            self.data_storage.save_user_settings(call.from_user.id, user_settings)
+            self.data_storage.save_user_settings(user_id, user_settings)
             
             # Show feedback and refresh page
             self.bot.answer_callback_query(call.id, f"✅ {symbol} {action}")
             
             # Refresh current page - try to determine current page from filtered symbols
-            session = self._user_search_sessions[call.from_user.id]
-            try:
-                symbol_index = session["symbols"].index(symbol) if symbol in session["symbols"] else 0
-                current_page = symbol_index // 5  # 5 pairs per page
-            except:
+            if user_id in self._user_search_sessions:
+                session = self._user_search_sessions[user_id]
+                try:
+                    symbol_index = session["symbols"].index(symbol) if symbol in session["symbols"] else 0
+                    current_page = symbol_index // 5  # 5 pairs per page
+                except Exception:
+                    current_page = 0
+            else:
                 current_page = 0
             
             await self.show_pairs_page(call, current_page)
             
         except Exception as e:
-            logger.error(f"Error toggling pair: {e}")
+            logger.error(f"Error toggling pair {symbol if 'symbol' in locals() else 'unknown'}: {str(e)}")
             self.bot.answer_callback_query(call.id, "❌ Помилка зміни пари.")
     
     async def handle_apply_pairs_callback(self, call):

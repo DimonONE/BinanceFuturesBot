@@ -584,3 +584,23 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-28 21:41:00,125 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00961146 USDT
 2025-08-28 21:41:00,126 - websocket_handler - INFO - Price monitoring started for 4 symbols
 2025-08-28 21:41:00,127 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:41:17,339 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-28 21:41:17,853 - binance_client - INFO - Found 486 USDT perpetual futures symbols
+2025-08-28 21:41:17,854 - telegram_bot - INFO - Cached 486 symbols
+2025-08-28 21:41:24,560 - telegram_bot - INFO - Processing search query: 'ЕЩТ' from user 930901908
+2025-08-28 21:41:56,583 - telegram_bot - INFO - Processing search query: 'TON' from user 930901908
+2025-08-28 21:43:16,579 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 21:43:16,947 - telegram_bot - ERROR - Error toggling pair: 930901908
+2025-08-28 21:43:32,337 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 21:43:32,695 - telegram_bot - ERROR - Error toggling pair: 930901908
+2025-08-28 21:43:39,638 - data_storage - INFO - User settings saved for 930901908
+2025-08-28 21:43:40,034 - telegram_bot - ERROR - Error toggling pair: 930901908
+2025-08-28 21:44:59,214 - data_storage - INFO - Trading data loaded successfully
+2025-08-28 21:44:59,216 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-28 21:45:00,649 - binance_client - INFO - Connected to Binance Testnet
+2025-08-28 21:45:01,139 - risk_manager - INFO - Risk Manager initialized with balance: 14678.00963996 USDT
+2025-08-28 21:45:01,140 - websocket_handler - INFO - Price monitoring started for 4 symbols
+2025-08-28 21:45:01,140 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-28 21:45:05,717 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-28 21:45:06,233 - binance_client - INFO - Found 486 USDT perpetual futures symbols
+2025-08-28 21:45:06,234 - telegram_bot - INFO - Cached 486 symbols

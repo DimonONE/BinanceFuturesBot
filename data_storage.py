@@ -313,6 +313,66 @@ class DataStorage:
             logger.error(f"Error getting bot stats: {e}")
             return {}
     
+    def calculate_current_pnl_with_positions(self, binance_client) -> Dict:
+        """Calculate current P&L including open positions"""
+        try:
+            from utils import calculate_pnl
+            
+            stats = self.data["bot_stats"].copy()
+            closed_pnl = stats.get("total_pnl", 0.0)
+            
+            # Calculate unrealized P&L from open positions
+            open_pnl = 0.0
+            profitable_open = 0
+            losing_open = 0
+            
+            open_trades = [trade for trade in self.data["trades"] if trade.get("status") == "open"]
+            
+            for trade in open_trades:
+                try:
+                    symbol = trade["symbol"]
+                    entry_price = trade["price"]
+                    quantity = trade["quantity"]
+                    side = trade["side"]
+                    
+                    # Get current price
+                    current_price = binance_client.get_current_price_sync(symbol)
+                    if current_price:
+                        # Calculate P&L for this position
+                        pnl = calculate_pnl(entry_price, current_price, quantity, side)
+                        open_pnl += pnl
+                        
+                        # Count profitable/losing open positions
+                        if pnl > 0:
+                            profitable_open += 1
+                        elif pnl < 0:
+                            losing_open += 1
+                            
+                except Exception as e:
+                    logger.error(f"Error calculating P&L for trade {trade.get('id', 'unknown')}: {e}")
+                    continue
+            
+            # Calculate total stats including open positions
+            total_pnl = closed_pnl + open_pnl
+            total_winning = stats.get("winning_trades", 0) + profitable_open
+            total_losing = stats.get("losing_trades", 0) + losing_open
+            total_trades = stats.get("total_trades", 0)
+            
+            return {
+                "total_trades": total_trades,
+                "winning_trades": total_winning,
+                "losing_trades": total_losing,
+                "total_pnl": total_pnl,
+                "realized_pnl": closed_pnl,
+                "unrealized_pnl": open_pnl,
+                "open_positions": len(open_trades),
+                "closed_trades": total_trades - len(open_trades)
+            }
+            
+        except Exception as e:
+            logger.error(f"Error calculating current P&L: {e}")
+            return self.get_bot_stats()
+    
     def update_bot_stats(self, updates: Dict):
         """Update bot statistics"""
         try:

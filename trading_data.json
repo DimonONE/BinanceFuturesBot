@@ -603,18 +603,107 @@
       "reason": "Oversold RSI (21.2) in down trend",
       "timestamp": "2025-08-29T12:45:46.427284",
       "id": 42
+    },
+    {
+      "symbol": "DOTUSDT",
+      "side": "BUY",
+      "quantity": 7.8,
+      "price": 3.851,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 68160412,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (28.4) in down trend",
+      "timestamp": "2025-08-29T12:58:56.987704",
+      "id": 43
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.27,
+      "price": 23.714,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197642922,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (21.8) in down trend",
+      "timestamp": "2025-08-29T12:59:00.266163",
+      "id": 44
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 9.7,
+      "price": 3.0793,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17095364,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (24.2) in down trend",
+      "timestamp": "2025-08-29T12:59:03.101223",
+      "id": 45
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "side": "BUY",
+      "quantity": 33.5,
+      "price": 0.8964,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 5633332,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (22.9) in down trend",
+      "timestamp": "2025-08-29T13:01:18.879835",
+      "id": 46
+    },
+    {
+      "symbol": "TRXUSDT",
+      "side": "BUY",
+      "quantity": 88.0,
+      "price": 0.33948,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 449037465,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (29.9) in down trend",
+      "timestamp": "2025-08-29T13:01:20.975976",
+      "id": 47
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "side": "BUY",
+      "quantity": 3926.0,
+      "price": 0.007641,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 7241762,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.7) in down trend",
+      "timestamp": "2025-08-29T13:01:24.159723",
+      "id": 48
     }
   ],
   "positions": [],
   "balance_history": [],
-  "active_orders": {},
+  "active_orders": {
+    "1000CATUSDT": {
+      "stop_loss": "7241763",
+      "take_profit": "7241765"
+    }
+  },
   "bot_stats": {
-    "total_trades": 42,
+    "total_trades": 48,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T12:46:49.651025"
+  "last_update": "2025-08-29T13:02:26.783835"
 }

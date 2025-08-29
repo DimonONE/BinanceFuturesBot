@@ -399,22 +399,57 @@ class TradingBot:
             return
         
         try:
-            bot_stats = self.data_storage.get_bot_stats()
+            # Get current stats including open positions P&L
+            current_stats = self.data_storage.calculate_current_pnl_with_positions(self.binance_client)
             
-            total_trades = bot_stats.get('total_trades', 0)
-            winning_trades = bot_stats.get('winning_trades', 0)
-            losing_trades = bot_stats.get('losing_trades', 0)
-            total_pnl = bot_stats.get('total_pnl', 0.0)
+            total_trades = current_stats.get('total_trades', 0)
+            winning_trades = current_stats.get('winning_trades', 0)
+            losing_trades = current_stats.get('losing_trades', 0)
+            total_pnl = current_stats.get('total_pnl', 0.0)
+            realized_pnl = current_stats.get('realized_pnl', 0.0)
+            unrealized_pnl = current_stats.get('unrealized_pnl', 0.0)
+            open_positions = current_stats.get('open_positions', 0)
+            closed_trades = current_stats.get('closed_trades', 0)
             
             win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
             
-            # Get recent performance
+            # Get recent performance - calculate with current prices for open trades
             recent_trades = self.data_storage.get_recent_trades(days=1)
             daily_trades = len(recent_trades)
-            daily_pnl = sum(trade.get('pnl', 0) for trade in recent_trades if trade.get('status') == 'closed')
+            daily_pnl = 0.0
+            
+            # Calculate daily P&L including current open positions
+            for trade in recent_trades:
+                if trade.get('status') == 'closed':
+                    daily_pnl += trade.get('pnl', 0)
+                elif trade.get('status') == 'open':
+                    # Calculate current P&L for open trade
+                    try:
+                        from utils import calculate_pnl
+                        current_price = self.binance_client.get_current_price_sync(trade['symbol'])
+                        if current_price:
+                            pnl = calculate_pnl(trade['price'], current_price, trade['quantity'], trade['side'])
+                            daily_pnl += pnl
+                    except:
+                        pass
             
             weekly_trades = self.data_storage.get_recent_trades(days=7)
-            weekly_pnl = sum(trade.get('pnl', 0) for trade in weekly_trades if trade.get('status') == 'closed')
+            weekly_pnl = 0.0
+            
+            # Calculate weekly P&L including current open positions
+            for trade in weekly_trades:
+                if trade.get('status') == 'closed':
+                    weekly_pnl += trade.get('pnl', 0)
+                elif trade.get('status') == 'open':
+                    # Calculate current P&L for open trade
+                    try:
+                        from utils import calculate_pnl
+                        current_price = self.binance_client.get_current_price_sync(trade['symbol'])
+                        if current_price:
+                            pnl = calculate_pnl(trade['price'], current_price, trade['quantity'], trade['side'])
+                            weekly_pnl += pnl
+                    except:
+                        pass
             
             current_balance = self.binance_client.get_usdt_balance_sync()
             risk_reducing = self.risk_manager.should_reduce_risk(current_balance)
@@ -428,6 +463,10 @@ class TradingBot:
 • Збиткові торги: `{losing_trades}`
 • Відсоток виграшів: `{format_percentage(win_rate)}%`
 • Загальний P&L: `{format_number(total_pnl)} USDT`
+
+**Детальний P&L:**
+• Реалізований P&L: `{format_number(realized_pnl)} USDT` (закриті торги: {closed_trades})
+• Нереалізований P&L: `{format_number(unrealized_pnl)} USDT` (відкриті позиції: {open_positions})
 
 **Недавня продуктивність:**
 • Торгів за день: `{daily_trades}`

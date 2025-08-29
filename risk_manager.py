@@ -44,8 +44,8 @@ class RiskManager:
             base_amount = self.config.DEFAULT_TRADE_AMOUNT
             logger.debug(f"📊 Base trade amount: ${base_amount:.2f}")
             
-            # Adjust based on confidence
-            confidence_multiplier = min(signal_confidence * 1.5, 1.0)
+            # Adjust based on confidence (ensure minimum viable position)
+            confidence_multiplier = max(signal_confidence * 1.5, 1.2)  # Minimum 1.2x multiplier to ensure above 10 USDT
             adjusted_amount = base_amount * confidence_multiplier
             
             # Ensure we don't exceed available balance

@@ -22,6 +22,7 @@ class DataStorage:
             "trades": [],
             "positions": [],
             "balance_history": [],
+            "active_orders": {},  # Store active stop-loss and take-profit orders by symbol
             "bot_stats": {
                 "total_trades": 0,
                 "winning_trades": 0,
@@ -320,3 +321,41 @@ class DataStorage:
             logger.info("Bot statistics updated")
         except Exception as e:
             logger.error(f"Error updating bot stats: {e}")
+    
+    def save_active_orders(self, symbol: str, stop_loss_order_id: str = None, take_profit_order_id: str = None):
+        """Save active stop-loss and take-profit order IDs for a symbol"""
+        try:
+            if symbol not in self.data["active_orders"]:
+                self.data["active_orders"][symbol] = {}
+            
+            if stop_loss_order_id:
+                self.data["active_orders"][symbol]["stop_loss"] = stop_loss_order_id
+                logger.info(f"Saved stop-loss order ID {stop_loss_order_id} for {symbol}")
+            
+            if take_profit_order_id:
+                self.data["active_orders"][symbol]["take_profit"] = take_profit_order_id
+                logger.info(f"Saved take-profit order ID {take_profit_order_id} for {symbol}")
+            
+            self._save_data()
+            
+        except Exception as e:
+            logger.error(f"Error saving active orders: {e}")
+    
+    def get_active_orders(self, symbol: str) -> Dict:
+        """Get active order IDs for a symbol"""
+        try:
+            return self.data["active_orders"].get(symbol, {})
+        except Exception as e:
+            logger.error(f"Error getting active orders: {e}")
+            return {}
+    
+    def remove_active_orders(self, symbol: str):
+        """Remove active orders for a symbol (when position is closed)"""
+        try:
+            if symbol in self.data["active_orders"]:
+                removed_orders = self.data["active_orders"][symbol]
+                del self.data["active_orders"][symbol]
+                self._save_data()
+                logger.info(f"Removed active orders for {symbol}: {removed_orders}")
+        except Exception as e:
+            logger.error(f"Error removing active orders: {e}")

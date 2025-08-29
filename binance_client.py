@@ -498,6 +498,45 @@ class BinanceClient:
             logger.error(f"Error placing stop-loss order: {e}")
             return None
     
+    def get_open_orders_sync(self, symbol: str = None) -> List[Dict]:
+        """Get all open orders (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return []
+                
+            if symbol:
+                orders = self.sync_client.futures_get_open_orders(symbol=symbol)
+            else:
+                orders = self.sync_client.futures_get_open_orders()
+                
+            return orders
+            
+        except BinanceAPIException as e:
+            logger.error(f"API error getting orders: {e}")
+            return []
+        except Exception as e:
+            logger.error(f"Error getting orders: {e}")
+            return []
+    
+    def cancel_order_sync(self, symbol: str, order_id: str) -> bool:
+        """Cancel an order (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return False
+                
+            self.sync_client.futures_cancel_order(symbol=symbol, orderId=order_id)
+            logger.info(f"Order {order_id} cancelled for {symbol}")
+            return True
+            
+        except BinanceAPIException as e:
+            logger.error(f"API error cancelling order: {e}")
+            return False
+        except Exception as e:
+            logger.error(f"Error cancelling order: {e}")
+            return False
+
     async def cancel_order(self, symbol: str, order_id: str) -> bool:
         """Cancel an order"""
         try:

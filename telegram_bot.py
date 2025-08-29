@@ -761,6 +761,9 @@ class TradingBot:
                 
                 logger.info(f"🔍 Scanning {len(self.monitoring_symbols)} symbols for trading opportunities...")
                 
+                # Monitor closed positions and cancel corresponding orders
+                await self.check_and_cancel_orphaned_orders()
+                
                 # Scan for opportunities
                 signals = await self.strategy.scan_opportunities(self.monitoring_symbols)
                 
@@ -879,6 +882,11 @@ class TradingBot:
                     if stop_order:
                         logger.info(f"✅ Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
                         
+                        # Save stop-loss order ID for later cancellation
+                        stop_loss_order_id = stop_order.get('orderId')
+                        if stop_loss_order_id:
+                            self.data_storage.save_active_orders(symbol, stop_loss_order_id=str(stop_loss_order_id))
+                        
                         # Send stop-loss notification
                         try:
                             stop_msg = f"""🛡️ **Стоп-лосс встановлено!**
@@ -908,6 +916,11 @@ class TradingBot:
                     if tp_order:
                         logger.info(f"✅ Take-profit placed: {tp_side} {quantity} {symbol} at {signal.take_profit}")
                         
+                        # Save take-profit order ID for later cancellation
+                        tp_order_id = tp_order.get('orderId')
+                        if tp_order_id:
+                            self.data_storage.save_active_orders(symbol, take_profit_order_id=str(tp_order_id))
+                        
                         # Send take-profit notification
                         try:
                             tp_msg = f"""🎯 **Тейк-профіт встановлено!**
@@ -934,6 +947,66 @@ class TradingBot:
             
         except Exception as e:
             logger.error(f"Error processing signal for {signal.symbol}: {e}")
+    
+    async def check_and_cancel_orphaned_orders(self):
+        """Check for closed positions and cancel corresponding stop-loss/take-profit orders"""
+        try:
+            # Get all currently open positions
+            current_positions = self.binance_client.get_open_positions_sync()
+            current_symbols = {pos['symbol'] for pos in current_positions}
+            
+            # Get all symbols with saved active orders
+            active_orders = self.data_storage.data.get('active_orders', {})
+            
+            for symbol, orders in list(active_orders.items()):
+                # If position is closed but we still have saved orders
+                if symbol not in current_symbols:
+                    logger.info(f"🔍 Position closed for {symbol}, cancelling remaining orders...")
+                    cancelled_orders = []
+                    
+                    # Cancel stop-loss order if exists
+                    if 'stop_loss' in orders:
+                        stop_order_id = orders['stop_loss']
+                        if self.binance_client.cancel_order_sync(symbol, stop_order_id):
+                            cancelled_orders.append(f"stop-loss {stop_order_id}")
+                            logger.info(f"✅ Cancelled stop-loss order {stop_order_id} for {symbol}")
+                        else:
+                            logger.warning(f"⚠️ Failed to cancel stop-loss order {stop_order_id} for {symbol}")
+                    
+                    # Cancel take-profit order if exists
+                    if 'take_profit' in orders:
+                        tp_order_id = orders['take_profit']
+                        if self.binance_client.cancel_order_sync(symbol, tp_order_id):
+                            cancelled_orders.append(f"take-profit {tp_order_id}")
+                            logger.info(f"✅ Cancelled take-profit order {tp_order_id} for {symbol}")
+                        else:
+                            logger.warning(f"⚠️ Failed to cancel take-profit order {tp_order_id} for {symbol}")
+                    
+                    # Remove from active orders storage
+                    self.data_storage.remove_active_orders(symbol)
+                    
+                    # Send notification to user if any orders were cancelled
+                    if cancelled_orders:
+                        try:
+                            cancel_msg = f"""🔄 **Ордери скасовано автоматично!**
+
+**Пара:** {symbol}
+**Причина:** Позицію закрито
+**Скасовано:** {', '.join(cancelled_orders)}
+
+Це нормальна операція для підтримки чистоти ордерів."""
+
+                            user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
+                            for user_id in user_ids:
+                                try:
+                                    self.bot.send_message(user_id, cancel_msg, parse_mode='Markdown')
+                                except Exception as e:
+                                    logger.error(f"Failed to send cancellation notification to {user_id}: {e}")
+                        except Exception as e:
+                            logger.error(f"Error sending cancellation notification: {e}")
+                            
+        except Exception as e:
+            logger.error(f"Error checking orphaned orders: {e}")
     
     async def start(self):
         """Start the Telegram bot"""

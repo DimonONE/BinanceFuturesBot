@@ -491,17 +491,138 @@
       "reason": "Stop loss triggered",
       "timestamp": "2025-08-29T12:31:10.957242",
       "id": 34
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "side": "BUY",
+      "quantity": 4660.0,
+      "price": 0.007545,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 7239160,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.3) in down trend",
+      "timestamp": "2025-08-29T12:32:00.684880",
+      "id": 35
+    },
+    {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.008,
+      "price": 4363.09,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 4992261213,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (29.6) in down trend",
+      "timestamp": "2025-08-29T12:34:23.794395",
+      "id": 36
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.51,
+      "price": 23.781,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197631432,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.7) in down trend",
+      "timestamp": "2025-08-29T12:34:26.801536",
+      "id": 37
+    },
+    {
+      "symbol": "DOTUSDT",
+      "side": "BUY",
+      "quantity": 9.3,
+      "price": 3.853,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 68156080,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (28.8) in down trend",
+      "timestamp": "2025-08-29T12:37:58.753030",
+      "id": 38
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 11.7,
+      "price": 3.0729,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17093972,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (21.7) in down trend",
+      "timestamp": "2025-08-29T12:38:03.209443",
+      "id": 39
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.51,
+      "price": 23.728,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197633446,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (22.2) in down trend",
+      "timestamp": "2025-08-29T12:39:14.677833",
+      "id": 40
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.52,
+      "price": 23.673,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197636714,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (20.5) in down trend",
+      "timestamp": "2025-08-29T12:45:42.517899",
+      "id": 41
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 11.7,
+      "price": 3.0716,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17094573,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (21.2) in down trend",
+      "timestamp": "2025-08-29T12:45:46.427284",
+      "id": 42
     }
   ],
   "positions": [],
   "balance_history": [],
+  "active_orders": {
+    "LINKUSDT": {
+      "stop_loss": "197636721",
+      "take_profit": "197636724"
+    },
+    "TONUSDT": {
+      "stop_loss": "17094577"
+    }
+  },
   "bot_stats": {
-    "total_trades": 34,
+    "total_trades": 42,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T12:31:10.957726"
+  "last_update": "2025-08-29T12:45:47.715754"
 }

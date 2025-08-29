@@ -878,6 +878,25 @@ class TradingBot:
                     stop_order = self.binance_client.place_stop_loss_order_sync(symbol, stop_side, quantity, signal.stop_loss)
                     if stop_order:
                         logger.info(f"✅ Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
+                        
+                        # Send stop-loss notification
+                        try:
+                            stop_msg = f"""🛡️ **Стоп-лосс встановлено!**
+
+**Пара:** {symbol}
+**Тип:** Захист від збитків
+**Ціна спрацювання:** {signal.stop_loss} USDT
+**Кількість:** {quantity}
+**Операція:** {stop_side}"""
+                            
+                            user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
+                            for user_id in user_ids:
+                                try:
+                                    self.bot.send_message(user_id, stop_msg, parse_mode='Markdown')
+                                except Exception as e:
+                                    logger.error(f"Failed to send stop-loss notification to {user_id}: {e}")
+                        except Exception as e:
+                            logger.error(f"Error sending stop-loss notification: {e}")
                     else:
                         logger.error(f"❌ Failed to place stop-loss for {symbol}")
                 
@@ -888,6 +907,26 @@ class TradingBot:
                     tp_order = self.binance_client.place_limit_order_sync(symbol, tp_side, quantity, signal.take_profit)
                     if tp_order:
                         logger.info(f"✅ Take-profit placed: {tp_side} {quantity} {symbol} at {signal.take_profit}")
+                        
+                        # Send take-profit notification
+                        try:
+                            tp_msg = f"""🎯 **Тейк-профіт встановлено!**
+
+**Пара:** {symbol}
+**Тип:** Фіксація прибутку
+**Ціна спрацювання:** {signal.take_profit} USDT
+**Кількість:** {quantity}
+**Операція:** {tp_side}
+**Очікуваний прибуток:** ~{((signal.take_profit - signal.entry_price) / signal.entry_price * 100):.1f}%"""
+                            
+                            user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
+                            for user_id in user_ids:
+                                try:
+                                    self.bot.send_message(user_id, tp_msg, parse_mode='Markdown')
+                                except Exception as e:
+                                    logger.error(f"Failed to send take-profit notification to {user_id}: {e}")
+                        except Exception as e:
+                            logger.error(f"Error sending take-profit notification: {e}")
                     else:
                         logger.error(f"❌ Failed to place take-profit for {symbol}")
             else:

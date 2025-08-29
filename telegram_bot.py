@@ -860,10 +860,8 @@ class TradingBot:
 **Довіра сигналу:** {signal.confidence:.1%}
 **Причина:** {signal.reason}
 """
-                    # Send to authorized user
-                    user_ids = [self.config.TELEGRAM_USER_ID] if hasattr(self.config, 'TELEGRAM_USER_ID') else []
-                    if hasattr(self.config, 'TELEGRAM_USER_IDS'):
-                        user_ids.extend(self.config.TELEGRAM_USER_IDS)
+                    # Send to authorized users
+                    user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
                     
                     for user_id in user_ids:
                         try:
@@ -1150,7 +1148,8 @@ class TradingBot:
             await self.show_pairs_page(call, current_page)
             
         except Exception as e:
-            logger.error(f"Error toggling pair {symbol if 'symbol' in locals() else 'unknown'}: {str(e)}")
+            symbol = call.data.replace("toggle_pair_", "") if hasattr(call, 'data') else 'unknown'
+            logger.error(f"Error toggling pair {symbol}: {str(e)}")
             self.bot.answer_callback_query(call.id, "❌ Помилка зміни пари.")
     
     async def handle_apply_pairs_callback(self, call):

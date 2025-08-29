@@ -11,7 +11,6 @@
         "TONUSDT",
         "1000CATUSDT",
         "1000BONKUSDT",
-        "1000000BOBUSDT",
         "1000CHEEMSUSDT"
       ]
     }
@@ -212,17 +211,59 @@
       "reason": "Oversold RSI (22.7) in down trend",
       "timestamp": "2025-08-29T09:46:21.955378",
       "id": 14
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 0.51,
+      "price": 23.407,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197585831,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.5) in down trend",
+      "timestamp": "2025-08-29T11:06:41.823615",
+      "id": 15
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 3.9,
+      "price": 3.0577,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17087531,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (17.9) in down trend",
+      "timestamp": "2025-08-29T11:06:45.231541",
+      "id": 16
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "side": "BUY",
+      "quantity": 1585.0,
+      "price": 0.007572,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 7228943,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (26.5) in down trend",
+      "timestamp": "2025-08-29T11:06:47.335384",
+      "id": 17
     }
   ],
   "positions": [],
   "balance_history": [],
   "bot_stats": {
-    "total_trades": 14,
+    "total_trades": 17,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T09:46:21.955901"
+  "last_update": "2025-08-29T11:06:47.335786"
 }

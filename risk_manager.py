@@ -45,7 +45,7 @@ class RiskManager:
             logger.debug(f"📊 Base trade amount: ${base_amount:.2f}")
             
             # Adjust based on confidence (ensure minimum viable position)
-            confidence_multiplier = max(signal_confidence * 1.5, 1.2)  # Minimum 1.2x multiplier to ensure above 10 USDT
+            confidence_multiplier = max(signal_confidence * 2.0, 0.8)  # Minimum 80% of base amount for strong signals
             adjusted_amount = base_amount * confidence_multiplier
             
             # Ensure we don't exceed available balance
@@ -54,9 +54,9 @@ class RiskManager:
             # Ensure we don't exceed max position size
             final_amount = min(max_allowed, self.config.MAX_POSITION_SIZE)
             
-            # Check minimum trade amount (20 USDT for Binance futures)
-            if final_amount < 20.0:
-                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $20.00 (minimum)")
+            # Check minimum trade amount (10 USDT minimum for small trades)
+            if final_amount < 10.0:
+                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $10.00 (minimum)")
                 return 0.0, False
             
             logger.info(f"✅ Final position size: {final_amount:.2f} USDT (confidence: {signal_confidence:.1%})")
@@ -93,8 +93,8 @@ class RiskManager:
             logger.info(f"🛡️ Risk Check for {symbol}: Amount=${trade_amount:.2f} | Balance=${current_balance:.2f}")
             
             # Check minimum balance requirement
-            if current_balance < 20.0:  # Minimum 20 USDT to trade
-                logger.warning(f"❌ Risk Check Failed: Insufficient balance ${current_balance:.2f} < $20.00")
+            if current_balance < 15.0:  # Minimum 15 USDT to trade
+                logger.warning(f"❌ Risk Check Failed: Insufficient balance ${current_balance:.2f} < $15.00")
                 return False, "Insufficient balance for trading"
             
             # Check if trade amount is within limits

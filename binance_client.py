@@ -305,8 +305,8 @@ class BinanceClient:
                 
             # Check minimum notional (order value must be >= $20)
             order_value = quantity * current_price
-            if order_value < 20.0:
-                logger.error(f"Order value too small: ${order_value:.2f} < $20.00 (minimum)")
+            if order_value < 10.0:
+                logger.error(f"Order value too small: ${order_value:.2f} < $10.00 (minimum)")
                 return None
                 
             order = self.sync_client.futures_create_order(
@@ -441,7 +441,7 @@ class BinanceClient:
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
                 side=side,
-                type=ORDER_TYPE_STOP_LOSS,
+                type=FUTURE_ORDER_TYPE_STOP_MARKET,
                 quantity=quantity,
                 stopPrice=stop_price
             )
@@ -469,7 +469,7 @@ class BinanceClient:
             order = await self.client.futures_create_order(
                 symbol=symbol,
                 side=side,
-                type=ORDER_TYPE_STOP_LOSS,
+                type=FUTURE_ORDER_TYPE_STOP_MARKET,
                 quantity=quantity,
                 stopPrice=stop_price
             )

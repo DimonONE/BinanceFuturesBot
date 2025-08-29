@@ -115,15 +115,6 @@ wheels = [
 ]
 
 [[package]]
-name = "binance"
-version = "0.3.65"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/80/b7/3b39fadc775893e2fc79de6f1021829364ed3c9fa2d359a3a49c123e3978/binance-0.3.65.tar.gz", hash = "sha256:c352e4d0de98aafb7f8f3519b08d1ff25093f5012ea1af29fcede94568d1da3c", size = 735011 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e7/cd/468eb7ca5aa8b7b416c3536d603589aebe47264718dfbeaded531c29f319/binance-0.3.65-py3-none-any.whl", hash = "sha256:0460db925356bb98e5a1277980c9faf3b7d73337587072039de5517f67d767ae", size = 853680 },
-]
-
-[[package]]
 name = "certifi"
 version = "2025.8.3"
 source = { registry = "https://pypi.org/simple" }
@@ -890,7 +881,6 @@ name = "repl-nix-workspace"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "binance" },
     { name = "cryptography" },
     { name = "numpy" },
     { name = "pytelegrambotapi" },
@@ -902,7 +892,6 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "binance", specifier = ">=0.3.65" },
     { name = "cryptography", specifier = ">=45.0.6" },
     { name = "numpy", specifier = ">=2.3.2" },
     { name = "pytelegrambotapi", specifier = ">=4.28.0" },

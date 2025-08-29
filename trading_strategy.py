@@ -177,49 +177,47 @@ class TrendFollowingStrategy:
                    f"Oversold={oversold}(<{self.config.RSI_OVERSOLD}) | Overbought={overbought}(>{self.config.RSI_OVERBOUGHT}) | "
                    f"HasPosition={existing_position is not None}")
         
-        # Long entry conditions
-        if trend == TrendDirection.UP and oversold and not existing_position:
-            logger.info(f"✅ {symbol} BUY условие выполнено: UP trend + RSI {current_rsi:.1f} < {self.config.RSI_OVERSOLD}")
+        # BUY conditions: когда актив перепродан (oversold)
+        if oversold and not existing_position:
+            # Увеличиваем confidence если тренд тоже благоприятный
+            confidence = 0.8 if trend == TrendDirection.UP else 0.6
+            
+            logger.info(f"✅ {symbol} BUY условие выполнено: RSI {current_rsi:.1f} < {self.config.RSI_OVERSOLD} (oversold)")
             stop_loss = current_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 + self.config.TAKE_PROFIT_PERCENT / 100)
             
-            logger.info(f"✅ {symbol} BUY Signal: Uptrend + Oversold RSI | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
+            logger.info(f"✅ {symbol} BUY Signal: Oversold RSI | Trend={trend.value} | Confidence={confidence:.1%} | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
             
             return TradingSignal(
                 symbol=symbol,
                 signal_type=SignalType.BUY,
-                confidence=0.8,
+                confidence=confidence,
                 entry_price=current_price,
                 stop_loss=stop_loss,
                 take_profit=take_profit,
-                reason="Uptrend with oversold RSI"
+                reason=f"Oversold RSI ({current_rsi:.1f}) in {trend.value.lower()} trend"
             )
-        elif trend == TrendDirection.UP and not oversold and not existing_position:
-            logger.info(f"⏸️ {symbol}: UP trend но НЕ oversold (RSI {current_rsi:.1f} >= {self.config.RSI_OVERSOLD}) - ждем лучшего входа")
-        elif trend != TrendDirection.UP and not existing_position:
-            logger.info(f"⏸️ {symbol}: НЕ UP trend (trend={trend.value}) - нет BUY условий")
         
-        # Short entry conditions (если тренд вниз и overbought)
-        elif trend == TrendDirection.DOWN and overbought and not existing_position:
-            logger.info(f"✅ {symbol} SELL условие выполнено: DOWN trend + RSI {current_rsi:.1f} > {self.config.RSI_OVERBOUGHT}")
+        # SELL conditions: когда актив перекуплен (overbought)  
+        elif overbought and not existing_position:
+            # Увеличиваем confidence если тренд тоже благоприятный для short
+            confidence = 0.8 if trend == TrendDirection.DOWN else 0.6
+            
+            logger.info(f"✅ {symbol} SELL условие выполнено: RSI {current_rsi:.1f} > {self.config.RSI_OVERBOUGHT} (overbought)")
             stop_loss = current_price * (1 + self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 - self.config.TAKE_PROFIT_PERCENT / 100)
             
-            logger.info(f"✅ {symbol} SELL Signal: Downtrend + Overbought RSI | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
+            logger.info(f"✅ {symbol} SELL Signal: Overbought RSI | Trend={trend.value} | Confidence={confidence:.1%} | SL=${stop_loss:.4f} | TP=${take_profit:.4f}")
             
             return TradingSignal(
                 symbol=symbol,
                 signal_type=SignalType.SELL,
-                confidence=0.8,
+                confidence=confidence,
                 entry_price=current_price,
                 stop_loss=stop_loss,
                 take_profit=take_profit,
-                reason="Downtrend with overbought RSI"
+                reason=f"Overbought RSI ({current_rsi:.1f}) in {trend.value.lower()} trend"
             )
-        elif trend == TrendDirection.DOWN and not overbought and not existing_position:
-            logger.info(f"⏸️ {symbol}: DOWN trend но НЕ overbought (RSI {current_rsi:.1f} <= {self.config.RSI_OVERBOUGHT}) - ждем лучшего входа")
-        elif trend != TrendDirection.DOWN and overbought and not existing_position:
-            logger.info(f"⚠️ {symbol}: Overbought (RSI {current_rsi:.1f}) но НЕ DOWN trend (trend={trend.value}) - нет SELL сигнала")
         
         # Position averaging - add to winning positions on pullbacks
         elif existing_position and trend == TrendDirection.UP:
@@ -264,7 +262,7 @@ class TrendFollowingStrategy:
         if existing_position:
             logger.info(f"⏸️ {symbol}: HOLD - есть открытая позиция, новые сигналы не генерируем")
         else:
-            logger.info(f"⏸️ {symbol}: HOLD - никакие торговые условия не выполнены (trend={trend.value}, RSI={current_rsi:.1f})")
+            logger.info(f"⏸️ {symbol}: HOLD - RSI в нейтральной зоне ({current_rsi:.1f}, нужно <{self.config.RSI_OVERSOLD} или >{self.config.RSI_OVERBOUGHT})")
         
         return TradingSignal(
             symbol=symbol,

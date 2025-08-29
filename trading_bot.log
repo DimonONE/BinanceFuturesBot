@@ -5062,3 +5062,14 @@ aiohttp.client_exceptions.ClientOSError: [Errno 1] [SSL: APPLICATION_DATA_AFTER_
 2025-08-29 11:07:34,637 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
 2025-08-29 11:07:35,893 - binance_client - ERROR - API error placing order: APIError(code=-4164): Order's notional must be no smaller than 20 (unless you choose reduce only).
 2025-08-29 11:07:35,893 - telegram_bot - ERROR - Failed to execute trade for ETHUSDT: Order placement failed
+2025-08-29 11:08:35,953 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 11:08:35,953 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000CHEEMSUSDT']}}
+2025-08-29 11:08:35,953 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-29 11:08:35,953 - telegram_bot - INFO - 🔍 Scanning 10 symbols for trading opportunities...
+2025-08-29 11:08:36,928 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=23.8 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 11:08:36,928 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 23.8 < 30.0 (oversold)
+2025-08-29 11:08:36,928 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4203.6793 | TP=$4593.7114
+2025-08-29 11:08:36,928 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (23.8) in down trend
+2025-08-29 11:08:37,891 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 11:08:37,892 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.7, нужно <30.0 или >70.0)
+2025-08-29 11:08:37,892 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal

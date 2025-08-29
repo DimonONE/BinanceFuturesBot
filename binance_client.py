@@ -465,7 +465,7 @@ class BinanceClient:
                         'position_amt': position_amt,
                         'entry_price': float(position['entryPrice']),
                         'unrealized_pnl': float(position['unRealizedProfit']),
-                        'percentage': float(position['percentage']),
+                        'percentage': float(position.get('percentage', 0.0)),
                         'side': 'LONG' if position_amt > 0 else 'SHORT'
                     })
             
@@ -496,7 +496,7 @@ class BinanceClient:
                         'position_amt': position_amt,
                         'entry_price': float(position['entryPrice']),
                         'unrealized_pnl': float(position['unRealizedProfit']),
-                        'percentage': float(position['percentage']),
+                        'percentage': float(position.get('percentage', 0.0)),
                         'side': 'LONG' if position_amt > 0 else 'SHORT'
                     })
             

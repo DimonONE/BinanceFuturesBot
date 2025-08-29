@@ -838,7 +838,7 @@ class TradingBot:
                     'entry_price': signal.entry_price,
                     'side': 'LONG' if side == 'BUY' else 'SHORT'
                 }
-                self.trading_strategy.update_position(symbol, position_data)
+                self.strategy.update_position(symbol, position_data)
                 
                 logger.info(f"Trade executed: {side} {quantity} {symbol} at {signal.entry_price}")
                 

@@ -156,17 +156,59 @@
       "reason": "Oversold RSI (28.7) in down trend",
       "timestamp": "2025-08-29T09:42:23.197991",
       "id": 10
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 3.9,
+      "price": 3.0425,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17081499,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (22.6) in down trend",
+      "timestamp": "2025-08-29T09:42:24.187811",
+      "id": 11
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 0.51,
+      "price": 23.275,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197538334,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (28.9) in down trend",
+      "timestamp": "2025-08-29T09:46:20.014958",
+      "id": 12
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "side": "BUY",
+      "quantity": 13.7,
+      "price": 0.8744,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 5606001,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (28.9) in down trend",
+      "timestamp": "2025-08-29T09:46:21.079900",
+      "id": 13
     }
   ],
   "positions": [],
   "balance_history": [],
   "bot_stats": {
-    "total_trades": 10,
+    "total_trades": 13,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T09:42:23.198294"
+  "last_update": "2025-08-29T09:46:21.080236"
 }

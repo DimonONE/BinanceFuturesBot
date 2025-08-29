@@ -167,18 +167,48 @@ class TrendFollowingStrategy:
                         oversold: bool, overbought: bool, support: float, resistance: float) -> Optional[TradingSignal]:
         """Generate trading signal based on analysis"""
         
-        # Check if we have an existing position (from both local cache and Binance)
-        existing_position = self.active_positions.get(symbol)
+        # Check if we have an existing position by calculating net position from trades
+        existing_position = None
+        if self.data_storage:
+            # Calculate net position from all trades for this symbol
+            all_trades = self.data_storage.get_all_trades()
+            symbol_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
+            
+            # Calculate net quantity (BUY = +, SELL = -)
+            net_quantity = 0
+            for trade in symbol_trades:
+                if trade.get('side') == 'BUY':
+                    net_quantity += trade.get('quantity', 0)
+                elif trade.get('side') == 'SELL':
+                    net_quantity -= trade.get('quantity', 0)
+            
+            # Position exists only if net quantity > 0
+            if net_quantity > 0:
+                # Find the most recent BUY trade for entry price
+                buy_trades = [t for t in symbol_trades if t.get('side') == 'BUY']
+                if buy_trades:
+                    latest_buy = max(buy_trades, key=lambda x: x.get('timestamp', ''))
+                    existing_position = {
+                        'symbol': symbol,
+                        'quantity': net_quantity,
+                        'entry_price': latest_buy.get('price', 0),
+                        'side': 'LONG'
+                    }
+        
+        # Ignore cache completely when we have data_storage - always use fresh calculation
+        # This ensures no stale cache data interferes with position detection
         
         # Also check actual Binance positions to be sure
         binance_positions = self.binance_client.get_open_positions_sync()
         has_binance_position = any(pos['symbol'] == symbol for pos in binance_positions)
         
-        # If we found position on Binance but not in local cache, update cache
-        if has_binance_position and not existing_position:
-            binance_pos = next(pos for pos in binance_positions if pos['symbol'] == symbol)
-            self.active_positions[symbol] = binance_pos
-            existing_position = binance_pos
+        # Log Binance positions summary (only once per cycle)
+        if symbol == 'ETHUSDT':  # Log only once per scan cycle to avoid spam
+            if len(binance_positions) > 0:
+                symbols_with_positions = [pos['symbol'] for pos in binance_positions]
+                logger.info(f"📊 Current Binance positions: {symbols_with_positions}")
+            else:
+                logger.info(f"📊 No open positions found on Binance")
         
         # Получаем RSI для детального логирования
         klines_for_rsi = self.binance_client.get_klines_sync(symbol, "1h", self.config.RSI_PERIOD + 10)

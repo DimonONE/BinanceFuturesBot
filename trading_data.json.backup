@@ -36,10 +36,6 @@
     "1000CATUSDT": {
       "stop_loss": "7241763",
       "take_profit": "7241765"
-    },
-    "DOTUSDT": {
-      "stop_loss": "68164956",
-      "take_profit": "68164957"
     }
   },
   "bot_stats": {
@@ -50,5 +46,5 @@
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T13:19:23.145985"
+  "last_update": "2025-08-29T13:20:24.192825"
 }

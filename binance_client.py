@@ -366,6 +366,20 @@ class BinanceClient:
             # Round price to proper precision
             rounded_price = self.round_price_to_precision(symbol, price)
             
+            # Validate price is within acceptable range (PERCENT_PRICE filter)
+            current_price = self.get_current_price_sync(symbol)
+            if current_price:
+                price_diff_percent = abs(rounded_price - current_price) / current_price * 100
+                if price_diff_percent > 8:  # Keep within 8% of current price to avoid PERCENT_PRICE filter
+                    logger.warning(f"Price {rounded_price} too far from current {current_price} ({price_diff_percent:.1f}%)")
+                    # Adjust price to be within acceptable range
+                    if rounded_price > current_price:
+                        rounded_price = current_price * 1.05  # 5% above current
+                    else:
+                        rounded_price = current_price * 0.95  # 5% below current
+                    rounded_price = self.round_price_to_precision(symbol, rounded_price)
+                    logger.info(f"Adjusted limit price to {rounded_price}")
+            
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
                 side=side,
@@ -395,12 +409,29 @@ class BinanceClient:
                 logger.error("Client not initialized")
                 return None
                 
+            # Round price to proper precision
+            rounded_price = self.round_price_to_precision(symbol, price)
+            
+            # Validate price is within acceptable range (PERCENT_PRICE filter)
+            current_price = await self.get_current_price(symbol)
+            if current_price:
+                price_diff_percent = abs(rounded_price - current_price) / current_price * 100
+                if price_diff_percent > 8:  # Keep within 8% of current price to avoid PERCENT_PRICE filter
+                    logger.warning(f"Price {rounded_price} too far from current {current_price} ({price_diff_percent:.1f}%)")
+                    # Adjust price to be within acceptable range
+                    if rounded_price > current_price:
+                        rounded_price = current_price * 1.05  # 5% above current
+                    else:
+                        rounded_price = current_price * 0.95  # 5% below current
+                    rounded_price = self.round_price_to_precision(symbol, rounded_price)
+                    logger.info(f"Adjusted limit price to {rounded_price}")
+                
             order = await self.client.futures_create_order(
                 symbol=symbol,
                 side=side,
                 type=ORDER_TYPE_LIMIT,
                 quantity=quantity,
-                price=price,
+                price=rounded_price,
                 timeInForce=TIME_IN_FORCE_GTC
             )
             

@@ -829,11 +829,167 @@ class TradingBot:
         
         logger.info("Trading loop stopped")
     
+    async def handle_position_close(self, signal):
+        """Handle closing an existing position due to take profit or stop loss"""
+        try:
+            symbol = signal.symbol
+            logger.info(f"🔄 Closing position for {symbol} - {signal.reason}")
+            
+            # Get current positions from Binance
+            positions = await self.binance_client.get_open_positions()
+            target_position = None
+            
+            for position in positions:
+                if position['symbol'] == symbol:
+                    target_position = position
+                    break
+            
+            if not target_position:
+                logger.error(f"❌ No open position found for {symbol}")
+                return
+            
+            # Calculate quantity to close (absolute value of position amount)
+            position_size = abs(float(target_position['position_amt']))
+            position_side = target_position['side']  # LONG or SHORT
+            entry_price = float(target_position['entry_price'])
+            
+            # Determine the side for closing order
+            close_side = 'SELL' if position_side == 'LONG' else 'BUY'
+            
+            logger.info(f"📋 Position details: {position_side} {position_size} {symbol} @ {entry_price}")
+            
+            # Get current market price
+            current_price = self.binance_client.get_current_price_sync(symbol)
+            if not current_price:
+                logger.error(f"❌ Could not get current price for {symbol}")
+                return
+            
+            # Calculate PnL before closing
+            from utils import calculate_pnl
+            expected_pnl = calculate_pnl(entry_price, current_price, position_size, position_side)
+            
+            logger.info(f"💰 Expected PnL: {expected_pnl:.2f} USDT (entry: {entry_price}, current: {current_price})")
+            
+            # Place market order to close position
+            close_order = self.binance_client.place_market_order_sync(symbol, close_side, position_size)
+            
+            if close_order:
+                # Get actual fill price from order
+                fill_price = float(close_order.get('avgPrice', current_price))
+                actual_pnl = calculate_pnl(entry_price, fill_price, position_size, position_side)
+                
+                logger.info(f"✅ Position closed: {close_side} {position_size} {symbol} at {fill_price}")
+                logger.info(f"💰 Actual PnL: {actual_pnl:.2f} USDT")
+                
+                # Save trade record for position close
+                trade_data = {
+                    'symbol': symbol,
+                    'side': close_side,
+                    'quantity': position_size,
+                    'price': fill_price,
+                    'entry_price': entry_price,
+                    'pnl': actual_pnl,
+                    'status': 'closed',
+                    'order_id': close_order.get('orderId', ''),
+                    'type': 'market_close',
+                    'reason': signal.reason
+                }
+                
+                self.data_storage.save_trade(trade_data)
+                
+                # Remove from active positions cache in trading strategy
+                self.strategy.remove_position(symbol)
+                
+                # Cancel any remaining stop-loss or take-profit orders
+                await self.cancel_related_orders(symbol)
+                
+                # Send notification to user
+                await self.send_position_close_notification(symbol, close_side, position_size, 
+                                                          entry_price, fill_price, actual_pnl, signal.reason)
+                
+            else:
+                logger.error(f"❌ Failed to close position for {symbol}")
+                
+        except Exception as e:
+            logger.error(f"❌ Error closing position for {signal.symbol}: {e}")
+    
+    async def cancel_related_orders(self, symbol):
+        """Cancel stop-loss and take-profit orders for a symbol"""
+        try:
+            active_orders = self.data_storage.get_active_orders()
+            if symbol in active_orders:
+                orders = active_orders[symbol]
+                cancelled_orders = []
+                
+                # Cancel stop-loss order if exists
+                if 'stop_loss' in orders:
+                    stop_order_id = orders['stop_loss']
+                    if self.binance_client.cancel_order_sync(symbol, stop_order_id):
+                        cancelled_orders.append("stop-loss")
+                        logger.info(f"✅ Cancelled stop-loss order {stop_order_id} for {symbol}")
+                    
+                # Cancel take-profit order if exists
+                if 'take_profit' in orders:
+                    tp_order_id = orders['take_profit']
+                    if self.binance_client.cancel_order_sync(symbol, tp_order_id):
+                        cancelled_orders.append("take-profit")
+                        logger.info(f"✅ Cancelled take-profit order {tp_order_id} for {symbol}")
+                
+                # Remove from storage
+                self.data_storage.remove_active_orders(symbol)
+                
+                if cancelled_orders:
+                    logger.info(f"🔄 Cancelled {', '.join(cancelled_orders)} orders for {symbol}")
+                    
+        except Exception as e:
+            logger.error(f"Error cancelling related orders for {symbol}: {e}")
+    
+    async def send_position_close_notification(self, symbol, side, quantity, entry_price, exit_price, pnl, reason):
+        """Send notification about position close"""
+        try:
+            pnl_emoji = "💚" if pnl > 0 else "❤️" if pnl < 0 else "💛"
+            pnl_text = f"+{pnl:.2f}" if pnl > 0 else f"{pnl:.2f}"
+            pnl_percent = (exit_price - entry_price) / entry_price * 100
+            
+            close_msg = f"""{pnl_emoji} **Позицію закрито!**
+
+**Пара:** {symbol}
+**Операція:** {side}
+**Кількість:** {quantity}
+**Ціна входу:** {entry_price:.6f} USDT
+**Ціна виходу:** {exit_price:.6f} USDT
+**P&L:** {pnl_text} USDT ({pnl_percent:+.2f}%)
+**Причина:** {reason}"""
+                
+            user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
+            for user_id in user_ids:
+                try:
+                    self.bot.send_message(user_id, close_msg, parse_mode='Markdown')
+                except Exception as e:
+                    logger.error(f"Failed to send close notification to {user_id}: {e}")
+                    
+        except Exception as e:
+            logger.error(f"Error sending position close notification: {e}")
+    
     async def process_trading_signal(self, signal):
         """Process a trading signal"""
         try:
             symbol = signal.symbol
             logger.info(f"💼 Processing {signal.signal_type.value} signal for {symbol}")
+            
+            # Check if this is a position close signal (take profit or stop loss)
+            is_position_close = ("take profit" in signal.reason.lower() or 
+                               "stop loss" in signal.reason.lower() or
+                               "тейк профіт" in signal.reason.lower() or
+                               "стоп лосс" in signal.reason.lower())
+            
+            logger.info(f"🔍 Signal check - Reason: '{signal.reason}', Is close: {is_position_close}, Type: {signal.signal_type.value}")
+            
+            # If it's a position close signal, handle it differently
+            if is_position_close and signal.signal_type == SignalType.SELL:
+                logger.info(f"🎯 Detected position close signal for {symbol}")
+                await self.handle_position_close(signal)
+                return
             
             current_balance = self.binance_client.get_usdt_balance_sync()
             logger.info(f"💰 Current balance: ${current_balance:.2f} USDT")

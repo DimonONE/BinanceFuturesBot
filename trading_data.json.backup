@@ -198,17 +198,31 @@
       "reason": "Oversold RSI (28.9) in down trend",
       "timestamp": "2025-08-29T09:46:21.079900",
       "id": 13
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 3.9,
+      "price": 3.0431,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17081875,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (22.7) in down trend",
+      "timestamp": "2025-08-29T09:46:21.955378",
+      "id": 14
     }
   ],
   "positions": [],
   "balance_history": [],
   "bot_stats": {
-    "total_trades": 13,
+    "total_trades": 14,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T09:46:21.080236"
+  "last_update": "2025-08-29T09:46:21.955901"
 }

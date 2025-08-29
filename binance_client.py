@@ -296,6 +296,18 @@ class BinanceClient:
             if not self.sync_client:
                 logger.error("Sync client not initialized")
                 return None
+            
+            # Get current price to validate order value
+            current_price = self.get_current_price_sync(symbol)
+            if not current_price:
+                logger.error(f"Could not get current price for {symbol}")
+                return None
+                
+            # Check minimum notional (order value must be >= $20)
+            order_value = quantity * current_price
+            if order_value < 20.0:
+                logger.error(f"Order value too small: ${order_value:.2f} < $20.00 (minimum)")
+                return None
                 
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
@@ -408,6 +420,23 @@ class BinanceClient:
             if not self.sync_client:
                 logger.error("Sync client not initialized")
                 return None
+            
+            # Get current price to validate stop price
+            current_price = self.get_current_price_sync(symbol)
+            if not current_price:
+                logger.error(f"Could not get current price for {symbol}")
+                return None
+            
+            # Validate stop price is reasonable (within 10% of current price)
+            price_diff_percent = abs(stop_price - current_price) / current_price * 100
+            if price_diff_percent > 10:
+                logger.warning(f"Stop price {stop_price} too far from current {current_price} ({price_diff_percent:.1f}%)")
+                # Adjust stop price to be within acceptable range
+                if side == 'SELL':  # Stop loss for long position
+                    stop_price = current_price * 0.95  # 5% below current
+                else:  # Stop loss for short position  
+                    stop_price = current_price * 1.05  # 5% above current
+                logger.info(f"Adjusted stop price to {stop_price}")
                 
             order = self.sync_client.futures_create_order(
                 symbol=symbol,

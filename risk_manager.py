@@ -54,9 +54,9 @@ class RiskManager:
             # Ensure we don't exceed max position size
             final_amount = min(max_allowed, self.config.MAX_POSITION_SIZE)
             
-            # Check minimum trade amount (usually 10 USDT for Binance)
-            if final_amount < 10.0:
-                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $10.00 (minimum)")
+            # Check minimum trade amount (20 USDT for Binance futures)
+            if final_amount < 20.0:
+                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $20.00 (minimum)")
                 return 0.0, False
             
             logger.info(f"✅ Final position size: {final_amount:.2f} USDT (confidence: {signal_confidence:.1%})")

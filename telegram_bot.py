@@ -876,11 +876,22 @@ class TradingBot:
                 # Place stop-loss order
                 if signal.stop_loss:
                     stop_side = 'SELL' if side == 'BUY' else 'BUY'
+                    logger.info(f"🛡️ Placing stop-loss: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
                     stop_order = self.binance_client.place_stop_loss_order_sync(symbol, stop_side, quantity, signal.stop_loss)
                     if stop_order:
-                        logger.info(f"Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
+                        logger.info(f"✅ Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
                     else:
-                        logger.error(f"Failed to place stop-loss for {symbol}")
+                        logger.error(f"❌ Failed to place stop-loss for {symbol}")
+                
+                # Place take-profit order
+                if signal.take_profit:
+                    tp_side = 'SELL' if side == 'BUY' else 'BUY'
+                    logger.info(f"🎯 Placing take-profit: {tp_side} {quantity} {symbol} at {signal.take_profit}")
+                    tp_order = self.binance_client.place_limit_order_sync(symbol, tp_side, quantity, signal.take_profit)
+                    if tp_order:
+                        logger.info(f"✅ Take-profit placed: {tp_side} {quantity} {symbol} at {signal.take_profit}")
+                    else:
+                        logger.error(f"❌ Failed to place take-profit for {symbol}")
             else:
                 logger.error(f"Failed to execute trade for {symbol}: Order placement failed")
             

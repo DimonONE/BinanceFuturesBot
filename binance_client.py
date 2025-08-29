@@ -344,6 +344,35 @@ class BinanceClient:
             logger.error(f"Error placing market order: {e}")
             return None
     
+    def place_limit_order_sync(self, symbol: str, side: str, quantity: float, price: float) -> Optional[Dict]:
+        """Place a limit order (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return None
+                
+            order = self.sync_client.futures_create_order(
+                symbol=symbol,
+                side=side,
+                type=ORDER_TYPE_LIMIT,
+                quantity=quantity,
+                price=price,
+                timeInForce=TIME_IN_FORCE_GTC
+            )
+            
+            logger.info(f"Limit order placed: {side} {quantity} {symbol} at {price}")
+            return order
+            
+        except BinanceOrderException as e:
+            logger.error(f"Order error: {e}")
+            return None
+        except BinanceAPIException as e:
+            logger.error(f"API error placing limit order: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"Error placing limit order: {e}")
+            return None
+    
     async def place_limit_order(self, symbol: str, side: str, quantity: float, price: float) -> Optional[Dict]:
         """Place a limit order"""
         try:

@@ -7190,3 +7190,5 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-29 12:51:36,115 - trading_strategy - INFO - ⏸️ 1000CHEEMSUSDT: HOLD - RSI в нейтральной зоне (37.1, нужно <30.0 или >70.0)
 2025-08-29 12:51:36,115 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
 2025-08-29 12:51:36,115 - telegram_bot - INFO - ⏸️ No trading signals found across 10 symbols
+2025-08-29 12:55:59,172 - __main__ - ERROR - Fatal error: Token must contain a colon
+2025-08-29 12:56:00,403 - __main__ - ERROR - Fatal error: Token must contain a colon

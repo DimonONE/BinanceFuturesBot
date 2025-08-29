@@ -3474,3 +3474,306 @@ aiohttp.client_exceptions.ClientOSError: [Errno 1] [SSL: APPLICATION_DATA_AFTER_
 2025-08-29 09:38:56,445 - risk_manager - INFO - ✅ Risk Check Passed for 1000000BOBUSDT: All conditions met
 2025-08-29 09:38:57,491 - binance_client - ERROR - API error placing order: APIError(code=-1121): Invalid symbol.
 2025-08-29 09:38:57,491 - telegram_bot - ERROR - Failed to execute trade for 1000000BOBUSDT: Order placement failed
+2025-08-29 09:39:57,551 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 09:39:57,551 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-29 09:39:57,551 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-29 09:39:57,551 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-29 09:39:58,107 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=30.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:39:58,107 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (30.8, нужно <30.0 или >70.0)
+2025-08-29 09:39:58,107 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:39:58,661 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:39:58,661 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.6, нужно <30.0 или >70.0)
+2025-08-29 09:39:58,661 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:39:59,045 - trading_strategy - INFO - 🔍 DOTUSDT Signal Check: Trend=DOWN | RSI=38.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:39:59,045 - trading_strategy - INFO - ⏸️ DOTUSDT: HOLD - RSI в нейтральной зоне (38.8, нужно <30.0 или >70.0)
+2025-08-29 09:39:59,045 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:39:59,590 - trading_strategy - INFO - 🔍 LINKUSDT Signal Check: Trend=DOWN | RSI=28.4 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:39:59,590 - trading_strategy - INFO - ✅ LINKUSDT BUY условие выполнено: RSI 28.4 < 30.0 (oversold)
+2025-08-29 09:39:59,590 - trading_strategy - INFO - ✅ LINKUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$22.5321 | TP=$24.6227
+2025-08-29 09:39:59,590 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.4) in down trend
+2025-08-29 09:40:00,131 - trading_strategy - INFO - 🔍 1000000MOGUSDT Signal Check: Trend=DOWN | RSI=28.6 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:00,131 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY условие выполнено: RSI 28.6 < 30.0 (oversold)
+2025-08-29 09:40:00,132 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$0.8470 | TP=$0.9256
+2025-08-29 09:40:00,132 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.6) in down trend
+2025-08-29 09:40:00,692 - trading_strategy - INFO - 🔍 TRXUSDT Signal Check: Trend=DOWN | RSI=46.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:00,692 - trading_strategy - INFO - ⏸️ TRXUSDT: HOLD - RSI в нейтральной зоне (46.8, нужно <30.0 или >70.0)
+2025-08-29 09:40:00,693 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:40:00,895 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=22.5 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:00,895 - trading_strategy - INFO - ✅ TONUSDT BUY условие выполнено: RSI 22.5 < 30.0 (oversold)
+2025-08-29 09:40:00,895 - trading_strategy - INFO - ✅ TONUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$2.9504 | TP=$3.2241
+2025-08-29 09:40:00,895 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (22.5) in down trend
+2025-08-29 09:40:01,104 - trading_strategy - INFO - 🔍 1000CATUSDT Signal Check: Trend=DOWN | RSI=30.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:01,104 - trading_strategy - INFO - ⏸️ 1000CATUSDT: HOLD - RSI в нейтральной зоне (30.6, нужно <30.0 или >70.0)
+2025-08-29 09:40:01,104 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:40:01,661 - trading_strategy - INFO - 🔍 1000BONKUSDT Signal Check: Trend=DOWN | RSI=39.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:01,661 - trading_strategy - INFO - ⏸️ 1000BONKUSDT: HOLD - RSI в нейтральной зоне (39.0, нужно <30.0 или >70.0)
+2025-08-29 09:40:01,661 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:40:02,046 - trading_strategy - INFO - 🔍 1000000BOBUSDT Signal Check: Trend=SIDEWAYS | RSI=100.0 | Oversold=False(<30.0) | Overbought=True(>70.0) | HasPosition=False
+2025-08-29 09:40:02,046 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL условие выполнено: RSI 100.0 > 70.0 (overbought)
+2025-08-29 09:40:02,046 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL Signal: Overbought RSI | Trend=SIDEWAYS | Confidence=60.0% | SL=$0.0803 | TP=$0.0733
+2025-08-29 09:40:02,046 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (100.0) in sideways trend
+2025-08-29 09:40:02,451 - trading_strategy - INFO - 🔍 1000CHEEMSUSDT Signal Check: Trend=DOWN | RSI=37.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:40:02,451 - trading_strategy - INFO - ⏸️ 1000CHEEMSUSDT: HOLD - RSI в нейтральной зоне (37.1, нужно <30.0 или >70.0)
+2025-08-29 09:40:02,452 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:40:02,452 - telegram_bot - INFO - 🎯 Found 4 trading signals: ['LINKUSDT-BUY', '1000000MOGUSDT-BUY', 'TONUSDT-BUY']
+2025-08-29 09:40:02,452 - telegram_bot - INFO -   📈 LINKUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.4) in down trend
+2025-08-29 09:40:02,452 - telegram_bot - INFO -   📈 1000000MOGUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.6) in down trend
+2025-08-29 09:40:02,452 - telegram_bot - INFO -   📈 TONUSDT: BUY (confidence: 60.0%) - Oversold RSI (22.5) in down trend
+2025-08-29 09:40:02,452 - telegram_bot - INFO -   📈 1000000BOBUSDT: SELL (confidence: 60.0%) - Overbought RSI (100.0) in sideways trend
+2025-08-29 09:40:02,453 - telegram_bot - INFO - 🔄 Processing signal for LINKUSDT...
+2025-08-29 09:40:02,453 - telegram_bot - INFO - 💼 Processing BUY signal for LINKUSDT
+2025-08-29 09:40:02,737 - telegram_bot - INFO - 💰 Current balance: $14678.02 USDT
+2025-08-29 09:40:02,737 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14678.02 | Confidence=60.0%
+2025-08-29 09:40:02,737 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:40:02,737 - risk_manager - INFO - 🛡️ Risk Check for LINKUSDT: Amount=$12.00 | Balance=$14678.02
+2025-08-29 09:40:02,737 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-29 09:40:02,737 - risk_manager - INFO - ✅ Risk Check Passed for LINKUSDT: All conditions met
+2025-08-29 09:40:03,508 - binance_client - INFO - Market order placed: BUY 0.52 LINKUSDT
+2025-08-29 09:40:03,510 - data_storage - INFO - Trade saved: LINKUSDT - BUY - open
+2025-08-29 09:40:03,510 - risk_manager - INFO - Daily trades: 3/50
+2025-08-29 09:40:03,511 - telegram_bot - INFO - Trade executed: BUY 0.52 LINKUSDT at 23.229
+2025-08-29 09:40:03,799 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:40:03,799 - telegram_bot - ERROR - Failed to place stop-loss for LINKUSDT
+2025-08-29 09:40:03,799 - telegram_bot - INFO - 🔄 Processing signal for 1000000MOGUSDT...
+2025-08-29 09:40:03,799 - telegram_bot - INFO - 💼 Processing BUY signal for 1000000MOGUSDT
+2025-08-29 09:40:04,072 - telegram_bot - INFO - 💰 Current balance: $14676.87 USDT
+2025-08-29 09:40:04,072 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14676.87 | Confidence=60.0%
+2025-08-29 09:40:04,072 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:40:04,073 - risk_manager - INFO - 🛡️ Risk Check for 1000000MOGUSDT: Amount=$12.00 | Balance=$14676.87
+2025-08-29 09:40:04,073 - risk_manager - INFO - Current drawdown: 0.01%
+2025-08-29 09:40:04,073 - risk_manager - INFO - ✅ Risk Check Passed for 1000000MOGUSDT: All conditions met
+2025-08-29 09:40:04,856 - binance_client - INFO - Market order placed: BUY 13.7 1000000MOGUSDT
+2025-08-29 09:40:04,857 - data_storage - INFO - Trade saved: 1000000MOGUSDT - BUY - open
+2025-08-29 09:40:04,857 - risk_manager - INFO - Daily trades: 4/50
+2025-08-29 09:40:04,857 - telegram_bot - INFO - Trade executed: BUY 13.7 1000000MOGUSDT at 0.8732
+2025-08-29 09:40:05,225 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:40:05,226 - telegram_bot - ERROR - Failed to place stop-loss for 1000000MOGUSDT
+2025-08-29 09:40:05,226 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-08-29 09:40:05,226 - telegram_bot - INFO - 💼 Processing BUY signal for TONUSDT
+2025-08-29 09:40:05,503 - telegram_bot - INFO - 💰 Current balance: $14674.46 USDT
+2025-08-29 09:40:05,503 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14674.46 | Confidence=60.0%
+2025-08-29 09:40:05,504 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:40:05,504 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$12.00 | Balance=$14674.46
+2025-08-29 09:40:05,504 - risk_manager - INFO - Current drawdown: 0.02%
+2025-08-29 09:40:05,504 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-08-29 09:40:06,096 - binance_client - INFO - Market order placed: BUY 3.9 TONUSDT
+2025-08-29 09:40:06,097 - data_storage - INFO - Trade saved: TONUSDT - BUY - open
+2025-08-29 09:40:06,097 - risk_manager - INFO - Daily trades: 5/50
+2025-08-29 09:40:06,098 - telegram_bot - INFO - Trade executed: BUY 3.9 TONUSDT at 3.0416
+2025-08-29 09:40:06,200 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:40:06,200 - telegram_bot - ERROR - Failed to place stop-loss for TONUSDT
+2025-08-29 09:40:06,200 - telegram_bot - INFO - 🔄 Processing signal for 1000000BOBUSDT...
+2025-08-29 09:40:06,201 - telegram_bot - INFO - 💼 Processing SELL signal for 1000000BOBUSDT
+2025-08-29 09:40:06,481 - telegram_bot - INFO - 💰 Current balance: $14673.26 USDT
+2025-08-29 09:40:06,482 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14673.26 | Confidence=60.0%
+2025-08-29 09:40:06,482 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:40:06,482 - risk_manager - INFO - 🛡️ Risk Check for 1000000BOBUSDT: Amount=$12.00 | Balance=$14673.26
+2025-08-29 09:40:06,482 - risk_manager - INFO - Current drawdown: 0.03%
+2025-08-29 09:40:06,482 - risk_manager - INFO - ✅ Risk Check Passed for 1000000BOBUSDT: All conditions met
+2025-08-29 09:40:07,498 - binance_client - ERROR - API error placing order: APIError(code=-1121): Invalid symbol.
+2025-08-29 09:40:07,498 - telegram_bot - ERROR - Failed to execute trade for 1000000BOBUSDT: Order placement failed
+2025-08-29 09:41:07,560 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 09:41:07,560 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-29 09:41:07,560 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-29 09:41:07,560 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-29 09:41:07,944 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=30.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:07,944 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (30.2, нужно <30.0 или >70.0)
+2025-08-29 09:41:07,944 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:08,499 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:08,499 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.6, нужно <30.0 или >70.0)
+2025-08-29 09:41:08,499 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:09,075 - trading_strategy - INFO - 🔍 DOTUSDT Signal Check: Trend=DOWN | RSI=38.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:09,075 - trading_strategy - INFO - ⏸️ DOTUSDT: HOLD - RSI в нейтральной зоне (38.8, нужно <30.0 или >70.0)
+2025-08-29 09:41:09,075 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:09,461 - trading_strategy - INFO - 🔍 LINKUSDT Signal Check: Trend=DOWN | RSI=28.6 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:09,461 - trading_strategy - INFO - ✅ LINKUSDT BUY условие выполнено: RSI 28.6 < 30.0 (oversold)
+2025-08-29 09:41:09,461 - trading_strategy - INFO - ✅ LINKUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$22.5525 | TP=$24.6450
+2025-08-29 09:41:09,461 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.6) in down trend
+2025-08-29 09:41:10,023 - trading_strategy - INFO - 🔍 1000000MOGUSDT Signal Check: Trend=DOWN | RSI=28.7 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:10,023 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY условие выполнено: RSI 28.7 < 30.0 (oversold)
+2025-08-29 09:41:10,024 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$0.8476 | TP=$0.9262
+2025-08-29 09:41:10,024 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.7) in down trend
+2025-08-29 09:41:10,588 - trading_strategy - INFO - 🔍 TRXUSDT Signal Check: Trend=DOWN | RSI=46.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:10,588 - trading_strategy - INFO - ⏸️ TRXUSDT: HOLD - RSI в нейтральной зоне (46.8, нужно <30.0 или >70.0)
+2025-08-29 09:41:10,588 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:10,800 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=22.5 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:10,800 - trading_strategy - INFO - ✅ TONUSDT BUY условие выполнено: RSI 22.5 < 30.0 (oversold)
+2025-08-29 09:41:10,800 - trading_strategy - INFO - ✅ TONUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$2.9504 | TP=$3.2241
+2025-08-29 09:41:10,800 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (22.5) in down trend
+2025-08-29 09:41:11,185 - trading_strategy - INFO - 🔍 1000CATUSDT Signal Check: Trend=DOWN | RSI=30.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:11,185 - trading_strategy - INFO - ⏸️ 1000CATUSDT: HOLD - RSI в нейтральной зоне (30.6, нужно <30.0 или >70.0)
+2025-08-29 09:41:11,186 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:11,396 - trading_strategy - INFO - 🔍 1000BONKUSDT Signal Check: Trend=DOWN | RSI=39.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:11,396 - trading_strategy - INFO - ⏸️ 1000BONKUSDT: HOLD - RSI в нейтральной зоне (39.0, нужно <30.0 или >70.0)
+2025-08-29 09:41:11,397 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:11,766 - trading_strategy - INFO - 🔍 1000000BOBUSDT Signal Check: Trend=SIDEWAYS | RSI=100.0 | Oversold=False(<30.0) | Overbought=True(>70.0) | HasPosition=False
+2025-08-29 09:41:11,766 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL условие выполнено: RSI 100.0 > 70.0 (overbought)
+2025-08-29 09:41:11,766 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL Signal: Overbought RSI | Trend=SIDEWAYS | Confidence=60.0% | SL=$0.0803 | TP=$0.0733
+2025-08-29 09:41:11,766 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (100.0) in sideways trend
+2025-08-29 09:41:12,155 - trading_strategy - INFO - 🔍 1000CHEEMSUSDT Signal Check: Trend=DOWN | RSI=37.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:41:12,155 - trading_strategy - INFO - ⏸️ 1000CHEEMSUSDT: HOLD - RSI в нейтральной зоне (37.1, нужно <30.0 или >70.0)
+2025-08-29 09:41:12,155 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:41:12,155 - telegram_bot - INFO - 🎯 Found 4 trading signals: ['LINKUSDT-BUY', '1000000MOGUSDT-BUY', 'TONUSDT-BUY']
+2025-08-29 09:41:12,155 - telegram_bot - INFO -   📈 LINKUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.6) in down trend
+2025-08-29 09:41:12,156 - telegram_bot - INFO -   📈 1000000MOGUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.7) in down trend
+2025-08-29 09:41:12,156 - telegram_bot - INFO -   📈 TONUSDT: BUY (confidence: 60.0%) - Oversold RSI (22.5) in down trend
+2025-08-29 09:41:12,156 - telegram_bot - INFO -   📈 1000000BOBUSDT: SELL (confidence: 60.0%) - Overbought RSI (100.0) in sideways trend
+2025-08-29 09:41:12,156 - telegram_bot - INFO - 🔄 Processing signal for LINKUSDT...
+2025-08-29 09:41:12,156 - telegram_bot - INFO - 💼 Processing BUY signal for LINKUSDT
+2025-08-29 09:41:12,448 - telegram_bot - INFO - 💰 Current balance: $14678.67 USDT
+2025-08-29 09:41:12,449 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14678.67 | Confidence=60.0%
+2025-08-29 09:41:12,449 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:41:12,449 - risk_manager - INFO - 🛡️ Risk Check for LINKUSDT: Amount=$12.00 | Balance=$14678.67
+2025-08-29 09:41:12,449 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-29 09:41:12,449 - risk_manager - INFO - ✅ Risk Check Passed for LINKUSDT: All conditions met
+2025-08-29 09:41:13,013 - binance_client - INFO - Market order placed: BUY 0.52 LINKUSDT
+2025-08-29 09:41:13,014 - data_storage - INFO - Trade saved: LINKUSDT - BUY - open
+2025-08-29 09:41:13,014 - risk_manager - INFO - Daily trades: 6/50
+2025-08-29 09:41:13,014 - telegram_bot - INFO - Trade executed: BUY 0.52 LINKUSDT at 23.25
+2025-08-29 09:41:13,299 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:41:13,299 - telegram_bot - ERROR - Failed to place stop-loss for LINKUSDT
+2025-08-29 09:41:13,299 - telegram_bot - INFO - 🔄 Processing signal for 1000000MOGUSDT...
+2025-08-29 09:41:13,299 - telegram_bot - INFO - 💼 Processing BUY signal for 1000000MOGUSDT
+2025-08-29 09:41:13,581 - telegram_bot - INFO - 💰 Current balance: $14677.52 USDT
+2025-08-29 09:41:13,581 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14677.52 | Confidence=60.0%
+2025-08-29 09:41:13,581 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:41:13,582 - risk_manager - INFO - 🛡️ Risk Check for 1000000MOGUSDT: Amount=$12.00 | Balance=$14677.52
+2025-08-29 09:41:13,582 - risk_manager - INFO - Current drawdown: 0.01%
+2025-08-29 09:41:13,582 - risk_manager - INFO - ✅ Risk Check Passed for 1000000MOGUSDT: All conditions met
+2025-08-29 09:41:14,393 - binance_client - INFO - Market order placed: BUY 13.7 1000000MOGUSDT
+2025-08-29 09:41:14,394 - data_storage - INFO - Trade saved: 1000000MOGUSDT - BUY - open
+2025-08-29 09:41:14,394 - risk_manager - INFO - Daily trades: 7/50
+2025-08-29 09:41:14,395 - telegram_bot - INFO - Trade executed: BUY 13.7 1000000MOGUSDT at 0.8738
+2025-08-29 09:41:14,676 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:41:14,676 - telegram_bot - ERROR - Failed to place stop-loss for 1000000MOGUSDT
+2025-08-29 09:41:14,676 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-08-29 09:41:14,677 - telegram_bot - INFO - 💼 Processing BUY signal for TONUSDT
+2025-08-29 09:41:14,969 - telegram_bot - INFO - 💰 Current balance: $14673.32 USDT
+2025-08-29 09:41:14,969 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14673.32 | Confidence=60.0%
+2025-08-29 09:41:14,969 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:41:14,969 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$12.00 | Balance=$14673.32
+2025-08-29 09:41:14,969 - risk_manager - INFO - Current drawdown: 0.04%
+2025-08-29 09:41:14,969 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-08-29 09:41:15,564 - binance_client - INFO - Market order placed: BUY 3.9 TONUSDT
+2025-08-29 09:41:15,565 - data_storage - INFO - Trade saved: TONUSDT - BUY - open
+2025-08-29 09:41:15,565 - risk_manager - INFO - Daily trades: 8/50
+2025-08-29 09:41:15,565 - telegram_bot - INFO - Trade executed: BUY 3.9 TONUSDT at 3.0416
+2025-08-29 09:41:15,662 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:41:15,662 - telegram_bot - ERROR - Failed to place stop-loss for TONUSDT
+2025-08-29 09:41:15,662 - telegram_bot - INFO - 🔄 Processing signal for 1000000BOBUSDT...
+2025-08-29 09:41:15,662 - telegram_bot - INFO - 💼 Processing SELL signal for 1000000BOBUSDT
+2025-08-29 09:41:15,965 - telegram_bot - INFO - 💰 Current balance: $14670.34 USDT
+2025-08-29 09:41:15,965 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14670.34 | Confidence=60.0%
+2025-08-29 09:41:15,965 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:41:15,965 - risk_manager - INFO - 🛡️ Risk Check for 1000000BOBUSDT: Amount=$12.00 | Balance=$14670.34
+2025-08-29 09:41:15,965 - risk_manager - INFO - Current drawdown: 0.06%
+2025-08-29 09:41:15,966 - risk_manager - INFO - ✅ Risk Check Passed for 1000000BOBUSDT: All conditions met
+2025-08-29 09:41:16,729 - binance_client - ERROR - API error placing order: APIError(code=-1121): Invalid symbol.
+2025-08-29 09:41:16,730 - telegram_bot - ERROR - Failed to execute trade for 1000000BOBUSDT: Order placement failed
+2025-08-29 09:42:16,791 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 09:42:16,791 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']}}
+2025-08-29 09:42:16,791 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-29 09:42:16,791 - telegram_bot - INFO - 🔍 Scanning 11 symbols for trading opportunities...
+2025-08-29 09:42:17,326 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=30.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:17,326 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (30.2, нужно <30.0 или >70.0)
+2025-08-29 09:42:17,327 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:17,706 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:17,706 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.8, нужно <30.0 или >70.0)
+2025-08-29 09:42:17,713 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:17,908 - trading_strategy - INFO - 🔍 DOTUSDT Signal Check: Trend=DOWN | RSI=38.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:17,909 - trading_strategy - INFO - ⏸️ DOTUSDT: HOLD - RSI в нейтральной зоне (38.8, нужно <30.0 или >70.0)
+2025-08-29 09:42:17,909 - trading_strategy - INFO - 🎯 DOTUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:18,460 - trading_strategy - INFO - 🔍 LINKUSDT Signal Check: Trend=DOWN | RSI=28.6 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:18,461 - trading_strategy - INFO - ✅ LINKUSDT BUY условие выполнено: RSI 28.6 < 30.0 (oversold)
+2025-08-29 09:42:18,461 - trading_strategy - INFO - ✅ LINKUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$22.5525 | TP=$24.6450
+2025-08-29 09:42:18,461 - trading_strategy - INFO - 🎯 LINKUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.6) in down trend
+2025-08-29 09:42:18,843 - trading_strategy - INFO - 🔍 1000000MOGUSDT Signal Check: Trend=DOWN | RSI=28.7 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:18,844 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY условие выполнено: RSI 28.7 < 30.0 (oversold)
+2025-08-29 09:42:18,844 - trading_strategy - INFO - ✅ 1000000MOGUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$0.8476 | TP=$0.9262
+2025-08-29 09:42:18,844 - trading_strategy - INFO - 🎯 1000000MOGUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.7) in down trend
+2025-08-29 09:42:19,411 - trading_strategy - INFO - 🔍 TRXUSDT Signal Check: Trend=DOWN | RSI=56.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:19,411 - trading_strategy - INFO - ⏸️ TRXUSDT: HOLD - RSI в нейтральной зоне (56.5, нужно <30.0 или >70.0)
+2025-08-29 09:42:19,411 - trading_strategy - INFO - 🎯 TRXUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:19,963 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=22.6 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:19,964 - trading_strategy - INFO - ✅ TONUSDT BUY условие выполнено: RSI 22.6 < 30.0 (oversold)
+2025-08-29 09:42:19,964 - trading_strategy - INFO - ✅ TONUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$2.9512 | TP=$3.2250
+2025-08-29 09:42:19,965 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (22.6) in down trend
+2025-08-29 09:42:20,363 - trading_strategy - INFO - 🔍 1000CATUSDT Signal Check: Trend=DOWN | RSI=30.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:20,364 - trading_strategy - INFO - ⏸️ 1000CATUSDT: HOLD - RSI в нейтральной зоне (30.6, нужно <30.0 или >70.0)
+2025-08-29 09:42:20,364 - trading_strategy - INFO - 🎯 1000CATUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:20,928 - trading_strategy - INFO - 🔍 1000BONKUSDT Signal Check: Trend=DOWN | RSI=39.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:20,928 - trading_strategy - INFO - ⏸️ 1000BONKUSDT: HOLD - RSI в нейтральной зоне (39.0, нужно <30.0 или >70.0)
+2025-08-29 09:42:20,928 - trading_strategy - INFO - 🎯 1000BONKUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:21,321 - trading_strategy - INFO - 🔍 1000000BOBUSDT Signal Check: Trend=SIDEWAYS | RSI=100.0 | Oversold=False(<30.0) | Overbought=True(>70.0) | HasPosition=False
+2025-08-29 09:42:21,321 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL условие выполнено: RSI 100.0 > 70.0 (overbought)
+2025-08-29 09:42:21,321 - trading_strategy - INFO - ✅ 1000000BOBUSDT SELL Signal: Overbought RSI | Trend=SIDEWAYS | Confidence=60.0% | SL=$0.0803 | TP=$0.0733
+2025-08-29 09:42:21,322 - trading_strategy - INFO - 🎯 1000000BOBUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (100.0) in sideways trend
+2025-08-29 09:42:21,685 - trading_strategy - INFO - 🔍 1000CHEEMSUSDT Signal Check: Trend=DOWN | RSI=37.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-29 09:42:21,685 - trading_strategy - INFO - ⏸️ 1000CHEEMSUSDT: HOLD - RSI в нейтральной зоне (37.1, нужно <30.0 или >70.0)
+2025-08-29 09:42:21,685 - trading_strategy - INFO - 🎯 1000CHEEMSUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-29 09:42:21,685 - telegram_bot - INFO - 🎯 Found 4 trading signals: ['LINKUSDT-BUY', '1000000MOGUSDT-BUY', 'TONUSDT-BUY']
+2025-08-29 09:42:21,685 - telegram_bot - INFO -   📈 LINKUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.6) in down trend
+2025-08-29 09:42:21,685 - telegram_bot - INFO -   📈 1000000MOGUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.7) in down trend
+2025-08-29 09:42:21,685 - telegram_bot - INFO -   📈 TONUSDT: BUY (confidence: 60.0%) - Oversold RSI (22.6) in down trend
+2025-08-29 09:42:21,686 - telegram_bot - INFO -   📈 1000000BOBUSDT: SELL (confidence: 60.0%) - Overbought RSI (100.0) in sideways trend
+2025-08-29 09:42:21,686 - telegram_bot - INFO - 🔄 Processing signal for LINKUSDT...
+2025-08-29 09:42:21,686 - telegram_bot - INFO - 💼 Processing BUY signal for LINKUSDT
+2025-08-29 09:42:21,795 - telegram_bot - INFO - 💰 Current balance: $14679.27 USDT
+2025-08-29 09:42:21,795 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14679.27 | Confidence=60.0%
+2025-08-29 09:42:21,795 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:42:21,795 - risk_manager - INFO - 🛡️ Risk Check for LINKUSDT: Amount=$12.00 | Balance=$14679.27
+2025-08-29 09:42:21,796 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-29 09:42:21,796 - risk_manager - INFO - ✅ Risk Check Passed for LINKUSDT: All conditions met
+2025-08-29 09:42:22,388 - binance_client - INFO - Market order placed: BUY 0.52 LINKUSDT
+2025-08-29 09:42:22,389 - data_storage - INFO - Trade saved: LINKUSDT - BUY - open
+2025-08-29 09:42:22,389 - risk_manager - INFO - Daily trades: 9/50
+2025-08-29 09:42:22,389 - telegram_bot - INFO - Trade executed: BUY 0.52 LINKUSDT at 23.25
+2025-08-29 09:42:22,488 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:42:22,488 - telegram_bot - ERROR - Failed to place stop-loss for LINKUSDT
+2025-08-29 09:42:22,488 - telegram_bot - INFO - 🔄 Processing signal for 1000000MOGUSDT...
+2025-08-29 09:42:22,488 - telegram_bot - INFO - 💼 Processing BUY signal for 1000000MOGUSDT
+2025-08-29 09:42:22,604 - telegram_bot - INFO - 💰 Current balance: $14678.10 USDT
+2025-08-29 09:42:22,604 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14678.10 | Confidence=60.0%
+2025-08-29 09:42:22,604 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:42:22,604 - risk_manager - INFO - 🛡️ Risk Check for 1000000MOGUSDT: Amount=$12.00 | Balance=$14678.10
+2025-08-29 09:42:22,604 - risk_manager - INFO - Current drawdown: 0.01%
+2025-08-29 09:42:22,604 - risk_manager - INFO - ✅ Risk Check Passed for 1000000MOGUSDT: All conditions met
+2025-08-29 09:42:23,197 - binance_client - INFO - Market order placed: BUY 13.7 1000000MOGUSDT
+2025-08-29 09:42:23,198 - data_storage - INFO - Trade saved: 1000000MOGUSDT - BUY - open
+2025-08-29 09:42:23,198 - risk_manager - INFO - Daily trades: 10/50
+2025-08-29 09:42:23,198 - telegram_bot - INFO - Trade executed: BUY 13.7 1000000MOGUSDT at 0.8738
+2025-08-29 09:42:23,298 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:42:23,298 - telegram_bot - ERROR - Failed to place stop-loss for 1000000MOGUSDT
+2025-08-29 09:42:23,298 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-08-29 09:42:23,298 - telegram_bot - INFO - 💼 Processing BUY signal for TONUSDT
+2025-08-29 09:42:23,406 - telegram_bot - INFO - 💰 Current balance: $14672.10 USDT
+2025-08-29 09:42:23,406 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14672.10 | Confidence=60.0%
+2025-08-29 09:42:23,406 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:42:23,406 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$12.00 | Balance=$14672.10
+2025-08-29 09:42:23,407 - risk_manager - INFO - Current drawdown: 0.05%
+2025-08-29 09:42:23,407 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-08-29 09:42:24,187 - binance_client - INFO - Market order placed: BUY 3.9 TONUSDT
+2025-08-29 09:42:24,188 - data_storage - INFO - Trade saved: TONUSDT - BUY - open
+2025-08-29 09:42:24,188 - risk_manager - INFO - Daily trades: 11/50
+2025-08-29 09:42:24,188 - telegram_bot - INFO - Trade executed: BUY 3.9 TONUSDT at 3.0425
+2025-08-29 09:42:24,462 - binance_client - ERROR - API error placing stop-loss: APIError(code=-1116): Invalid orderType.
+2025-08-29 09:42:24,462 - telegram_bot - ERROR - Failed to place stop-loss for TONUSDT
+2025-08-29 09:42:24,462 - telegram_bot - INFO - 🔄 Processing signal for 1000000BOBUSDT...
+2025-08-29 09:42:24,462 - telegram_bot - INFO - 💼 Processing SELL signal for 1000000BOBUSDT
+2025-08-29 09:42:24,570 - telegram_bot - INFO - 💰 Current balance: $14667.36 USDT
+2025-08-29 09:42:24,571 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14667.36 | Confidence=60.0%
+2025-08-29 09:42:24,571 - risk_manager - INFO - ✅ Final position size: 12.00 USDT (confidence: 60.0%)
+2025-08-29 09:42:24,571 - risk_manager - INFO - 🛡️ Risk Check for 1000000BOBUSDT: Amount=$12.00 | Balance=$14667.36
+2025-08-29 09:42:24,571 - risk_manager - INFO - Current drawdown: 0.08%
+2025-08-29 09:42:24,571 - risk_manager - INFO - ✅ Risk Check Passed for 1000000BOBUSDT: All conditions met
+2025-08-29 09:42:25,596 - binance_client - ERROR - API error placing order: APIError(code=-1121): Invalid symbol.
+2025-08-29 09:42:25,596 - telegram_bot - ERROR - Failed to execute trade for 1000000BOBUSDT: Order placement failed
+2025-08-29 09:42:34,469 - binance_client - ERROR - Error getting positions: 'percentage'
+2025-08-29 09:42:44,826 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 09:42:44,827 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-29 09:42:45,327 - binance_client - INFO - Connected to Binance Testnet
+2025-08-29 09:42:45,675 - risk_manager - INFO - Risk Manager initialized with balance: 14679.82877067 USDT
+2025-08-29 09:42:45,675 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-29 09:42:45,675 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-29 09:42:45,675 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-29 09:42:46,822 - binance_client - ERROR - Error getting positions: 'percentage'

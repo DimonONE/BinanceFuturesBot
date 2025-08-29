@@ -166,8 +166,18 @@ class TrendFollowingStrategy:
                         oversold: bool, overbought: bool, support: float, resistance: float) -> Optional[TradingSignal]:
         """Generate trading signal based on analysis"""
         
-        # Check if we have an existing position
+        # Check if we have an existing position (from both local cache and Binance)
         existing_position = self.active_positions.get(symbol)
+        
+        # Also check actual Binance positions to be sure
+        binance_positions = self.binance_client.get_open_positions_sync()
+        has_binance_position = any(pos['symbol'] == symbol for pos in binance_positions)
+        
+        # If we found position on Binance but not in local cache, update cache
+        if has_binance_position and not existing_position:
+            binance_pos = next(pos for pos in binance_positions if pos['symbol'] == symbol)
+            self.active_positions[symbol] = binance_pos
+            existing_position = binance_pos
         
         # Получаем RSI для детального логирования
         klines_for_rsi = self.binance_client.get_klines_sync(symbol, "1h", self.config.RSI_PERIOD + 10)

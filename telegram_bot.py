@@ -831,6 +831,15 @@ class TradingBot:
                 self.data_storage.save_trade(trade_data)
                 self.risk_manager.update_daily_trades()
                 
+                # Update active positions cache in trading strategy
+                position_data = {
+                    'symbol': symbol,
+                    'position_amt': quantity if side == 'BUY' else -quantity,
+                    'entry_price': signal.entry_price,
+                    'side': 'LONG' if side == 'BUY' else 'SHORT'
+                }
+                self.trading_strategy.update_position(symbol, position_data)
+                
                 logger.info(f"Trade executed: {side} {quantity} {symbol} at {signal.entry_price}")
                 
                 # Send notification to user about trade

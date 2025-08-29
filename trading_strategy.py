@@ -35,9 +35,10 @@ class TradingSignal:
 class TrendFollowingStrategy:
     """Trend following strategy with smart position averaging"""
     
-    def __init__(self, binance_client, config):
+    def __init__(self, binance_client, config, data_storage=None):
         self.binance_client = binance_client
         self.config = config
+        self.data_storage = data_storage
         self.active_positions: Dict[str, Dict] = {}
         self.trend_cache: Dict[str, TrendDirection] = {}
         
@@ -248,25 +249,83 @@ class TrendFollowingStrategy:
             entry_price = existing_position.get('entry_price', current_price)
             position_side = existing_position.get('side', 'LONG')
             
-            # Exit long position
-            if position_side == 'LONG':
-                # Take profit or stop loss
-                if current_price >= entry_price * (1 + self.config.TAKE_PROFIT_PERCENT / 100):
-                    return TradingSignal(
-                        symbol=symbol,
-                        signal_type=SignalType.SELL,
-                        confidence=0.9,
-                        entry_price=current_price,
-                        reason="Take profit reached"
-                    )
-                elif current_price <= entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100):
-                    return TradingSignal(
-                        symbol=symbol,
-                        signal_type=SignalType.SELL,
-                        confidence=0.9,
-                        entry_price=current_price,
-                        reason="Stop loss triggered"
-                    )
+            # Get all open trades for this symbol to calculate average entry price
+            open_trades = []
+            if self.data_storage:
+                all_trades = self.data_storage.get_all_trades()
+                open_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
+            else:
+                # Fallback to active_positions if no data_storage
+                open_trades = [t for t in self.active_positions.get(symbol, []) if t.get('status') == 'open']
+            
+            if open_trades:
+                # Calculate weighted average entry price
+                total_value = sum(trade['price'] * trade['quantity'] for trade in open_trades)
+                total_quantity = sum(trade['quantity'] for trade in open_trades)
+                avg_entry_price = total_value / total_quantity if total_quantity > 0 else entry_price
+                
+                # Get the oldest trade timestamp for minimum hold time check
+                from datetime import datetime, timedelta
+                oldest_trade_time = min(datetime.fromisoformat(trade['timestamp']) for trade in open_trades)
+                min_hold_time = timedelta(minutes=5)  # Minimum 5 minutes hold time
+                
+                # Only check exit conditions if minimum hold time has passed
+                if datetime.now() - oldest_trade_time >= min_hold_time:
+                    # Exit long position
+                    if position_side == 'LONG':
+                        # Add trading fees buffer to take profit (0.08% total fees = 0.04% buy + 0.04% sell)
+                        fee_buffer = 0.0008  # 0.08%
+                        take_profit_threshold = avg_entry_price * (1 + (self.config.TAKE_PROFIT_PERCENT / 100) + fee_buffer)
+                        stop_loss_threshold = avg_entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
+                        
+                        logger.info(f"🔍 {symbol} Exit Check: Current={current_price:.4f} | AvgEntry={avg_entry_price:.4f} | TP≥{take_profit_threshold:.4f} | SL≤{stop_loss_threshold:.4f}")
+                        
+                        # Take profit or stop loss
+                        if current_price >= take_profit_threshold:
+                            logger.info(f"🎯 {symbol} TAKE PROFIT: {current_price:.4f} >= {take_profit_threshold:.4f} (avg entry: {avg_entry_price:.4f})")
+                            return TradingSignal(
+                                symbol=symbol,
+                                signal_type=SignalType.SELL,
+                                confidence=0.9,
+                                entry_price=current_price,
+                                reason=f"Take profit reached: {current_price:.4f} >= {take_profit_threshold:.4f}"
+                            )
+                        elif current_price <= stop_loss_threshold:
+                            logger.info(f"🛑 {symbol} STOP LOSS: {current_price:.4f} <= {stop_loss_threshold:.4f} (avg entry: {avg_entry_price:.4f})")
+                            return TradingSignal(
+                                symbol=symbol,
+                                signal_type=SignalType.SELL,
+                                confidence=0.9,
+                                entry_price=current_price,
+                                reason=f"Stop loss triggered: {current_price:.4f} <= {stop_loss_threshold:.4f}"
+                            )
+                else:
+                    time_remaining = min_hold_time - (datetime.now() - oldest_trade_time)
+                    logger.debug(f"⏰ {symbol}: Minimum hold time not reached. Time remaining: {time_remaining}")
+                    
+            else:
+                # Fallback to basic exit logic if no open trades found
+                if position_side == 'LONG':
+                    fee_buffer = 0.0008
+                    take_profit_threshold = entry_price * (1 + (self.config.TAKE_PROFIT_PERCENT / 100) + fee_buffer)
+                    stop_loss_threshold = entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
+                    
+                    if current_price >= take_profit_threshold:
+                        return TradingSignal(
+                            symbol=symbol,
+                            signal_type=SignalType.SELL,
+                            confidence=0.9,
+                            entry_price=current_price,
+                            reason="Take profit reached (fallback)"
+                        )
+                    elif current_price <= stop_loss_threshold:
+                        return TradingSignal(
+                            symbol=symbol,
+                            signal_type=SignalType.SELL,
+                            confidence=0.9,
+                            entry_price=current_price,
+                            reason="Stop loss triggered (fallback)"
+                        )
         
         # Default: hold - log the reason
         if existing_position:

@@ -35,7 +35,7 @@ class TradingBot:
             config.BINANCE_TESTNET
         )
         self.risk_manager = RiskManager(config, self.data_storage)
-        self.strategy = TrendFollowingStrategy(self.binance_client, config)
+        self.strategy = TrendFollowingStrategy(self.binance_client, config, self.data_storage)
         self.websocket_handler = WebSocketHandler(self.binance_client)
         
         # Bot state

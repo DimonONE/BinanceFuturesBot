@@ -290,6 +290,33 @@ class BinanceClient:
             logger.error(f"Error getting klines for {symbol}: {e}")
             return []
     
+    def place_market_order_sync(self, symbol: str, side: str, quantity: float) -> Optional[Dict]:
+        """Place a market order (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return None
+                
+            order = self.sync_client.futures_create_order(
+                symbol=symbol,
+                side=side,
+                type=ORDER_TYPE_MARKET,
+                quantity=quantity
+            )
+            
+            logger.info(f"Market order placed: {side} {quantity} {symbol}")
+            return order
+            
+        except BinanceOrderException as e:
+            logger.error(f"Order error: {e}")
+            return None
+        except BinanceAPIException as e:
+            logger.error(f"API error placing order: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"Error placing market order: {e}")
+            return None
+
     async def place_market_order(self, symbol: str, side: str, quantity: float) -> Optional[Dict]:
         """Place a market order"""
         try:
@@ -346,6 +373,34 @@ class BinanceClient:
             logger.error(f"Error placing limit order: {e}")
             return None
     
+    def place_stop_loss_order_sync(self, symbol: str, side: str, quantity: float, stop_price: float) -> Optional[Dict]:
+        """Place a stop-loss order (synchronous)"""
+        try:
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
+                return None
+                
+            order = self.sync_client.futures_create_order(
+                symbol=symbol,
+                side=side,
+                type=ORDER_TYPE_STOP_LOSS,
+                quantity=quantity,
+                stopPrice=stop_price
+            )
+            
+            logger.info(f"Stop-loss order placed: {side} {quantity} {symbol} at {stop_price}")
+            return order
+            
+        except BinanceOrderException as e:
+            logger.error(f"Order error: {e}")
+            return None
+        except BinanceAPIException as e:
+            logger.error(f"API error placing stop-loss: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"Error placing stop-loss order: {e}")
+            return None
+
     async def place_stop_loss_order(self, symbol: str, side: str, quantity: float, stop_price: float) -> Optional[Dict]:
         """Place a stop-loss order"""
         try:

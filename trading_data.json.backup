@@ -11,20 +11,36 @@
         "TONUSDT",
         "1000CATUSDT",
         "1000BONKUSDT",
-        "1000000BOBUSDT"
+        "1000000BOBUSDT",
+        "1000CHEEMSUSDT"
       ]
     }
   },
-  "trades": [],
+  "trades": [
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 0.52,
+      "price": 23.273,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197534365,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (28.8) in down trend",
+      "timestamp": "2025-08-29T09:38:54.191316",
+      "id": 1
+    }
+  ],
   "positions": [],
   "balance_history": [],
   "bot_stats": {
-    "total_trades": 0,
+    "total_trades": 1,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-28T22:26:24.777103"
+  "last_update": "2025-08-29T09:38:54.191781"
 }

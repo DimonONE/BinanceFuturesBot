@@ -811,7 +811,7 @@ class TradingBot:
             
             # Place the order
             side = 'BUY' if signal.signal_type == SignalType.BUY else 'SELL'
-            order = await self.binance_client.place_market_order(symbol, side, quantity)
+            order = self.binance_client.place_market_order_sync(symbol, side, quantity)
             
             if order:
                 # Save trade record
@@ -860,7 +860,7 @@ class TradingBot:
                 # Place stop-loss order
                 if signal.stop_loss:
                     stop_side = 'SELL' if side == 'BUY' else 'BUY'
-                    stop_order = await self.binance_client.place_stop_loss_order(symbol, stop_side, quantity, signal.stop_loss)
+                    stop_order = self.binance_client.place_stop_loss_order_sync(symbol, stop_side, quantity, signal.stop_loss)
                     if stop_order:
                         logger.info(f"Stop-loss placed: {stop_side} {quantity} {symbol} at {signal.stop_loss}")
                     else:

@@ -454,19 +454,19 @@ class BinanceClient:
             logger.error(f"Error getting positions: {e}")
             return []
     
-    async def calculate_quantity_from_usdt(self, symbol: str, usdt_amount: float) -> Optional[float]:
-        """Calculate quantity based on USDT amount"""
+    def calculate_quantity_from_usdt_sync(self, symbol: str, usdt_amount: float) -> Optional[float]:
+        """Calculate quantity based on USDT amount (synchronous)"""
         try:
-            price = await self.get_current_price(symbol)
+            price = self.get_current_price_sync(symbol)
             if price is None:
                 return None
             
             # Get symbol info for precision
-            if not self.client:
-                logger.error("Client not initialized")
+            if not self.sync_client:
+                logger.error("Sync client not initialized")
                 return None
                 
-            exchange_info = await self.client.futures_exchange_info()
+            exchange_info = self.sync_client.futures_exchange_info()
             symbol_info = None
             
             for s in exchange_info['symbols']:

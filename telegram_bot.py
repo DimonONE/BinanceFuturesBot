@@ -804,7 +804,7 @@ class TradingBot:
                 return
             
             # Calculate quantity from USDT amount
-            quantity = await self.binance_client.calculate_quantity_from_usdt(symbol, position_size)
+            quantity = self.binance_client.calculate_quantity_from_usdt_sync(symbol, position_size)
             if not quantity:
                 logger.error(f"Could not calculate quantity for {symbol}")
                 return

@@ -607,16 +607,7 @@
   ],
   "positions": [],
   "balance_history": [],
-  "active_orders": {
-    "LINKUSDT": {
-      "stop_loss": "197636721",
-      "take_profit": "197636724"
-    },
-    "TONUSDT": {
-      "stop_loss": "17094577",
-      "take_profit": "17094580"
-    }
-  },
+  "active_orders": {},
   "bot_stats": {
     "total_trades": 42,
     "winning_trades": 0,
@@ -625,5 +616,5 @@
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T12:45:48.207345"
+  "last_update": "2025-08-29T12:46:49.651025"
 }

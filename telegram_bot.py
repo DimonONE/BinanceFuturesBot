@@ -290,11 +290,18 @@ class TradingBot:
                     size = abs(pos['position_amt'])
                     entry_price = pos['entry_price']
                     unrealized_pnl = pos['unrealized_pnl']
-                    percentage = pos['percentage']
                     
                     # Get current price
                     current_price = self.binance_client.get_current_price_sync(symbol)
                     current_price_str = f"{format_number(current_price)}" if current_price else "N/A"
+                    
+                    # Calculate percentage manually if testnet doesn't provide it
+                    percentage = pos['percentage']
+                    if percentage == 0.0 and unrealized_pnl != 0:
+                        # Calculate percentage: (unrealized_pnl / position_value) * 100
+                        position_value = size * entry_price
+                        if position_value > 0:
+                            percentage = (unrealized_pnl / position_value) * 100
                     
                     pnl_emoji = "🟢" if unrealized_pnl >= 0 else "🔴"
                     side_emoji = "🟢" if side == "LONG" else "🔴"

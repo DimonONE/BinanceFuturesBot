@@ -3890,3 +3890,10 @@ aiohttp.client_exceptions.ClientOSError: [Errno 1] [SSL: APPLICATION_DATA_AFTER_
 2025-08-29 09:46:42,041 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
 2025-08-29 09:46:42,041 - websocket_handler - INFO - Price monitoring started for 11 symbols
 2025-08-29 09:46:42,041 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-29 09:50:04,413 - data_storage - INFO - Trading data loaded successfully
+2025-08-29 09:50:04,413 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-29 09:50:04,926 - binance_client - INFO - Connected to Binance Testnet
+2025-08-29 09:50:05,250 - risk_manager - INFO - Risk Manager initialized with balance: 14689.35084429 USDT
+2025-08-29 09:50:05,250 - telegram_bot - INFO - Loading user trading pairs: ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT'] -> ['ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', '1000000MOGUSDT', 'TRXUSDT', 'TONUSDT', '1000CATUSDT', '1000BONKUSDT', '1000000BOBUSDT', '1000CHEEMSUSDT']
+2025-08-29 09:50:05,250 - websocket_handler - INFO - Price monitoring started for 11 symbols
+2025-08-29 09:50:05,250 - telegram_bot - INFO - Starting Telegram bot...

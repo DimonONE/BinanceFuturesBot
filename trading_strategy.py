@@ -169,11 +169,17 @@ class TrendFollowingStrategy:
         # Check if we have an existing position
         existing_position = self.active_positions.get(symbol)
         
-        logger.debug(f"🔍 {symbol} Signal Check: Trend={trend.value} | Oversold={oversold} | Overbought={overbought} | "
-                    f"HasPosition={existing_position is not None}")
+        # Получаем RSI для детального логирования
+        klines_for_rsi = self.binance_client.get_klines_sync(symbol, "1h", self.config.RSI_PERIOD + 10)
+        current_rsi = self.calculate_rsi([float(k['close']) for k in klines_for_rsi], self.config.RSI_PERIOD) if klines_for_rsi else 0
+        
+        logger.info(f"🔍 {symbol} Signal Check: Trend={trend.value} | RSI={current_rsi:.1f} | "
+                   f"Oversold={oversold}(<{self.config.RSI_OVERSOLD}) | Overbought={overbought}(>{self.config.RSI_OVERBOUGHT}) | "
+                   f"HasPosition={existing_position is not None}")
         
         # Long entry conditions
         if trend == TrendDirection.UP and oversold and not existing_position:
+            logger.info(f"✅ {symbol} BUY условие выполнено: UP trend + RSI {current_rsi:.1f} < {self.config.RSI_OVERSOLD}")
             stop_loss = current_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 + self.config.TAKE_PROFIT_PERCENT / 100)
             
@@ -189,12 +195,13 @@ class TrendFollowingStrategy:
                 reason="Uptrend with oversold RSI"
             )
         elif trend == TrendDirection.UP and not oversold and not existing_position:
-            logger.debug(f"⏸️ {symbol}: Uptrend but not oversold (waiting for better entry)")
+            logger.info(f"⏸️ {symbol}: UP trend но НЕ oversold (RSI {current_rsi:.1f} >= {self.config.RSI_OVERSOLD}) - ждем лучшего входа")
         elif trend != TrendDirection.UP and not existing_position:
-            logger.debug(f"⏸️ {symbol}: No uptrend (trend={trend.value})")
+            logger.info(f"⏸️ {symbol}: НЕ UP trend (trend={trend.value}) - нет BUY условий")
         
         # Short entry conditions (если тренд вниз и overbought)
         elif trend == TrendDirection.DOWN and overbought and not existing_position:
+            logger.info(f"✅ {symbol} SELL условие выполнено: DOWN trend + RSI {current_rsi:.1f} > {self.config.RSI_OVERBOUGHT}")
             stop_loss = current_price * (1 + self.config.STOP_LOSS_PERCENT / 100)
             take_profit = current_price * (1 - self.config.TAKE_PROFIT_PERCENT / 100)
             
@@ -210,9 +217,9 @@ class TrendFollowingStrategy:
                 reason="Downtrend with overbought RSI"
             )
         elif trend == TrendDirection.DOWN and not overbought and not existing_position:
-            logger.info(f"⏸️ {symbol}: Downtrend но НЕ overbought (RSI={self.calculate_rsi([float(k['close']) for k in self.binance_client.get_klines_sync(symbol, '1h', self.config.RSI_PERIOD + 10)], self.config.RSI_PERIOD):.1f}, нужно >{self.config.RSI_OVERBOUGHT}) - ждем лучшего входа")
+            logger.info(f"⏸️ {symbol}: DOWN trend но НЕ overbought (RSI {current_rsi:.1f} <= {self.config.RSI_OVERBOUGHT}) - ждем лучшего входа")
         elif trend != TrendDirection.DOWN and overbought and not existing_position:
-            logger.info(f"⚠️ {symbol}: Overbought но НЕ downtrend (trend={trend.value}) - нет SELL сигнала")
+            logger.info(f"⚠️ {symbol}: Overbought (RSI {current_rsi:.1f}) но НЕ DOWN trend (trend={trend.value}) - нет SELL сигнала")
         
         # Position averaging - add to winning positions on pullbacks
         elif existing_position and trend == TrendDirection.UP:
@@ -255,9 +262,9 @@ class TrendFollowingStrategy:
         
         # Default: hold - log the reason
         if existing_position:
-            logger.debug(f"⏸️ {symbol}: Has existing position, no new signals")
+            logger.info(f"⏸️ {symbol}: HOLD - есть открытая позиция, новые сигналы не генерируем")
         else:
-            logger.debug(f"⏸️ {symbol}: No suitable entry conditions met")
+            logger.info(f"⏸️ {symbol}: HOLD - никакие торговые условия не выполнены (trend={trend.value}, RSI={current_rsi:.1f})")
         
         return TradingSignal(
             symbol=symbol,

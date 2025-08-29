@@ -651,6 +651,11 @@ class BinanceClient:
     def calculate_quantity_from_usdt_sync(self, symbol: str, usdt_amount: float) -> Optional[float]:
         """Calculate quantity based on USDT amount (synchronous)"""
         try:
+            # Check if symbol is tradeable first
+            if not self.is_symbol_tradeable_sync(symbol):
+                logger.warning(f"❌ Symbol {symbol} is not tradeable")
+                return None
+                
             price = self.get_current_price_sync(symbol)
             if price is None:
                 return None
@@ -671,18 +676,55 @@ class BinanceClient:
             if symbol_info is None:
                 logger.error(f"Symbol {symbol} not found")
                 return None
+                
+            # Check symbol status
+            if symbol_info['status'] != 'TRADING':
+                logger.warning(f"❌ Symbol {symbol} is not in TRADING status: {symbol_info['status']}")
+                return None
             
             # Calculate quantity
             quantity = usdt_amount / price
             
-            # Round to proper precision
+            # Apply trading filters
+            min_qty = None
+            max_qty = None
+            step_size = None
+            min_notional = None
+            
             for filter_info in symbol_info['filters']:
                 if filter_info['filterType'] == 'LOT_SIZE':
+                    min_qty = float(filter_info['minQty'])
+                    max_qty = float(filter_info['maxQty'])
                     step_size = float(filter_info['stepSize'])
-                    precision = len(str(step_size).split('.')[-1].rstrip('0'))
-                    quantity = round(quantity, precision)
-                    break
+                elif filter_info['filterType'] == 'MIN_NOTIONAL':
+                    min_notional = float(filter_info['minNotional'])
             
+            if step_size:
+                # Round to proper precision
+                precision = len(str(step_size).split('.')[-1].rstrip('0'))
+                quantity = round(quantity, precision)
+                
+                # Adjust to step size
+                quantity = round(quantity / step_size) * step_size
+                quantity = round(quantity, precision)
+            
+            # Check minimum quantity
+            if min_qty and quantity < min_qty:
+                logger.warning(f"❌ Quantity {quantity} < minimum {min_qty} for {symbol}")
+                return None
+                
+            # Check maximum quantity
+            if max_qty and quantity > max_qty:
+                logger.warning(f"❌ Quantity {quantity} > maximum {max_qty} for {symbol}")
+                return None
+            
+            # Check minimum notional value
+            notional_value = quantity * price
+            if min_notional and notional_value < min_notional:
+                logger.warning(f"❌ Notional value {notional_value:.2f} < minimum {min_notional:.2f} for {symbol}")
+                return None
+            
+            logger.info(f"✅ Calculated quantity: {quantity} {symbol} (value: ${notional_value:.2f})")
             return quantity
             
         except Exception as e:
@@ -692,6 +734,47 @@ class BinanceClient:
     def get_cached_price(self, symbol: str) -> Optional[float]:
         """Get cached price for a symbol"""
         return self._current_prices.get(symbol)
+    
+    def is_symbol_tradeable_sync(self, symbol: str) -> bool:
+        """Check if symbol is tradeable on futures market (synchronous)"""
+        try:
+            if not self.sync_client:
+                return False
+                
+            # Known problematic symbols on testnet
+            problematic_symbols = [
+                '1000000MOGUSDT',  # Very low liquidity
+                '1000CHEEMSUSDT',  # Frequent API errors
+                '1000BONKUSDT'     # Testnet issues
+            ]
+            
+            if symbol in problematic_symbols:
+                logger.warning(f"⚠️ Skipping problematic symbol: {symbol}")
+                return False
+            
+            exchange_info = self.sync_client.futures_exchange_info()
+            
+            for s in exchange_info['symbols']:
+                if s['symbol'] == symbol:
+                    # Check if symbol is in TRADING status
+                    if s['status'] != 'TRADING':
+                        logger.warning(f"❌ Symbol {symbol} status: {s['status']}")
+                        return False
+                    
+                    # Check if symbol supports the required order types
+                    order_types = s.get('orderTypes', [])
+                    if 'MARKET' not in order_types:
+                        logger.warning(f"❌ Symbol {symbol} doesn't support MARKET orders")
+                        return False
+                    
+                    return True
+            
+            logger.error(f"❌ Symbol {symbol} not found in exchange info")
+            return False
+            
+        except Exception as e:
+            logger.error(f"Error checking symbol tradeability: {e}")
+            return False
     
     def round_price_to_precision(self, symbol: str, price: float) -> float:
         """Round price to symbol's tick size precision"""

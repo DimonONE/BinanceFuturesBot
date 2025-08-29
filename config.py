@@ -23,7 +23,7 @@ class Config:
         self.BINANCE_TESTNET = os.getenv("BINANCE_TESTNET", "true").lower() == "true"
         
         # Trading Configuration
-        self.DEFAULT_TRADE_AMOUNT = float(os.getenv("DEFAULT_TRADE_AMOUNT", "10.0"))
+        self.DEFAULT_TRADE_AMOUNT = float(os.getenv("DEFAULT_TRADE_AMOUNT", "15.0"))
         self.MAX_POSITION_SIZE = float(os.getenv("MAX_POSITION_SIZE", "100.0"))
         self.MAX_DRAWDOWN_PERCENT = float(os.getenv("MAX_DRAWDOWN_PERCENT", "20.0"))
         self.STOP_LOSS_PERCENT = float(os.getenv("STOP_LOSS_PERCENT", "3.0"))

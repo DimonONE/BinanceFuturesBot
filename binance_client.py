@@ -305,8 +305,8 @@ class BinanceClient:
                 
             # Check minimum notional (order value must be >= $20)
             order_value = quantity * current_price
-            if order_value < 10.0:
-                logger.error(f"Order value too small: ${order_value:.2f} < $10.00 (minimum)")
+            if order_value < 20.0:
+                logger.error(f"Order value too small: ${order_value:.2f} < $20.00 (minimum)")
                 return None
                 
             order = self.sync_client.futures_create_order(
@@ -363,12 +363,15 @@ class BinanceClient:
                 logger.error("Sync client not initialized")
                 return None
                 
+            # Round price to proper precision
+            rounded_price = self.round_price_to_precision(symbol, price)
+            
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
                 side=side,
                 type=ORDER_TYPE_LIMIT,
                 quantity=quantity,
-                price=price,
+                price=rounded_price,
                 timeInForce=TIME_IN_FORCE_GTC
             )
             
@@ -438,12 +441,16 @@ class BinanceClient:
                     stop_price = current_price * 1.05  # 5% above current
                 logger.info(f"Adjusted stop price to {stop_price}")
                 
+            # Round stop price to proper precision
+            rounded_stop_price = self.round_price_to_precision(symbol, stop_price)
+            
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
                 side=side,
-                type=FUTURE_ORDER_TYPE_STOP_MARKET,
+                type=ORDER_TYPE_LIMIT,
                 quantity=quantity,
-                stopPrice=stop_price
+                price=rounded_stop_price,
+                timeInForce=TIME_IN_FORCE_GTC
             )
             
             logger.info(f"Stop-loss order placed: {side} {quantity} {symbol} at {stop_price}")
@@ -466,12 +473,16 @@ class BinanceClient:
                 logger.error("Client not initialized")
                 return None
                 
+            # Round stop price to proper precision  
+            rounded_stop_price = self.round_price_to_precision(symbol, stop_price)
+            
             order = await self.client.futures_create_order(
                 symbol=symbol,
                 side=side,
-                type=FUTURE_ORDER_TYPE_STOP_MARKET,
+                type=ORDER_TYPE_LIMIT,
                 quantity=quantity,
-                stopPrice=stop_price
+                price=rounded_stop_price,
+                timeInForce=TIME_IN_FORCE_GTC
             )
             
             logger.info(f"Stop-loss order placed: {side} {quantity} {symbol} at {stop_price}")
@@ -611,3 +622,26 @@ class BinanceClient:
     def get_cached_price(self, symbol: str) -> Optional[float]:
         """Get cached price for a symbol"""
         return self._current_prices.get(symbol)
+    
+    def round_price_to_precision(self, symbol: str, price: float) -> float:
+        """Round price to symbol's tick size precision"""
+        try:
+            if not self.sync_client:
+                return round(price, 6)
+                
+            exchange_info = self.sync_client.futures_exchange_info()
+            for s in exchange_info['symbols']:
+                if s['symbol'] == symbol:
+                    for filter_info in s['filters']:
+                        if filter_info['filterType'] == 'PRICE_FILTER':
+                            tick_size = float(filter_info['tickSize'])
+                            if tick_size >= 1:
+                                precision = 0
+                            else:
+                                precision = len(str(tick_size).split('.')[-1].rstrip('0'))
+                            return round(price, precision)
+                    break
+            return round(price, 6)
+        except Exception as e:
+            logger.error(f"Error rounding price for {symbol}: {e}")
+            return round(price, 6)

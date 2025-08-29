@@ -253,17 +253,87 @@
       "reason": "Oversold RSI (26.5) in down trend",
       "timestamp": "2025-08-29T11:06:47.335384",
       "id": 17
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "SELL",
+      "quantity": 0.77,
+      "price": 23.324,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197586077,
+      "type": "market",
+      "signal_confidence": 0.9,
+      "reason": "Stop loss triggered",
+      "timestamp": "2025-08-29T11:07:31.157518",
+      "id": 18
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "side": "SELL",
+      "quantity": 2387.0,
+      "price": 0.007542,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 7229270,
+      "type": "market",
+      "signal_confidence": 0.9,
+      "reason": "Take profit reached",
+      "timestamp": "2025-08-29T11:10:01.010857",
+      "id": 19
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 3.9,
+      "price": 3.0576,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17087872,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (17.9) in down trend",
+      "timestamp": "2025-08-29T11:11:22.190867",
+      "id": 20
+    },
+    {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.008,
+      "price": 4352.42,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 4992149282,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (26.9) in down trend",
+      "timestamp": "2025-08-29T11:16:38.194978",
+      "id": 21
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.54,
+      "price": 23.44,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197590567,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.9) in down trend",
+      "timestamp": "2025-08-29T11:16:40.887315",
+      "id": 22
     }
   ],
   "positions": [],
   "balance_history": [],
   "bot_stats": {
-    "total_trades": 17,
+    "total_trades": 22,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T11:06:47.335786"
+  "last_update": "2025-08-29T11:16:40.887745"
 }

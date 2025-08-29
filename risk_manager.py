@@ -45,7 +45,7 @@ class RiskManager:
             logger.debug(f"📊 Base trade amount: ${base_amount:.2f}")
             
             # Adjust based on confidence (ensure minimum viable position)
-            confidence_multiplier = max(signal_confidence * 2.0, 0.8)  # Minimum 80% of base amount for strong signals
+            confidence_multiplier = max(signal_confidence * 2.0, 1.0)  # Minimum 100% of base amount
             adjusted_amount = base_amount * confidence_multiplier
             
             # Ensure we don't exceed available balance
@@ -54,9 +54,9 @@ class RiskManager:
             # Ensure we don't exceed max position size
             final_amount = min(max_allowed, self.config.MAX_POSITION_SIZE)
             
-            # Check minimum trade amount (10 USDT minimum for small trades)
-            if final_amount < 10.0:
-                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $10.00 (minimum)")
+            # Check minimum trade amount (22 USDT minimum for Binance futures)
+            if final_amount < 22.0:
+                logger.warning(f"❌ Position size too small: ${final_amount:.2f} < $22.00 (minimum)")
                 return 0.0, False
             
             logger.info(f"✅ Final position size: {final_amount:.2f} USDT (confidence: {signal_confidence:.1%})")

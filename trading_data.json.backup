@@ -16,6 +16,76 @@
   },
   "trades": [
     {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 9.8,
+      "price": 3.0532,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17101974,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (22.9) in down trend",
+      "timestamp": "2025-08-29T13:52:23.453141",
+      "id": 6
+    },
+    {
+      "symbol": "TRXUSDT",
+      "side": "BUY",
+      "quantity": 89.0,
+      "price": 0.33711,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 449041302,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (27.7) in down trend",
+      "timestamp": "2025-08-29T13:52:20.529826",
+      "id": 5
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "side": "BUY",
+      "quantity": 37.7,
+      "price": 0.7451,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 5645954,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (8.7) in down trend",
+      "timestamp": "2025-08-29T13:52:17.558772",
+      "id": 4
+    },
+    {
+      "symbol": "LINKUSDT",
+      "side": "BUY",
+      "quantity": 1.28,
+      "price": 23.447,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 197673115,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (20.0) in down trend",
+      "timestamp": "2025-08-29T13:52:14.850856",
+      "id": 3
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "SELL",
+      "quantity": 17.2,
+      "price": 2.6175,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17098337,
+      "type": "market",
+      "signal_confidence": 0.9,
+      "reason": "Stop loss triggered",
+      "timestamp": "2025-08-29T13:30:25.391232",
+      "id": 2
+    },
+    {
       "symbol": "DOTUSDT",
       "side": "BUY",
       "quantity": 7.8,
@@ -28,6 +98,20 @@
       "reason": "Oversold RSI (29.2) in down trend",
       "timestamp": "2025-08-29T13:19:21.411734",
       "id": 1
+    },
+    {
+      "symbol": "TONUSDT",
+      "side": "BUY",
+      "quantity": 9.8,
+      "price": 3.059,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 17102136,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (23.6) in down trend",
+      "timestamp": "2025-08-29T13:53:33.761319",
+      "id": 7
     }
   ],
   "positions": [],
@@ -36,15 +120,19 @@
     "1000CATUSDT": {
       "stop_loss": "7241763",
       "take_profit": "7241765"
+    },
+    "TONUSDT": {
+      "stop_loss": "17102137",
+      "take_profit": "17102140"
     }
   },
   "bot_stats": {
-    "total_trades": 1,
+    "total_trades": 7,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T13:20:24.192825"
+  "last_update": "2025-08-29T13:53:35.319317"
 }

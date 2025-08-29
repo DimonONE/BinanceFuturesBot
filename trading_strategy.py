@@ -171,7 +171,7 @@ class TrendFollowingStrategy:
         existing_position = None
         if self.data_storage:
             # Calculate net position from all trades for this symbol
-            all_trades = self.data_storage.get_all_trades()
+            all_trades = self.data_storage.get_trades()
             symbol_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
             
             # Calculate net quantity (BUY = +, SELL = -)
@@ -282,7 +282,7 @@ class TrendFollowingStrategy:
             # Get all open trades for this symbol to calculate average entry price
             open_trades = []
             if self.data_storage:
-                all_trades = self.data_storage.get_all_trades()
+                all_trades = self.data_storage.get_trades()
                 open_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
             else:
                 # Fallback to active_positions if no data_storage

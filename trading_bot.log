@@ -12050,3 +12050,529 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-08-31 13:56:50,171 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (41.0, нужно <30.0 или >70.0)
 2025-08-31 13:56:50,171 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
 2025-08-31 13:56:50,171 - telegram_bot - INFO - ⏸️ No trading signals found across 5 symbols
+2025-08-31 13:57:29,139 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-31 13:57:29,891 - binance_client - INFO - Found 487 USDT perpetual futures symbols
+2025-08-31 13:57:29,891 - telegram_bot - INFO - Cached 487 symbols
+2025-08-31 13:57:43,133 - telegram_bot - INFO - Processing search query: 'TON' from user 930901908
+2025-08-31 13:57:46,753 - data_storage - INFO - User settings saved for 930901908
+2025-08-31 13:57:50,231 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 13:57:50,231 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 13:57:50,231 - telegram_bot - INFO - 🔄 User settings changed: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']
+2025-08-31 13:57:50,232 - websocket_handler - ERROR - Error stopping WebSocket handler: 'WebSocketHandler' object has no attribute 'socket_manager'
+2025-08-31 13:57:50,232 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-08-31 13:57:50,232 - telegram_bot - INFO - ✅ Updated monitoring to 6 symbols
+2025-08-31 13:57:50,232 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 13:57:51,018 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=41.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:57:51,018 - trading_strategy - INFO - ⏸️ BTCUSDT: HOLD - RSI в нейтральной зоне (41.4, нужно <30.0 или >70.0)
+2025-08-31 13:57:51,018 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:51,413 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 13:57:51,607 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=61.9 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 13:57:51,607 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 13:57:51,607 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:52,187 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:57:52,187 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.5, нужно <30.0 или >70.0)
+2025-08-31 13:57:52,188 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:52,774 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=48.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:57:52,774 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (48.6, нужно <30.0 или >70.0)
+2025-08-31 13:57:52,775 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:53,361 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=40.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:57:53,361 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (40.8, нужно <30.0 или >70.0)
+2025-08-31 13:57:53,362 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:53,949 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=57.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 13:57:53,949 - trading_strategy - INFO - 🔍 TONUSDT Exit Check: Current=3.0644 | AvgEntry=3.0561 | TP≥3.2419 | SL≤2.9644
+2025-08-31 13:57:53,950 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 13:57:53,950 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:57:53,950 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols
+2025-08-31 13:58:53,951 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 13:58:53,951 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 13:58:53,951 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 13:58:53,951 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 13:58:56,074 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=42.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:58:56,074 - trading_strategy - INFO - ⏸️ BTCUSDT: HOLD - RSI в нейтральной зоне (42.4, нужно <30.0 или >70.0)
+2025-08-31 13:58:56,074 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:56,455 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 13:58:56,649 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=62.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 13:58:56,649 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 13:58:56,649 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:57,234 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:58:57,235 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.5, нужно <30.0 или >70.0)
+2025-08-31 13:58:57,235 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:57,816 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=48.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:58:57,816 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (48.6, нужно <30.0 или >70.0)
+2025-08-31 13:58:57,816 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:58,381 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=40.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 13:58:58,381 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (40.5, нужно <30.0 или >70.0)
+2025-08-31 13:58:58,382 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:58,959 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=57.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 13:58:58,959 - trading_strategy - INFO - 🔍 TONUSDT Exit Check: Current=3.0644 | AvgEntry=3.0561 | TP≥3.2419 | SL≤2.9644
+2025-08-31 13:58:58,960 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 13:58:58,960 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 13:58:58,960 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols
+2025-08-31 13:59:58,961 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 13:59:58,962 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 13:59:58,962 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 13:59:58,962 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:00:00,052 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=41.9 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:00:00,052 - trading_strategy - INFO - ⏸️ BTCUSDT: HOLD - RSI в нейтральной зоне (41.9, нужно <30.0 или >70.0)
+2025-08-31 14:00:00,052 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:00,772 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:00:01,316 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=62.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:00:01,317 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:00:01,317 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:01,898 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:00:01,898 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.5, нужно <30.0 или >70.0)
+2025-08-31 14:00:01,898 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:02,506 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=48.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:00:02,507 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (48.7, нужно <30.0 или >70.0)
+2025-08-31 14:00:02,507 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:03,083 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=40.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:00:03,083 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (40.5, нужно <30.0 или >70.0)
+2025-08-31 14:00:03,083 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:03,650 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=DOWN | RSI=58.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:00:03,650 - trading_strategy - INFO - 🔍 TONUSDT Exit Check: Current=3.1420 | AvgEntry=3.0561 | TP≥3.2419 | SL≤2.9644
+2025-08-31 14:00:03,650 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:00:03,650 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:00:03,651 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols
+2025-08-31 14:01:03,826 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:01:03,826 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:01:03,827 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:01:03,827 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:01:05,655 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=41.9 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:05,656 - trading_strategy - INFO - ⏸️ BTCUSDT: HOLD - RSI в нейтральной зоне (41.9, нужно <30.0 или >70.0)
+2025-08-31 14:01:05,656 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:06,452 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:01:06,956 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=62.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:01:06,956 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:01:06,956 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:07,529 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:07,530 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.5, нужно <30.0 или >70.0)
+2025-08-31 14:01:07,530 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:08,126 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:08,129 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.5, нужно <30.0 или >70.0)
+2025-08-31 14:01:08,134 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:08,720 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=35.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:08,720 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (35.7, нужно <30.0 или >70.0)
+2025-08-31 14:01:08,720 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:09,295 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:01:09,295 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:01:09,295 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:09,295 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols
+2025-08-31 14:01:26,920 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:01:26,923 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-31 14:01:28,228 - binance_client - INFO - Connected to Binance Testnet
+2025-08-31 14:01:28,821 - risk_manager - INFO - Risk Manager initialized with balance: 14786.75308569 USDT
+2025-08-31 14:01:28,821 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']
+2025-08-31 14:01:28,821 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-08-31 14:01:28,821 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-31 14:01:34,635 - telegram_bot - INFO - Trading loop started
+2025-08-31 14:01:34,643 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:01:34,648 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:01:34,650 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:01:34,651 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:01:35,944 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:35,944 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:35,944 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:01:36,474 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=28.5 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:36,478 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 28.5 < 30.0 (oversold)
+2025-08-31 14:01:36,478 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105180.3010 | TP=$114939.2980
+2025-08-31 14:01:36,478 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (28.5) in down trend
+2025-08-31 14:01:37,725 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:37,726 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:37,726 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:01:37,726 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:01:37,911 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=36.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:01:37,911 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:01:37,911 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:38,637 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:38,638 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:38,638 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:01:39,311 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:39,311 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.5, нужно <30.0 или >70.0)
+2025-08-31 14:01:39,311 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:39,692 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:39,706 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:39,706 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:01:39,886 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:39,886 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.5, нужно <30.0 или >70.0)
+2025-08-31 14:01:39,887 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:40,295 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:40,295 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:40,296 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:01:40,480 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=35.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:01:40,480 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (35.7, нужно <30.0 или >70.0)
+2025-08-31 14:01:40,480 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:40,863 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:01:40,863 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:01:40,864 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:01:41,053 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:01:41,053 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:01:41,054 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:01:41,054 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:01:41,054 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (28.5) in down trend
+2025-08-31 14:01:41,054 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:01:41,054 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:01:41,054 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (28.5) in down trend', Is close: False, Type: BUY
+2025-08-31 14:01:41,246 - telegram_bot - INFO - 💰 Current balance: $14786.80 USDT
+2025-08-31 14:01:41,246 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.80 | Confidence=60.0%
+2025-08-31 14:01:41,246 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:01:41,246 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.80
+2025-08-31 14:01:41,247 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:01:41,247 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:01:42,172 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:01:42,180 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:02:42,246 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:02:42,249 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:02:42,249 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:02:42,249 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:02:43,547 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:43,548 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:43,548 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:02:43,740 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=25.5 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:02:43,740 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 25.5 < 30.0 (oversold)
+2025-08-31 14:02:43,740 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105049.1570 | TP=$114795.9860
+2025-08-31 14:02:43,740 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (25.5) in down trend
+2025-08-31 14:02:44,141 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:44,142 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:44,142 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:02:44,142 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:02:44,352 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=36.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:02:44,353 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:02:44,353 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:02:45,089 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:45,096 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:45,098 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:02:45,289 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.6 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:02:45,289 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.6, нужно <30.0 или >70.0)
+2025-08-31 14:02:45,290 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:02:45,680 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:45,680 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:45,680 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:02:45,873 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:02:45,873 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.5, нужно <30.0 или >70.0)
+2025-08-31 14:02:45,873 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:02:46,264 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:46,265 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:46,265 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:02:46,774 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:02:46,774 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:02:46,775 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:02:47,169 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:02:47,169 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:02:47,170 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:02:47,367 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=True
+2025-08-31 14:02:47,367 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - есть открытая позиция, новые сигналы не генерируем
+2025-08-31 14:02:47,368 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:02:47,369 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:02:47,369 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (25.5) in down trend
+2025-08-31 14:02:47,369 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:02:47,369 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:02:47,369 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (25.5) in down trend', Is close: False, Type: BUY
+2025-08-31 14:02:47,572 - telegram_bot - INFO - 💰 Current balance: $14786.83 USDT
+2025-08-31 14:02:47,573 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.83 | Confidence=60.0%
+2025-08-31 14:02:47,573 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:02:47,573 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.83
+2025-08-31 14:02:47,573 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:02:47,573 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:02:48,412 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:02:48,419 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:03:39,907 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:03:39,908 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-08-31 14:03:41,519 - binance_client - INFO - Connected to Binance Testnet
+2025-08-31 14:03:41,767 - risk_manager - INFO - Risk Manager initialized with balance: 14786.84362193 USDT
+2025-08-31 14:03:41,769 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']
+2025-08-31 14:03:41,769 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-08-31 14:03:41,769 - telegram_bot - INFO - Starting Telegram bot...
+2025-08-31 14:03:49,428 - telegram_bot - INFO - Trading loop started
+2025-08-31 14:03:49,428 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:03:49,428 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:03:49,428 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:03:49,428 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:03:50,405 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:50,406 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:50,406 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:03:50,406 - trading_strategy - INFO - 📊 BTCUSDT Final position status: No position
+2025-08-31 14:03:50,920 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=25.5 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:50,920 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 25.5 < 30.0 (oversold)
+2025-08-31 14:03:50,925 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105049.1570 | TP=$114795.9860
+2025-08-31 14:03:50,925 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (25.5) in down trend
+2025-08-31 14:03:51,788 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:51,788 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:51,788 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:03:51,788 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-08-31 14:03:51,788 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:03:52,503 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:52,503 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:03:52,503 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:03:53,382 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:53,384 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:53,385 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:03:53,387 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-08-31 14:03:53,581 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=38.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:53,581 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (38.8, нужно <30.0 или >70.0)
+2025-08-31 14:03:53,581 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:03:53,967 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:53,968 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:53,970 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:03:53,971 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-08-31 14:03:54,156 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=37.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:54,156 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (37.5, нужно <30.0 или >70.0)
+2025-08-31 14:03:54,156 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:03:54,541 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:54,542 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:54,542 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:03:54,542 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-08-31 14:03:54,744 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=36.3 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:54,744 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (36.3, нужно <30.0 или >70.0)
+2025-08-31 14:03:54,744 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:03:55,145 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:03:55,146 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:03:55,146 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:03:55,146 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-08-31 14:03:55,343 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:03:55,344 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (58.2, нужно <30.0 или >70.0)
+2025-08-31 14:03:55,344 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:03:55,344 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:03:55,344 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (25.5) in down trend
+2025-08-31 14:03:55,344 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:03:55,344 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:03:55,344 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (25.5) in down trend', Is close: False, Type: BUY
+2025-08-31 14:03:55,548 - telegram_bot - INFO - 💰 Current balance: $14786.85 USDT
+2025-08-31 14:03:55,551 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.85 | Confidence=60.0%
+2025-08-31 14:03:55,551 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:03:55,552 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.85
+2025-08-31 14:03:55,552 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:03:55,552 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:03:56,494 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:03:56,499 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:04:56,561 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:04:56,562 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:04:56,564 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:04:56,565 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:04:58,145 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:04:58,146 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:04:58,146 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:04:58,147 - trading_strategy - INFO - 📊 BTCUSDT Final position status: No position
+2025-08-31 14:04:58,672 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=25.1 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:04:58,672 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 25.1 < 30.0 (oversold)
+2025-08-31 14:04:58,672 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105017.4380 | TP=$114761.3240
+2025-08-31 14:04:58,672 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (25.1) in down trend
+2025-08-31 14:04:59,366 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:04:59,367 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:04:59,367 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:04:59,367 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-08-31 14:04:59,367 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:04:59,548 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:04:59,549 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:04:59,549 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:04:59,934 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:04:59,934 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:04:59,935 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:04:59,935 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-08-31 14:05:00,117 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=39.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:05:00,117 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (39.0, нужно <30.0 или >70.0)
+2025-08-31 14:05:00,117 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:05:00,860 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:05:00,861 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:05:00,861 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:05:00,861 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-08-31 14:05:01,042 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=36.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:05:01,042 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (36.4, нужно <30.0 или >70.0)
+2025-08-31 14:05:01,042 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:05:01,423 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:05:01,423 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:05:01,424 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:05:01,424 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-08-31 14:05:01,613 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=36.3 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:05:01,613 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (36.3, нужно <30.0 или >70.0)
+2025-08-31 14:05:01,613 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:05:02,004 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:05:02,004 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:05:02,007 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:05:02,007 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-08-31 14:05:02,188 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:05:02,189 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (58.2, нужно <30.0 или >70.0)
+2025-08-31 14:05:02,189 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:05:02,189 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:05:02,189 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (25.1) in down trend
+2025-08-31 14:05:02,189 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:05:02,189 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:05:02,189 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (25.1) in down trend', Is close: False, Type: BUY
+2025-08-31 14:05:02,378 - telegram_bot - INFO - 💰 Current balance: $14786.87 USDT
+2025-08-31 14:05:02,378 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.87 | Confidence=60.0%
+2025-08-31 14:05:02,378 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:05:02,378 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.87
+2025-08-31 14:05:02,378 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:05:02,378 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:05:03,392 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:05:03,397 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:06:03,459 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:06:03,459 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:06:03,459 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:06:03,459 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:06:04,736 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:04,740 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:04,743 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:06:04,747 - trading_strategy - INFO - 📊 BTCUSDT Final position status: No position
+2025-08-31 14:06:05,443 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=25.0 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:05,443 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 25.0 < 30.0 (oversold)
+2025-08-31 14:06:05,443 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105010.0660 | TP=$114753.2680
+2025-08-31 14:06:05,443 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (25.0) in down trend
+2025-08-31 14:06:06,826 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:06,826 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:06,826 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:06:06,826 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-08-31 14:06:06,826 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:06:07,007 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:07,008 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:06:07,008 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:06:07,390 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:07,390 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:07,391 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:06:07,391 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-08-31 14:06:07,586 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=39.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:07,586 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (39.0, нужно <30.0 или >70.0)
+2025-08-31 14:06:07,586 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:06:07,975 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:07,976 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:07,976 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:06:07,976 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-08-31 14:06:08,171 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=35.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:08,171 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (35.7, нужно <30.0 или >70.0)
+2025-08-31 14:06:08,171 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:06:08,578 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:08,578 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:08,578 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:06:08,579 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-08-31 14:06:08,768 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=36.3 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:08,769 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (36.3, нужно <30.0 или >70.0)
+2025-08-31 14:06:08,769 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:06:09,175 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:06:09,175 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:06:09,175 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:06:09,176 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-08-31 14:06:09,365 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:06:09,365 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (58.2, нужно <30.0 или >70.0)
+2025-08-31 14:06:09,365 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:06:09,366 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:06:09,366 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (25.0) in down trend
+2025-08-31 14:06:09,366 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:06:09,366 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:06:09,366 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (25.0) in down trend', Is close: False, Type: BUY
+2025-08-31 14:06:09,573 - telegram_bot - INFO - 💰 Current balance: $14786.92 USDT
+2025-08-31 14:06:09,573 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.92 | Confidence=60.0%
+2025-08-31 14:06:09,573 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:06:09,573 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.92
+2025-08-31 14:06:09,573 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:06:09,573 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:06:10,550 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:06:10,553 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:07:10,614 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:07:10,615 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:07:10,615 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:07:10,615 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-08-31 14:07:11,917 - trading_strategy - INFO - 🔍 BTCUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:11,920 - trading_strategy - INFO - 🔍 BTCUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:11,920 - trading_strategy - INFO - 🔍 BTCUSDT Looking for BTCUSDT in Binance: False
+2025-08-31 14:07:11,920 - trading_strategy - INFO - 📊 BTCUSDT Final position status: No position
+2025-08-31 14:07:12,463 - trading_strategy - INFO - 🔍 BTCUSDT Signal Check: Trend=DOWN | RSI=25.0 | Oversold=True(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:12,463 - trading_strategy - INFO - ✅ BTCUSDT BUY условие выполнено: RSI 25.0 < 30.0 (oversold)
+2025-08-31 14:07:12,463 - trading_strategy - INFO - ✅ BTCUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$105010.0660 | TP=$114753.2680
+2025-08-31 14:07:12,463 - trading_strategy - INFO - 🎯 BTCUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (25.0) in down trend
+2025-08-31 14:07:13,208 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:13,216 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:13,216 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:07:13,216 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-08-31 14:07:13,216 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:07:13,411 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:13,411 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:07:13,412 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:07:14,121 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:14,122 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:14,122 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:07:14,122 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-08-31 14:07:14,331 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=39.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:14,334 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (39.4, нужно <30.0 или >70.0)
+2025-08-31 14:07:14,334 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:07:14,738 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:14,738 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:14,738 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:07:14,738 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-08-31 14:07:14,931 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=35.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:14,931 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (35.1, нужно <30.0 или >70.0)
+2025-08-31 14:07:14,932 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:07:15,326 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:15,326 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:15,326 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:07:15,326 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-08-31 14:07:15,518 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=36.9 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:15,518 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (36.9, нужно <30.0 или >70.0)
+2025-08-31 14:07:15,518 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:07:15,894 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:07:15,894 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:07:15,894 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:07:15,894 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-08-31 14:07:16,076 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:07:16,076 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (58.2, нужно <30.0 или >70.0)
+2025-08-31 14:07:16,077 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:07:16,077 - telegram_bot - INFO - 🎯 Found 1 trading signals: ['BTCUSDT-BUY']
+2025-08-31 14:07:16,077 - telegram_bot - INFO -   📈 BTCUSDT: BUY (confidence: 60.0%) - Oversold RSI (25.0) in down trend
+2025-08-31 14:07:16,077 - telegram_bot - INFO - 🔄 Processing signal for BTCUSDT...
+2025-08-31 14:07:16,077 - telegram_bot - INFO - 💼 Processing BUY signal for BTCUSDT
+2025-08-31 14:07:16,077 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (25.0) in down trend', Is close: False, Type: BUY
+2025-08-31 14:07:16,268 - telegram_bot - INFO - 💰 Current balance: $14786.95 USDT
+2025-08-31 14:07:16,269 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14786.95 | Confidence=60.0%
+2025-08-31 14:07:16,269 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-08-31 14:07:16,269 - risk_manager - INFO - 🛡️ Risk Check for BTCUSDT: Amount=$30.00 | Balance=$14786.95
+2025-08-31 14:07:16,269 - risk_manager - INFO - Current drawdown: 0.00%
+2025-08-31 14:07:16,269 - risk_manager - INFO - ✅ Risk Check Passed for BTCUSDT: All conditions met
+2025-08-31 14:07:17,252 - binance_client - ERROR - Error calculating quantity: 'minNotional'
+2025-08-31 14:07:17,258 - telegram_bot - ERROR - Could not calculate quantity for BTCUSDT
+2025-08-31 14:07:53,954 - telegram_bot - INFO - Fetching exchange symbols for the first time...
+2025-08-31 14:07:54,678 - binance_client - INFO - Found 487 USDT perpetual futures symbols
+2025-08-31 14:07:54,682 - telegram_bot - INFO - Cached 487 symbols
+2025-08-31 14:08:05,434 - telegram_bot - INFO - Processing search query: 'BTC' from user 930901908
+2025-08-31 14:08:08,477 - data_storage - INFO - User settings saved for 930901908
+2025-08-31 14:08:12,464 - websocket_handler - ERROR - Error stopping WebSocket handler: 'WebSocketHandler' object has no attribute 'socket_manager'
+2025-08-31 14:08:13,465 - websocket_handler - INFO - Price monitoring started for 5 symbols
+2025-08-31 14:08:14,106 - telegram_bot - INFO - Monitoring symbols updated: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT'] -> ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']
+2025-08-31 14:08:17,322 - data_storage - INFO - Trading data loaded successfully
+2025-08-31 14:08:17,322 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT']}}
+2025-08-31 14:08:17,322 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-08-31 14:08:17,323 - telegram_bot - INFO - 🔍 Scanning 5 symbols for trading opportunities...
+2025-08-31 14:08:18,903 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:08:18,903 - trading_strategy - INFO - 🔍 ETHUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:08:18,906 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-08-31 14:08:18,906 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-08-31 14:08:18,906 - trading_strategy - INFO - 📊 Current Binance positions: ['1000000MOGUSDT']
+2025-08-31 14:08:19,451 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=UP | RSI=35.8 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:08:19,451 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (35.8, нужно <30.0 или >70.0)
+2025-08-31 14:08:19,452 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:08:19,844 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:08:19,844 - trading_strategy - INFO - 🔍 BNBUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:08:19,845 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-08-31 14:08:19,845 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-08-31 14:08:20,033 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=39.7 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:08:20,033 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (39.7, нужно <30.0 или >70.0)
+2025-08-31 14:08:20,033 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:08:20,781 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:08:20,782 - trading_strategy - INFO - 🔍 ADAUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:08:20,782 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-08-31 14:08:20,782 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-08-31 14:08:20,978 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=DOWN | RSI=35.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:08:20,978 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (35.1, нужно <30.0 или >70.0)
+2025-08-31 14:08:20,978 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:08:21,377 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:08:21,378 - trading_strategy - INFO - 🔍 SOLUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:08:21,378 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-08-31 14:08:21,378 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-08-31 14:08:21,566 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=DOWN | RSI=36.9 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:08:21,566 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (36.9, нужно <30.0 или >70.0)
+2025-08-31 14:08:21,567 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:08:21,962 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 1 total positions
+2025-08-31 14:08:21,962 - trading_strategy - INFO - 🔍 TONUSDT Binance position symbols: ['1000000MOGUSDT']
+2025-08-31 14:08:21,962 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-08-31 14:08:21,963 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-08-31 14:08:22,151 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=58.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-08-31 14:08:22,151 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (58.2, нужно <30.0 или >70.0)
+2025-08-31 14:08:22,152 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-08-31 14:08:22,152 - telegram_bot - INFO - ⏸️ No trading signals found across 5 symbols

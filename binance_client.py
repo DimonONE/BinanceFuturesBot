@@ -651,6 +651,7 @@ class BinanceClient:
     def calculate_quantity_from_usdt_sync(self, symbol: str, usdt_amount: float) -> Optional[float]:
         """Calculate quantity based on USDT amount (synchronous)"""
         try:
+            logger.info(f"💰 Calculating quantity for {symbol} with ${usdt_amount} USDT")
             # Check if symbol is tradeable first
             if not self.is_symbol_tradeable_sync(symbol):
                 logger.warning(f"❌ Symbol {symbol} is not tradeable")
@@ -697,7 +698,8 @@ class BinanceClient:
                     max_qty = float(filter_info['maxQty'])
                     step_size = float(filter_info['stepSize'])
                 elif filter_info['filterType'] == 'MIN_NOTIONAL':
-                    min_notional = float(filter_info['minNotional'])
+                    logger.info(f"MIN_NOTIONAL filter structure: {filter_info}")
+                    min_notional = float(filter_info.get('minNotional', filter_info.get('notional', 0)))
             
             if step_size:
                 # Round to proper precision
@@ -728,7 +730,9 @@ class BinanceClient:
             return quantity
             
         except Exception as e:
-            logger.error(f"Error calculating quantity: {e}")
+            logger.error(f"Error calculating quantity for {symbol}: {e}")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
             return None
     
     def get_cached_price(self, symbol: str) -> Optional[float]:

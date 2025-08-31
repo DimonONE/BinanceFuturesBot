@@ -167,40 +167,33 @@ class TrendFollowingStrategy:
                         oversold: bool, overbought: bool, support: float, resistance: float) -> Optional[TradingSignal]:
         """Generate trading signal based on analysis"""
         
-        # Check if we have an existing position by calculating net position from trades
-        existing_position = None
-        if self.data_storage:
-            # Calculate net position from all trades for this symbol
-            all_trades = self.data_storage.get_trades()
-            symbol_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
-            
-            # Calculate net quantity (BUY = +, SELL = -)
-            net_quantity = 0
-            for trade in symbol_trades:
-                if trade.get('side') == 'BUY':
-                    net_quantity += trade.get('quantity', 0)
-                elif trade.get('side') == 'SELL':
-                    net_quantity -= trade.get('quantity', 0)
-            
-            # Position exists only if net quantity > 0
-            if net_quantity > 0:
-                # Find the most recent BUY trade for entry price
-                buy_trades = [t for t in symbol_trades if t.get('side') == 'BUY']
-                if buy_trades:
-                    latest_buy = max(buy_trades, key=lambda x: x.get('timestamp', ''))
-                    existing_position = {
-                        'symbol': symbol,
-                        'quantity': net_quantity,
-                        'entry_price': latest_buy.get('price', 0),
-                        'side': 'LONG'
-                    }
-        
-        # Ignore cache completely when we have data_storage - always use fresh calculation
-        # This ensures no stale cache data interferes with position detection
-        
-        # Also check actual Binance positions to be sure
+        # Check actual Binance positions first (most reliable)
         binance_positions = self.binance_client.get_open_positions_sync()
         has_binance_position = any(pos['symbol'] == symbol for pos in binance_positions)
+        
+        # Debug logging to see what's happening 
+        logger.info(f"🔍 {symbol} Position Check: Binance has {len(binance_positions)} total positions")
+        if binance_positions:
+            symbols_list = [pos.get('symbol', 'unknown') for pos in binance_positions]
+            logger.info(f"🔍 {symbol} Binance position symbols: {symbols_list}")
+        logger.info(f"🔍 {symbol} Looking for {symbol} in Binance: {has_binance_position}")
+        
+        existing_position = None
+        if has_binance_position:
+            # Use actual Binance position data
+            binance_pos = next(pos for pos in binance_positions if pos['symbol'] == symbol)
+            existing_position = {
+                'symbol': symbol,
+                'quantity': abs(float(binance_pos.get('positionAmt', 0))),
+                'entry_price': float(binance_pos.get('entryPrice', 0)),
+                'side': 'LONG' if float(binance_pos.get('positionAmt', 0)) > 0 else 'SHORT'
+            }
+            logger.info(f"✅ {symbol} Found Binance position: {existing_position['side']} {existing_position['quantity']} at {existing_position['entry_price']}")
+        
+        # Do NOT fallback to local data - only use Binance as source of truth
+        # Local data can be stale and cause false positives
+        
+        logger.info(f"📊 {symbol} Final position status: {'Has position' if existing_position else 'No position'}")
         
         # Log Binance positions summary (only once per cycle)
         if symbol == 'ETHUSDT':  # Log only once per scan cycle to avoid spam

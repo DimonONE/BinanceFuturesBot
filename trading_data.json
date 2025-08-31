@@ -2,15 +2,29 @@
   "user_settings": {
     "930901908": {
       "selected_pairs": [
-        "BTCUSDT",
         "ETHUSDT",
         "BNBUSDT",
         "ADAUSDT",
-        "SOLUSDT"
+        "SOLUSDT",
+        "TONUSDT"
       ]
     }
   },
   "trades": [
+    {
+      "symbol": "1000000MOGUSDT",
+      "side": "BUY",
+      "quantity": 34.5,
+      "price": 0.74,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 5666929,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (8.6) in down trend",
+      "timestamp": "2025-08-29T14:27:39.503141",
+      "id": 10
+    },
     {
       "symbol": "ETHUSDT",
       "side": "BUY",
@@ -136,20 +150,6 @@
       "reason": "Oversold RSI (29.2) in down trend",
       "timestamp": "2025-08-29T13:19:21.411734",
       "id": 1
-    },
-    {
-      "symbol": "1000000MOGUSDT",
-      "side": "BUY",
-      "quantity": 34.5,
-      "price": 0.74,
-      "pnl": 0.0,
-      "status": "open",
-      "order_id": 5666929,
-      "type": "market",
-      "signal_confidence": 0.6,
-      "reason": "Oversold RSI (8.6) in down trend",
-      "timestamp": "2025-08-29T14:27:39.503141",
-      "id": 10
     }
   ],
   "positions": [],
@@ -168,5 +168,5 @@
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T14:27:43.276399"
+  "last_update": "2025-08-31T14:08:08.477088"
 }

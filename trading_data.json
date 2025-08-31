@@ -16,6 +16,20 @@
   },
   "trades": [
     {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.007,
+      "price": 4268.5,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 4992392378,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (27.5) in down trend",
+      "timestamp": "2025-08-29T14:07:45.535219",
+      "id": 9
+    },
+    {
       "symbol": "1000000MOGUSDT",
       "side": "SELL",
       "quantity": 56.5,
@@ -128,30 +142,35 @@
       "id": 1
     },
     {
-      "symbol": "ETHUSDT",
+      "symbol": "1000000MOGUSDT",
       "side": "BUY",
-      "quantity": 0.007,
-      "price": 4268.5,
+      "quantity": 34.5,
+      "price": 0.74,
       "pnl": 0.0,
       "status": "open",
-      "order_id": 4992392378,
+      "order_id": 5666929,
       "type": "market",
       "signal_confidence": 0.6,
-      "reason": "Oversold RSI (27.5) in down trend",
-      "timestamp": "2025-08-29T14:07:45.535219",
-      "id": 9
+      "reason": "Oversold RSI (8.6) in down trend",
+      "timestamp": "2025-08-29T14:27:39.503141",
+      "id": 10
     }
   ],
   "positions": [],
   "balance_history": [],
-  "active_orders": {},
+  "active_orders": {
+    "1000000MOGUSDT": {
+      "stop_loss": "5666947",
+      "take_profit": "5666948"
+    }
+  },
   "bot_stats": {
-    "total_trades": 9,
+    "total_trades": 10,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-29T14:08:51.829645"
+  "last_update": "2025-08-29T14:27:43.276399"
 }

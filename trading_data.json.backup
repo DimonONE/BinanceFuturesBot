@@ -2,12 +2,12 @@
   "user_settings": {
     "930901908": {
       "selected_pairs": [
-        "BTCUSDT",
         "ETHUSDT",
         "BNBUSDT",
         "ADAUSDT",
         "SOLUSDT",
-        "TONUSDT"
+        "TONUSDT",
+        "XRPUSDT"
       ]
     }
   },
@@ -151,6 +151,34 @@
       "reason": "Oversold RSI (29.2) in down trend",
       "timestamp": "2025-08-29T13:19:21.411734",
       "id": 1
+    },
+    {
+      "symbol": "ADAUSDT",
+      "side": "BUY",
+      "quantity": 36.0,
+      "price": 0.8226,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 183248778,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.3) in down trend",
+      "timestamp": "2025-08-31T15:32:09.347801",
+      "id": 11
+    },
+    {
+      "symbol": "XRPUSDT",
+      "side": "BUY",
+      "quantity": 10.7,
+      "price": 2.7968,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 455018872,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.1) in down trend",
+      "timestamp": "2025-08-31T15:32:15.417392",
+      "id": 12
     }
   ],
   "positions": [],
@@ -159,15 +187,22 @@
     "1000000MOGUSDT": {
       "stop_loss": "5666947",
       "take_profit": "5666948"
+    },
+    "ADAUSDT": {
+      "stop_loss": "183248795",
+      "take_profit": "183248798"
+    },
+    "XRPUSDT": {
+      "stop_loss": "455018873"
     }
   },
   "bot_stats": {
-    "total_trades": 10,
+    "total_trades": 12,
     "winning_trades": 0,
     "losing_trades": 0,
     "total_pnl": 0.0,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-31T13:57:46.752943"
+  "last_update": "2025-08-31T15:32:16.148300"
 }

@@ -289,10 +289,14 @@ class TrendFollowingStrategy:
                 open_trades = [t for t in self.active_positions.get(symbol, []) if t.get('status') == 'open']
             
             if open_trades:
-                # Calculate weighted average entry price
-                total_value = sum(trade['price'] * trade['quantity'] for trade in open_trades)
-                total_quantity = sum(trade['quantity'] for trade in open_trades)
-                avg_entry_price = total_value / total_quantity if total_quantity > 0 else entry_price
+                # Calculate weighted average entry price from BUY trades only
+                buy_trades = [trade for trade in open_trades if trade.get('side') == 'BUY']
+                if buy_trades:
+                    total_value = sum(trade['price'] * trade['quantity'] for trade in buy_trades)
+                    total_quantity = sum(trade['quantity'] for trade in buy_trades)
+                    avg_entry_price = total_value / total_quantity if total_quantity > 0 else entry_price
+                else:
+                    avg_entry_price = entry_price
                 
                 # Get the oldest trade timestamp for minimum hold time check
                 from datetime import datetime, timedelta

@@ -43,8 +43,8 @@ class Config:
         self.WEBSOCKET_TIMEOUT = int(os.getenv("WEBSOCKET_TIMEOUT", "30"))
         self.RECONNECT_DELAY = int(os.getenv("RECONNECT_DELAY", "5"))
         
-        # Default trading pairs
-        self.DEFAULT_PAIRS = ["ETHUSDT", "ADAUSDT", "DOTUSDT", "LINKUSDT"]
+        # Default trading pairs - stable and liquid
+        self.DEFAULT_PAIRS = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "ADAUSDT", "SOLUSDT"]
         
     def _parse_authorized_users(self) -> list:
         """Parse authorized users from environment variable"""

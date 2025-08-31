@@ -2,15 +2,11 @@
   "user_settings": {
     "930901908": {
       "selected_pairs": [
+        "BTCUSDT",
         "ETHUSDT",
+        "BNBUSDT",
         "ADAUSDT",
-        "DOTUSDT",
-        "LINKUSDT",
-        "1000000MOGUSDT",
-        "TRXUSDT",
-        "TONUSDT",
-        "1000BONKUSDT",
-        "1000CHEEMSUSDT"
+        "SOLUSDT"
       ]
     }
   },

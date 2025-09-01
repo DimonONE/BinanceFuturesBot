@@ -7,6 +7,7 @@ import asyncio
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from datetime import datetime, timedelta
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -292,7 +293,6 @@ class TrendFollowingStrategy:
                     avg_entry_price = entry_price
                 
                 # Get the oldest trade timestamp for minimum hold time check
-                from datetime import datetime, timedelta
                 oldest_trade_time = min(datetime.fromisoformat(trade['timestamp']) for trade in open_trades)
                 min_hold_time = timedelta(minutes=5)  # Minimum 5 minutes hold time
                 
@@ -332,27 +332,61 @@ class TrendFollowingStrategy:
                     
             else:
                 # Fallback to basic exit logic if no open trades found
-                if position_side == 'LONG':
-                    fee_buffer = 0.0008
-                    take_profit_threshold = entry_price * (1 + (self.config.TAKE_PROFIT_PERCENT / 100) + fee_buffer)
-                    stop_loss_threshold = entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
+                # But still respect minimum hold time using position timestamp
+                position_timestamp = existing_position.get('timestamp')
+                if position_timestamp:
+                    position_time = datetime.fromisoformat(position_timestamp)
+                    min_hold_time = timedelta(minutes=5)  # Same 5-minute minimum
                     
-                    if current_price >= take_profit_threshold:
-                        return TradingSignal(
-                            symbol=symbol,
-                            signal_type=SignalType.SELL,
-                            confidence=0.9,
-                            entry_price=current_price,
-                            reason="Take profit reached (fallback)"
-                        )
-                    elif current_price <= stop_loss_threshold:
-                        return TradingSignal(
-                            symbol=symbol,
-                            signal_type=SignalType.SELL,
-                            confidence=0.9,
-                            entry_price=current_price,
-                            reason="Stop loss triggered (fallback)"
-                        )
+                    # Only exit if minimum hold time has passed
+                    if datetime.now() - position_time >= min_hold_time:
+                        if position_side == 'LONG':
+                            fee_buffer = 0.0008
+                            take_profit_threshold = entry_price * (1 + (self.config.TAKE_PROFIT_PERCENT / 100) + fee_buffer)
+                            stop_loss_threshold = entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
+                            
+                            if current_price >= take_profit_threshold:
+                                return TradingSignal(
+                                    symbol=symbol,
+                                    signal_type=SignalType.SELL,
+                                    confidence=0.9,
+                                    entry_price=current_price,
+                                    reason="Take profit reached (fallback)"
+                                )
+                            elif current_price <= stop_loss_threshold:
+                                return TradingSignal(
+                                    symbol=symbol,
+                                    signal_type=SignalType.SELL,
+                                    confidence=0.9,
+                                    entry_price=current_price,
+                                    reason="Stop loss triggered (fallback)"
+                                )
+                        elif position_side == 'SHORT':
+                            fee_buffer = 0.0008
+                            take_profit_threshold = entry_price * (1 - (self.config.TAKE_PROFIT_PERCENT / 100) - fee_buffer)
+                            stop_loss_threshold = entry_price * (1 + self.config.STOP_LOSS_PERCENT / 100)
+                            
+                            if current_price <= take_profit_threshold:
+                                return TradingSignal(
+                                    symbol=symbol,
+                                    signal_type=SignalType.SELL,
+                                    confidence=0.9,
+                                    entry_price=current_price,
+                                    reason="Take profit reached (fallback - SHORT)"
+                                )
+                            elif current_price >= stop_loss_threshold:
+                                return TradingSignal(
+                                    symbol=symbol,
+                                    signal_type=SignalType.SELL,
+                                    confidence=0.9,
+                                    entry_price=current_price,
+                                    reason="Stop loss triggered (fallback - SHORT)"
+                                )
+                    else:
+                        time_remaining = min_hold_time - (datetime.now() - position_time)
+                        logger.debug(f"⏰ {symbol}: Fallback - minimum hold time not reached. Time remaining: {time_remaining}")
+                else:
+                    logger.warning(f"⚠️ {symbol}: No timestamp in position data for minimum hold time check")
         
         # Default: hold - log the reason
         if existing_position:

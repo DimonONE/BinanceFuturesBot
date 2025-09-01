@@ -851,23 +851,105 @@
       "reason": "Oversold RSI (36.9) in down trend",
       "timestamp": "2025-08-31T16:00:44.089076",
       "id": 60
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.87,
+      "pnl": 0.003000000000000682,
+      "status": "closed",
+      "order_id": 571877340,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.2) in sideways trend",
+      "timestamp": "2025-09-01T10:31:26.388986",
+      "id": 61,
+      "close_price": 859.97,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "last_updated": "2025-09-01T10:41:13.116901"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.86,
+      "pnl": 0.003300000000000409,
+      "status": "closed",
+      "order_id": 571878042,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.2) in sideways trend",
+      "timestamp": "2025-09-01T10:32:34.913728",
+      "id": 62,
+      "close_price": 859.97,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "last_updated": "2025-09-01T10:41:13.012512"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.86,
+      "pnl": 0.003300000000000409,
+      "status": "closed",
+      "order_id": 571878608,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.2) in sideways trend",
+      "timestamp": "2025-09-01T10:33:42.456151",
+      "id": 63,
+      "close_price": 859.97,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "last_updated": "2025-09-01T10:41:12.746128"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.007,
+      "price": 4393.81,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 4999809463,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (38.4) in down trend",
+      "timestamp": "2025-09-01T10:41:18.292814",
+      "id": 64
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.98,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 571882721,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.4) in sideways trend",
+      "timestamp": "2025-09-01T10:41:21.848619",
+      "id": 65
     }
   ],
   "positions": [],
   "balance_history": [],
   "active_orders": {
-    "1000000MOGUSDT": {
-      "stop_loss": "5666947",
-      "take_profit": "5666948"
+    "ETHUSDT": {
+      "stop_loss": "4999809474",
+      "take_profit": "4999809482"
+    },
+    "BNBUSDT": {
+      "stop_loss": "571882723"
     }
   },
   "bot_stats": {
-    "total_trades": 60,
-    "winning_trades": 0,
+    "total_trades": 65,
+    "winning_trades": 3,
     "losing_trades": 0,
-    "total_pnl": 0.0,
+    "total_pnl": 0.0096000000000015,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-08-31T16:01:47.646583"
+  "last_update": "2025-09-01T10:41:22.824767"
 }

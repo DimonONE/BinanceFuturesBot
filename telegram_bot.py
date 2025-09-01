@@ -1177,6 +1177,9 @@ class TradingBot:
                         else:
                             logger.warning(f"⚠️ Failed to cancel take-profit order {tp_order_id} for {symbol}")
                     
+                    # Update local trade status to closed for this symbol
+                    self.update_closed_trades_status(symbol)
+                    
                     # Remove from active orders storage
                     self.data_storage.remove_active_orders(symbol)
                     
@@ -1202,6 +1205,54 @@ class TradingBot:
                             
         except Exception as e:
             logger.error(f"Error checking orphaned orders: {e}")
+    
+    def update_closed_trades_status(self, symbol: str):
+        """Update status of open trades to closed when position is no longer on Binance"""
+        try:
+            # Get all open trades for this symbol
+            open_trades = self.data_storage.get_trades(symbol=symbol, status="open")
+            
+            if open_trades:
+                logger.info(f"🔄 Updating {len(open_trades)} open trades for {symbol} to closed status")
+                
+                for trade in open_trades:
+                    trade_id = trade.get('id')
+                    if trade_id:
+                        # Get current price for P&L calculation
+                        current_price = self.binance_client.get_current_price_sync(symbol)
+                        
+                        if current_price:
+                            # Calculate P&L
+                            entry_price = trade['price']
+                            quantity = trade['quantity']
+                            side = trade['side']
+                            
+                            if side == 'BUY':
+                                pnl = (current_price - entry_price) * quantity
+                            else:  # SELL
+                                pnl = (entry_price - current_price) * quantity
+                            
+                            # Update trade status
+                            updates = {
+                                'status': 'closed',
+                                'pnl': pnl,
+                                'close_price': current_price,
+                                'close_reason': 'Position closed (take-profit or stop-loss executed)'
+                            }
+                            
+                            self.data_storage.update_trade(trade_id, updates)
+                            logger.info(f"✅ Trade {trade_id} updated: {side} {symbol} - P&L: {pnl:.4f} USDT")
+                        else:
+                            # Fallback: update without P&L
+                            updates = {
+                                'status': 'closed',
+                                'close_reason': 'Position closed (price unavailable)'
+                            }
+                            self.data_storage.update_trade(trade_id, updates)
+                            logger.info(f"✅ Trade {trade_id} updated: {side} {symbol} - status closed")
+                            
+        except Exception as e:
+            logger.error(f"Error updating closed trades status for {symbol}: {e}")
     
     async def start(self):
         """Start the Telegram bot"""

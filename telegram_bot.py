@@ -5,6 +5,7 @@ Telegram bot interface for the trading bot using telebot
 import logging
 import asyncio
 from typing import Dict, List, Optional
+from datetime import datetime
 import telebot
 from telebot import types
 import threading
@@ -1215,6 +1216,9 @@ class TradingBot:
             if open_trades:
                 logger.info(f"🔄 Updating {len(open_trades)} open trades for {symbol} to closed status")
                 
+                closed_trades_info = []
+                total_pnl = 0.0
+                
                 for trade in open_trades:
                     trade_id = trade.get('id')
                     if trade_id:
@@ -1226,33 +1230,124 @@ class TradingBot:
                             entry_price = trade['price']
                             quantity = trade['quantity']
                             side = trade['side']
+                            timestamp = trade.get('timestamp', 'Unknown')
                             
                             if side == 'BUY':
                                 pnl = (current_price - entry_price) * quantity
+                                pnl_percent = ((current_price - entry_price) / entry_price) * 100
                             else:  # SELL
                                 pnl = (entry_price - current_price) * quantity
+                                pnl_percent = ((entry_price - current_price) / current_price) * 100
+                            
+                            total_pnl += pnl
                             
                             # Update trade status
                             updates = {
                                 'status': 'closed',
                                 'pnl': pnl,
                                 'close_price': current_price,
-                                'close_reason': 'Position closed (take-profit or stop-loss executed)'
+                                'close_reason': 'Position closed (take-profit or stop-loss executed)',
+                                'close_timestamp': datetime.now().isoformat()
                             }
                             
                             self.data_storage.update_trade(trade_id, updates)
-                            logger.info(f"✅ Trade {trade_id} updated: {side} {symbol} - P&L: {pnl:.4f} USDT")
+                            
+                            # Detailed logging
+                            logger.info(f"💰 Trade #{trade_id} CLOSED: {side} {quantity} {symbol}")
+                            logger.info(f"   📈 Entry: ${entry_price:.4f} → Close: ${current_price:.4f}")
+                            logger.info(f"   💎 P&L: {pnl:+.4f} USDT ({pnl_percent:+.2f}%)")
+                            logger.info(f"   ⏰ Duration: {timestamp} → {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                            
+                            # Collect info for Telegram message
+                            profit_emoji = "💚" if pnl > 0 else "❤️" if pnl < 0 else "💛"
+                            closed_trades_info.append({
+                                'id': trade_id,
+                                'side': side,
+                                'quantity': quantity,
+                                'entry_price': entry_price,
+                                'close_price': current_price,
+                                'pnl': pnl,
+                                'pnl_percent': pnl_percent,
+                                'emoji': profit_emoji,
+                                'timestamp': timestamp
+                            })
                         else:
                             # Fallback: update without P&L
                             updates = {
                                 'status': 'closed',
-                                'close_reason': 'Position closed (price unavailable)'
+                                'close_reason': 'Position closed (price unavailable)',
+                                'close_timestamp': datetime.now().isoformat()
                             }
                             self.data_storage.update_trade(trade_id, updates)
-                            logger.info(f"✅ Trade {trade_id} updated: {side} {symbol} - status closed")
+                            logger.info(f"✅ Trade {trade_id} updated: {side} {symbol} - status closed (price unavailable)")
+                
+                # Send Telegram notification with all closed trades
+                if closed_trades_info:
+                    self.send_position_closed_notification(symbol, closed_trades_info, total_pnl)
                             
         except Exception as e:
             logger.error(f"Error updating closed trades status for {symbol}: {e}")
+    
+    def send_position_closed_notification(self, symbol: str, trades_info: list, total_pnl: float):
+        """Send detailed Telegram notification about closed positions"""
+        try:
+            # Determine overall result emoji
+            if total_pnl > 0:
+                result_emoji = "🎉"
+                result_text = "ПРИБУТОК"
+            elif total_pnl < 0:
+                result_emoji = "😔"
+                result_text = "ЗБИТОК"
+            else:
+                result_emoji = "⚖️"
+                result_text = "БЕЗ ЗМІН"
+            
+            # Create detailed message
+            msg = f"""{result_emoji} **ПОЗИЦІЮ ЗАКРИТО!**
+
+🏷️ **Пара:** {symbol}
+📊 **Кількість операцій:** {len(trades_info)}
+💰 **Загальний результат:** {total_pnl:+.4f} USDT
+
+📈 **Деталі операцій:**"""
+
+            for i, trade in enumerate(trades_info, 1):
+                duration_text = ""
+                if trade['timestamp'] != 'Unknown':
+                    try:
+                        start_time = datetime.fromisoformat(trade['timestamp'].replace('Z', '+00:00'))
+                        duration = datetime.now() - start_time.replace(tzinfo=None)
+                        hours = duration.total_seconds() / 3600
+                        if hours < 1:
+                            duration_text = f" ({duration.total_seconds()/60:.0f}хв)"
+                        else:
+                            duration_text = f" ({hours:.1f}год)"
+                    except:
+                        duration_text = ""
+                
+                msg += f"""
+
+`{i}.` {trade['emoji']} **{trade['side']} {trade['quantity']} {symbol}**
+   📊 Вхід: ${trade['entry_price']:.4f}
+   🎯 Закриття: ${trade['close_price']:.4f}
+   💎 P&L: {trade['pnl']:+.4f} USDT ({trade['pnl_percent']:+.2f}%){duration_text}"""
+
+            msg += f"""
+
+⏰ **Час закриття:** {datetime.now().strftime('%H:%M:%S %d.%m.%Y')}
+🤖 **Причина:** Автоматичне закриття (TP/SL)"""
+
+            # Send to all authorized users
+            user_ids = self.config.AUTHORIZED_USERS if self.config.AUTHORIZED_USERS else []
+            for user_id in user_ids:
+                try:
+                    self.bot.send_message(user_id, msg, parse_mode='Markdown')
+                    logger.info(f"📱 Position closed notification sent to user {user_id}")
+                except Exception as e:
+                    logger.error(f"Failed to send position closed notification to {user_id}: {e}")
+                    
+        except Exception as e:
+            logger.error(f"Error sending position closed notification: {e}")
     
     async def start(self):
         """Start the Telegram bot"""

@@ -21020,3 +21020,55 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-01 09:58:56,932 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (52.7, нужно <30.0 или >70.0)
 2025-09-01 09:58:56,933 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
 2025-09-01 09:58:56,933 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols
+2025-09-01 10:21:25,815 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-09-01 10:21:28,583 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-09-01 10:21:48,770 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 10:21:48,774 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-09-01 10:21:49,651 - binance_client - INFO - Connected to Binance Testnet
+2025-09-01 10:21:49,987 - risk_manager - INFO - Risk Manager initialized with balance: 14784.99111872 USDT
+2025-09-01 10:21:49,988 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']
+2025-09-01 10:21:49,989 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-09-01 10:21:49,989 - telegram_bot - INFO - Starting Telegram bot...
+2025-09-01 10:23:43,789 - telegram_bot - INFO - Trading loop started
+2025-09-01 10:23:43,792 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 10:23:43,792 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 10:23:43,793 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 10:23:43,793 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 10:23:44,471 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:44,471 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 10:23:44,471 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 10:23:44,471 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 10:23:44,576 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=SIDEWAYS | RSI=43.1 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:44,576 - trading_strategy - INFO - ⏸️ ETHUSDT: HOLD - RSI в нейтральной зоне (43.1, нужно <30.0 или >70.0)
+2025-09-01 10:23:44,577 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:44,978 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:44,978 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 10:23:44,978 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 10:23:45,261 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=37.2 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:45,261 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (37.2, нужно <30.0 или >70.0)
+2025-09-01 10:23:45,261 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:45,501 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:45,501 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 10:23:45,501 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 10:23:45,776 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=53.4 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:45,776 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (53.4, нужно <30.0 или >70.0)
+2025-09-01 10:23:45,776 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:46,181 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:46,182 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 10:23:46,182 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 10:23:46,475 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=56.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:46,476 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (56.5, нужно <30.0 или >70.0)
+2025-09-01 10:23:46,476 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:47,041 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:47,041 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 10:23:47,041 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 10:23:47,319 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=52.0 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:47,319 - trading_strategy - INFO - ⏸️ TONUSDT: HOLD - RSI в нейтральной зоне (52.0, нужно <30.0 или >70.0)
+2025-09-01 10:23:47,319 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:47,691 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 10:23:47,692 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 10:23:47,692 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 10:23:47,966 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.5 | Oversold=False(<30.0) | Overbought=False(>70.0) | HasPosition=False
+2025-09-01 10:23:47,967 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.5, нужно <30.0 или >70.0)
+2025-09-01 10:23:47,967 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 10:23:47,967 - telegram_bot - INFO - ⏸️ No trading signals found across 6 symbols

@@ -1042,7 +1042,8 @@ class TradingBot:
                     'symbol': symbol,
                     'position_amt': quantity if side == 'BUY' else -quantity,
                     'entry_price': signal.entry_price,
-                    'side': 'LONG' if side == 'BUY' else 'SHORT'
+                    'side': 'LONG' if side == 'BUY' else 'SHORT',
+                    'timestamp': datetime.now().isoformat()  # Add timestamp!
                 }
                 self.strategy.update_position(symbol, position_data)
                 

@@ -332,10 +332,12 @@ class TrendFollowingStrategy:
                     
             else:
                 # Fallback to basic exit logic if no open trades found
-                # But still respect minimum hold time using position timestamp
-                position_timestamp = existing_position.get('timestamp')
+                # Use strategy.active_positions to get timestamp if available
+                position_from_cache = self.active_positions.get(symbol)
+                position_timestamp = position_from_cache.get('timestamp') if position_from_cache else None
+                
                 if position_timestamp:
-                    position_time = datetime.fromisoformat(position_timestamp)
+                    position_time = datetime.fromisoformat(position_timestamp) 
                     min_hold_time = timedelta(minutes=5)  # Same 5-minute minimum
                     
                     # Only exit if minimum hold time has passed

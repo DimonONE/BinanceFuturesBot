@@ -1081,48 +1081,120 @@
       "side": "BUY",
       "quantity": 0.007,
       "price": 4400.53,
-      "pnl": 0.0,
-      "status": "open",
+      "pnl": -0.0450799999999972,
+      "status": "closed",
       "order_id": 4999816828,
       "type": "market",
       "signal_confidence": 0.6,
       "reason": "Oversold RSI (39.2) in down trend",
       "timestamp": "2025-09-01T10:46:00.333011",
-      "id": 72
+      "id": 72,
+      "close_price": 4394.09,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "close_timestamp": "2025-09-01T10:47:06.394098",
+      "last_updated": "2025-09-01T10:47:06.394143"
     },
     {
       "symbol": "BNBUSDT",
       "side": "BUY",
       "quantity": 0.03,
       "price": 859.99,
-      "pnl": 0.0,
-      "status": "open",
+      "pnl": -0.00029999999999972713,
+      "status": "closed",
       "order_id": 571885094,
       "type": "market",
       "signal_confidence": 0.6,
       "reason": "Oversold RSI (37.5) in sideways trend",
       "timestamp": "2025-09-01T10:46:03.302172",
-      "id": 73
+      "id": 73,
+      "close_price": 859.98,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "close_timestamp": "2025-09-01T10:47:07.622492",
+      "last_updated": "2025-09-01T10:47:07.622526"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.007,
+      "price": 4395.88,
+      "pnl": -0.014769999999997709,
+      "status": "closed",
+      "order_id": 4999818634,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (38.7) in down trend",
+      "timestamp": "2025-09-01T10:47:13.376088",
+      "id": 74,
+      "close_price": 4393.77,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "close_timestamp": "2025-09-01T10:48:19.921473",
+      "last_updated": "2025-09-01T10:48:19.921507"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.98,
+      "pnl": 0.002399999999997817,
+      "status": "closed",
+      "order_id": 571885659,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.4) in sideways trend",
+      "timestamp": "2025-09-01T10:47:16.786356",
+      "id": 75,
+      "close_price": 860.06,
+      "close_reason": "Position closed (take-profit or stop-loss executed)",
+      "close_timestamp": "2025-09-01T10:48:20.841417",
+      "last_updated": "2025-09-01T10:48:20.841450"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "quantity": 0.007,
+      "price": 4395.88,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 4999820095,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (38.7) in down trend",
+      "timestamp": "2025-09-01T10:48:24.953390",
+      "id": 76
+    },
+    {
+      "symbol": "BNBUSDT",
+      "side": "BUY",
+      "quantity": 0.03,
+      "price": 859.98,
+      "pnl": 0.0,
+      "status": "open",
+      "order_id": 571886332,
+      "type": "market",
+      "signal_confidence": 0.6,
+      "reason": "Oversold RSI (37.4) in sideways trend",
+      "timestamp": "2025-09-01T10:48:27.551159",
+      "id": 77
     }
   ],
   "positions": [],
   "balance_history": [],
   "active_orders": {
     "ETHUSDT": {
-      "stop_loss": "4999816845",
-      "take_profit": "4999816872"
+      "stop_loss": "4999820112",
+      "take_profit": "4999820137"
     },
     "BNBUSDT": {
-      "stop_loss": "571885120"
+      "stop_loss": "571886360"
     }
   },
   "bot_stats": {
-    "total_trades": 73,
-    "winning_trades": 19,
-    "losing_trades": 3,
-    "total_pnl": 7.708629999999973,
+    "total_trades": 77,
+    "winning_trades": 20,
+    "losing_trades": 6,
+    "total_pnl": 7.650879999999977,
     "max_drawdown": 0.0,
     "start_date": "2025-08-28T17:56:43.987857"
   },
-  "last_update": "2025-09-01T10:46:04.253932"
+  "last_update": "2025-09-01T10:48:28.448551"
 }

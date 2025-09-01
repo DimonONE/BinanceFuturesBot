@@ -278,9 +278,11 @@ class TrendFollowingStrategy:
             if self.data_storage:
                 all_trades = self.data_storage.get_trades()
                 open_trades = [t for t in all_trades if t.get('symbol') == symbol and t.get('status') == 'open']
+                logger.info(f"🔍 {symbol} DEBUG: Found {len(all_trades)} total trades, {len(open_trades)} open trades")
             else:
                 # Fallback to active_positions if no data_storage
                 open_trades = [t for t in self.active_positions.get(symbol, []) if t.get('status') == 'open']
+                logger.info(f"🔍 {symbol} DEBUG: Using fallback, found {len(open_trades)} open trades")
             
             if open_trades:
                 # Calculate weighted average entry price from BUY trades only
@@ -332,22 +334,32 @@ class TrendFollowingStrategy:
                     
             else:
                 # Fallback to basic exit logic if no open trades found
+                logger.info(f"🔄 {symbol} FALLBACK: Using basic exit logic (open_trades empty)")
+                
                 # Use strategy.active_positions to get timestamp if available
                 position_from_cache = self.active_positions.get(symbol)
                 position_timestamp = position_from_cache.get('timestamp') if position_from_cache else None
                 
+                logger.info(f"🔍 {symbol} FALLBACK: position_from_cache={position_from_cache}, timestamp={position_timestamp}")
+                
                 if position_timestamp:
                     position_time = datetime.fromisoformat(position_timestamp) 
                     min_hold_time = timedelta(minutes=5)  # Same 5-minute minimum
+                    time_diff = datetime.now() - position_time
+                    
+                    logger.info(f"⏰ {symbol} FALLBACK: Hold time check - {time_diff} >= {min_hold_time}? {time_diff >= min_hold_time}")
                     
                     # Only exit if minimum hold time has passed
-                    if datetime.now() - position_time >= min_hold_time:
+                    if time_diff >= min_hold_time:
                         if position_side == 'LONG':
                             fee_buffer = 0.0008
                             take_profit_threshold = entry_price * (1 + (self.config.TAKE_PROFIT_PERCENT / 100) + fee_buffer)
                             stop_loss_threshold = entry_price * (1 - self.config.STOP_LOSS_PERCENT / 100)
                             
+                            logger.info(f"🔍 {symbol} FALLBACK Exit Check: Current={current_price:.4f} | Entry={entry_price:.4f} | TP≥{take_profit_threshold:.4f} | SL≤{stop_loss_threshold:.4f}")
+                            
                             if current_price >= take_profit_threshold:
+                                logger.info(f"🎯 {symbol} FALLBACK TAKE PROFIT: {current_price:.4f} >= {take_profit_threshold:.4f}")
                                 return TradingSignal(
                                     symbol=symbol,
                                     signal_type=SignalType.SELL,
@@ -356,6 +368,7 @@ class TrendFollowingStrategy:
                                     reason="Take profit reached (fallback)"
                                 )
                             elif current_price <= stop_loss_threshold:
+                                logger.info(f"🛑 {symbol} FALLBACK STOP LOSS: {current_price:.4f} <= {stop_loss_threshold:.4f}")
                                 return TradingSignal(
                                     symbol=symbol,
                                     signal_type=SignalType.SELL,

@@ -24583,3 +24583,844 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-01 11:59:31,058 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.93844
 2025-09-01 11:59:31,058 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.93844
 2025-09-01 11:59:31,058 - data_storage - INFO - Saved take-profit order ID 19121333 for TONUSDT
+2025-09-01 12:00:31,363 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:00:31,364 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:00:31,364 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:00:31,364 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:00:31,481 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:00:31,754 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:00:31,754 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999935896 for ETHUSDT
+2025-09-01 12:00:32,038 - binance_client - INFO - Order 4999935919 cancelled for ETHUSDT
+2025-09-01 12:00:32,039 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999935919 for ETHUSDT
+2025-09-01 12:00:32,039 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:00:32,311 - data_storage - INFO - Trade 110 updated
+2025-09-01 12:00:32,311 - telegram_bot - INFO - 💰 Trade #110 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:00:32,311 - telegram_bot - INFO -    📈 Entry: $4390.7600 → Close: $4388.9800
+2025-09-01 12:00:32,312 - telegram_bot - INFO -    💎 P&L: -0.0125 USDT (-0.04%)
+2025-09-01 12:00:32,312 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T11:59:25.699719 → 2025-09-01 12:00:32
+2025-09-01 12:00:32,604 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:00:32,607 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999935896', 'take_profit': '4999935919'}
+2025-09-01 12:00:32,809 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:00:33,077 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:00:33,077 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19121332 for TONUSDT
+2025-09-01 12:00:33,361 - binance_client - INFO - Order 19121333 cancelled for TONUSDT
+2025-09-01 12:00:33,361 - telegram_bot - INFO - ✅ Cancelled take-profit order 19121333 for TONUSDT
+2025-09-01 12:00:33,361 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:00:33,650 - data_storage - INFO - Trade 111 updated
+2025-09-01 12:00:33,650 - telegram_bot - INFO - 💰 Trade #111 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:00:33,651 - telegram_bot - INFO -    📈 Entry: $3.1260 → Close: $3.1247
+2025-09-01 12:00:33,651 - telegram_bot - INFO -    💎 P&L: +0.0125 USDT (+0.04%)
+2025-09-01 12:00:33,651 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T11:59:29.193198 → 2025-09-01 12:00:33
+2025-09-01 12:00:33,842 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:00:33,845 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19121332', 'take_profit': '19121333'}
+2025-09-01 12:00:34,397 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:34,397 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:00:34,397 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:00:34,397 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:00:34,663 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=38.5 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:00:34,663 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 38.5 < 40.0 (oversold)
+2025-09-01 12:00:34,664 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4257.6889 | TP=$4652.7322
+2025-09-01 12:00:34,664 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (38.5) in down trend
+2025-09-01 12:00:34,880 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:34,880 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:00:34,880 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:00:35,146 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=41.3 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:00:35,146 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (41.3, нужно <40.0 или >60.0)
+2025-09-01 12:00:35,146 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:00:35,560 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:35,560 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:00:35,560 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:00:35,827 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=47.9 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:00:35,828 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (47.9, нужно <40.0 или >60.0)
+2025-09-01 12:00:35,828 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:00:36,452 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:36,455 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:00:36,458 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:00:36,566 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=52.6 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:00:36,567 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (52.6, нужно <40.0 или >60.0)
+2025-09-01 12:00:36,567 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:00:36,945 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:36,946 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:00:36,946 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:00:37,212 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.6 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:00:37,212 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.6 > 60.0 (overbought)
+2025-09-01 12:00:37,212 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2198 | TP=$2.9384
+2025-09-01 12:00:37,213 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.6) in up trend
+2025-09-01 12:00:37,417 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:00:37,418 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:00:37,418 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:00:37,533 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=52.8 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:00:37,533 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (52.8, нужно <40.0 или >60.0)
+2025-09-01 12:00:37,534 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:00:37,534 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:00:37,534 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (38.5) in down trend
+2025-09-01 12:00:37,534 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.6) in up trend
+2025-09-01 12:00:37,534 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:00:37,534 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:00:37,534 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (38.5) in down trend', Is close: False, Type: BUY
+2025-09-01 12:00:37,810 - telegram_bot - INFO - 💰 Current balance: $14780.38 USDT
+2025-09-01 12:00:37,810 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14780.38 | Confidence=60.0%
+2025-09-01 12:00:37,810 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:00:37,810 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14780.38
+2025-09-01 12:00:37,810 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:00:37,811 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:00:37,811 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:00:38,678 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:00:38,683 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.72)
+2025-09-01 12:00:39,092 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:00:39,096 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:00:39,096 - risk_manager - INFO - Daily trades: 3/50
+2025-09-01 12:00:39,096 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4389.37
+2025-09-01 12:00:39,314 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4257.6889
+2025-09-01 12:00:40,071 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4257.6889
+2025-09-01 12:00:40,076 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4257.6889
+2025-09-01 12:00:40,078 - data_storage - INFO - Saved stop-loss order ID 4999937720 for ETHUSDT
+2025-09-01 12:00:40,286 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4652.7322
+2025-09-01 12:00:41,046 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4652.7322
+2025-09-01 12:00:41,047 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4652.7322
+2025-09-01 12:00:41,048 - data_storage - INFO - Saved take-profit order ID 4999937767 for ETHUSDT
+2025-09-01 12:00:41,261 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:00:41,261 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:00:41,261 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.6) in up trend', Is close: False, Type: SELL
+2025-09-01 12:00:41,376 - telegram_bot - INFO - 💰 Current balance: $14777.10 USDT
+2025-09-01 12:00:41,377 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14777.10 | Confidence=60.0%
+2025-09-01 12:00:41,377 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:00:41,377 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14777.10
+2025-09-01 12:00:41,377 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:00:41,377 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:00:41,377 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:00:41,902 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '5', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:00:41,903 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $30.00)
+2025-09-01 12:00:42,441 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:00:42,446 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:00:42,446 - risk_manager - INFO - Daily trades: 4/50
+2025-09-01 12:00:42,446 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.126
+2025-09-01 12:00:42,637 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.21978
+2025-09-01 12:00:43,219 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.21978
+2025-09-01 12:00:43,220 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.21978
+2025-09-01 12:00:43,220 - data_storage - INFO - Saved stop-loss order ID 19121791 for TONUSDT
+2025-09-01 12:00:43,411 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.93844
+2025-09-01 12:00:44,015 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.93844
+2025-09-01 12:00:44,018 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.93844
+2025-09-01 12:00:44,022 - data_storage - INFO - Saved take-profit order ID 19121794 for TONUSDT
+2025-09-01 12:01:44,313 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:01:44,313 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:01:44,313 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:01:44,314 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:01:44,416 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:01:44,512 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:01:44,512 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999937720 for ETHUSDT
+2025-09-01 12:01:44,776 - binance_client - INFO - Order 4999937767 cancelled for ETHUSDT
+2025-09-01 12:01:44,776 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999937767 for ETHUSDT
+2025-09-01 12:01:44,776 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:01:44,882 - data_storage - INFO - Trade 112 updated
+2025-09-01 12:01:44,882 - telegram_bot - INFO - 💰 Trade #112 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:01:44,882 - telegram_bot - INFO -    📈 Entry: $4389.3700 → Close: $4386.5600
+2025-09-01 12:01:44,882 - telegram_bot - INFO -    💎 P&L: -0.0197 USDT (-0.06%)
+2025-09-01 12:01:44,883 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:00:39.092354 → 2025-09-01 12:01:44
+2025-09-01 12:01:45,139 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:01:45,144 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999937720', 'take_profit': '4999937767'}
+2025-09-01 12:01:45,331 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:01:45,598 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:01:45,598 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19121791 for TONUSDT
+2025-09-01 12:01:45,702 - binance_client - INFO - Order 19121794 cancelled for TONUSDT
+2025-09-01 12:01:45,702 - telegram_bot - INFO - ✅ Cancelled take-profit order 19121794 for TONUSDT
+2025-09-01 12:01:45,702 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:01:45,802 - data_storage - INFO - Trade 113 updated
+2025-09-01 12:01:45,802 - telegram_bot - INFO - 💰 Trade #113 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:01:45,802 - telegram_bot - INFO -    📈 Entry: $3.1260 → Close: $3.1241
+2025-09-01 12:01:45,802 - telegram_bot - INFO -    💎 P&L: +0.0182 USDT (+0.06%)
+2025-09-01 12:01:45,802 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:00:42.441922 → 2025-09-01 12:01:45
+2025-09-01 12:01:45,998 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:01:46,003 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19121791', 'take_profit': '19121794'}
+2025-09-01 12:01:46,677 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:46,677 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:01:46,677 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:01:46,677 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:01:46,961 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=38.5 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:01:46,961 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 38.5 < 40.0 (oversold)
+2025-09-01 12:01:46,961 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4256.7674 | TP=$4651.7252
+2025-09-01 12:01:46,961 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (38.5) in down trend
+2025-09-01 12:01:47,550 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:47,551 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:01:47,551 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:01:47,658 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=47.0 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:01:47,658 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (47.0, нужно <40.0 или >60.0)
+2025-09-01 12:01:47,659 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:01:48,037 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:48,038 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:01:48,038 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:01:48,146 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.9 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:01:48,147 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.9, нужно <40.0 или >60.0)
+2025-09-01 12:01:48,147 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:01:48,353 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:48,353 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:01:48,353 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:01:48,620 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.6 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:01:48,621 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.6, нужно <40.0 или >60.0)
+2025-09-01 12:01:48,621 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:01:49,025 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:49,025 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:01:49,026 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:01:49,122 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.6 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:01:49,122 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.6 > 60.0 (overbought)
+2025-09-01 12:01:49,123 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2184 | TP=$2.9372
+2025-09-01 12:01:49,123 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.6) in up trend
+2025-09-01 12:01:49,326 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:01:49,327 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:01:49,327 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:01:49,592 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=52.8 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:01:49,592 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (52.8, нужно <40.0 или >60.0)
+2025-09-01 12:01:49,592 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:01:49,592 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:01:49,593 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (38.5) in down trend
+2025-09-01 12:01:49,593 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.6) in up trend
+2025-09-01 12:01:49,593 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:01:49,593 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:01:49,593 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (38.5) in down trend', Is close: False, Type: BUY
+2025-09-01 12:01:49,704 - telegram_bot - INFO - 💰 Current balance: $14783.90 USDT
+2025-09-01 12:01:49,704 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14783.90 | Confidence=60.0%
+2025-09-01 12:01:49,704 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:01:49,704 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14783.90
+2025-09-01 12:01:49,704 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:01:49,704 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:01:49,704 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:01:50,249 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:01:50,249 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.70)
+2025-09-01 12:01:50,794 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:01:50,798 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:01:50,799 - risk_manager - INFO - Daily trades: 5/50
+2025-09-01 12:01:50,799 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4388.42
+2025-09-01 12:01:51,010 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4256.7674
+2025-09-01 12:01:51,589 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4256.7674
+2025-09-01 12:01:51,589 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4256.7674
+2025-09-01 12:01:51,589 - data_storage - INFO - Saved stop-loss order ID 4999939867 for ETHUSDT
+2025-09-01 12:01:51,785 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4651.7252
+2025-09-01 12:01:52,099 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4651.7252
+2025-09-01 12:01:52,099 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4651.7252
+2025-09-01 12:01:52,099 - data_storage - INFO - Saved take-profit order ID 4999939872 for ETHUSDT
+2025-09-01 12:01:52,301 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:01:52,301 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:01:52,301 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.6) in up trend', Is close: False, Type: SELL
+2025-09-01 12:01:52,412 - telegram_bot - INFO - 💰 Current balance: $14780.62 USDT
+2025-09-01 12:01:52,412 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14780.62 | Confidence=60.0%
+2025-09-01 12:01:52,412 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:01:52,412 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14780.62
+2025-09-01 12:01:52,412 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:01:52,412 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:01:52,412 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:01:52,909 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '5', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:01:52,909 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $29.99)
+2025-09-01 12:01:53,294 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:01:53,298 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:01:53,298 - risk_manager - INFO - Daily trades: 6/50
+2025-09-01 12:01:53,298 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.1247
+2025-09-01 12:01:53,473 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.218441
+2025-09-01 12:01:54,367 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.218441
+2025-09-01 12:01:54,367 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.218441
+2025-09-01 12:01:54,368 - data_storage - INFO - Saved stop-loss order ID 19122223 for TONUSDT
+2025-09-01 12:01:54,561 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.9372179999999997
+2025-09-01 12:01:55,172 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.9372179999999997
+2025-09-01 12:01:55,172 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.9372179999999997
+2025-09-01 12:01:55,172 - data_storage - INFO - Saved take-profit order ID 19122224 for TONUSDT
+2025-09-01 12:02:55,433 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:02:55,433 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:02:55,433 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:02:55,433 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:02:55,706 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:02:55,970 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:02:55,970 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999939867 for ETHUSDT
+2025-09-01 12:02:56,254 - binance_client - INFO - Order 4999939872 cancelled for ETHUSDT
+2025-09-01 12:02:56,254 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999939872 for ETHUSDT
+2025-09-01 12:02:56,254 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:02:56,360 - data_storage - INFO - Trade 114 updated
+2025-09-01 12:02:56,360 - telegram_bot - INFO - 💰 Trade #114 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:02:56,360 - telegram_bot - INFO -    📈 Entry: $4388.4200 → Close: $4385.9300
+2025-09-01 12:02:56,361 - telegram_bot - INFO -    💎 P&L: -0.0174 USDT (-0.06%)
+2025-09-01 12:02:56,361 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:01:50.794548 → 2025-09-01 12:02:56
+2025-09-01 12:02:56,669 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:02:56,674 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999939867', 'take_profit': '4999939872'}
+2025-09-01 12:02:56,895 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:02:57,002 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:02:57,002 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19122223 for TONUSDT
+2025-09-01 12:02:57,273 - binance_client - INFO - Order 19122224 cancelled for TONUSDT
+2025-09-01 12:02:57,273 - telegram_bot - INFO - ✅ Cancelled take-profit order 19122224 for TONUSDT
+2025-09-01 12:02:57,273 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:02:57,543 - data_storage - INFO - Trade 115 updated
+2025-09-01 12:02:57,543 - telegram_bot - INFO - 💰 Trade #115 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:02:57,543 - telegram_bot - INFO -    📈 Entry: $3.1247 → Close: $3.1228
+2025-09-01 12:02:57,543 - telegram_bot - INFO -    💎 P&L: +0.0182 USDT (+0.06%)
+2025-09-01 12:02:57,543 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:01:53.294387 → 2025-09-01 12:02:57
+2025-09-01 12:02:57,737 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:02:57,741 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19122223', 'take_profit': '19122224'}
+2025-09-01 12:02:58,488 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:02:58,488 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:02:58,488 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:02:58,489 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:02:58,586 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=38.2 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:02:58,586 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 38.2 < 40.0 (oversold)
+2025-09-01 12:02:58,586 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4254.0320 | TP=$4648.7360
+2025-09-01 12:02:58,586 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (38.2) in down trend
+2025-09-01 12:02:58,960 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:02:58,960 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:02:58,960 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:02:59,248 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=46.6 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:02:59,248 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (46.6, нужно <40.0 или >60.0)
+2025-09-01 12:02:59,248 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:02:59,636 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:02:59,636 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:02:59,637 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:02:59,899 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.9 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:02:59,900 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.9, нужно <40.0 или >60.0)
+2025-09-01 12:02:59,900 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:03:00,265 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:03:00,265 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:03:00,265 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:03:00,530 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.6 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:03:00,530 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.6, нужно <40.0 или >60.0)
+2025-09-01 12:03:00,530 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:03:00,921 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:03:00,921 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:03:00,921 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:03:01,205 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.5 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:03:01,206 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.5 > 60.0 (overbought)
+2025-09-01 12:03:01,206 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2165 | TP=$2.9354
+2025-09-01 12:03:01,206 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.5) in up trend
+2025-09-01 12:03:01,411 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:03:01,411 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:03:01,411 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:03:01,508 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.4 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:03:01,508 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.4, нужно <40.0 или >60.0)
+2025-09-01 12:03:01,508 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:03:01,508 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:03:01,508 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (38.2) in down trend
+2025-09-01 12:03:01,509 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.5) in up trend
+2025-09-01 12:03:01,509 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:03:01,509 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:03:01,509 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (38.2) in down trend', Is close: False, Type: BUY
+2025-09-01 12:03:01,786 - telegram_bot - INFO - 💰 Current balance: $14782.94 USDT
+2025-09-01 12:03:01,787 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14782.94 | Confidence=60.0%
+2025-09-01 12:03:01,787 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:03:01,787 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14782.94
+2025-09-01 12:03:01,787 - risk_manager - INFO - Current drawdown: 0.01%
+2025-09-01 12:03:01,787 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:03:01,787 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:03:02,305 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:03:02,305 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.70)
+2025-09-01 12:03:02,683 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:03:02,689 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:03:02,689 - risk_manager - INFO - Daily trades: 7/50
+2025-09-01 12:03:02,689 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4385.6
+2025-09-01 12:03:02,906 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4254.032
+2025-09-01 12:03:03,679 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4254.032
+2025-09-01 12:03:03,679 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4254.032
+2025-09-01 12:03:03,679 - data_storage - INFO - Saved stop-loss order ID 4999942040 for ETHUSDT
+2025-09-01 12:03:03,912 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4648.736000000001
+2025-09-01 12:03:04,422 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4648.736000000001
+2025-09-01 12:03:04,422 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4648.736000000001
+2025-09-01 12:03:04,423 - data_storage - INFO - Saved take-profit order ID 4999942055 for ETHUSDT
+2025-09-01 12:03:04,710 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:03:04,710 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:03:04,710 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.5) in up trend', Is close: False, Type: SELL
+2025-09-01 12:03:04,983 - telegram_bot - INFO - 💰 Current balance: $14779.65 USDT
+2025-09-01 12:03:04,983 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14779.65 | Confidence=60.0%
+2025-09-01 12:03:04,983 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:03:04,983 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14779.65
+2025-09-01 12:03:04,983 - risk_manager - INFO - Current drawdown: 0.03%
+2025-09-01 12:03:04,983 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:03:04,983 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:03:05,643 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '5', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:03:05,643 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $29.98)
+2025-09-01 12:03:05,840 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:03:05,843 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:03:05,843 - risk_manager - INFO - Daily trades: 8/50
+2025-09-01 12:03:05,843 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.1228
+2025-09-01 12:03:06,128 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.216484
+2025-09-01 12:03:06,710 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.216484
+2025-09-01 12:03:06,710 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.216484
+2025-09-01 12:03:06,710 - data_storage - INFO - Saved stop-loss order ID 19122651 for TONUSDT
+2025-09-01 12:03:06,934 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.9354319999999996
+2025-09-01 12:03:07,350 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.9354319999999996
+2025-09-01 12:03:07,350 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.9354319999999996
+2025-09-01 12:03:07,350 - data_storage - INFO - Saved take-profit order ID 19122678 for TONUSDT
+2025-09-01 12:04:07,618 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:04:07,618 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:04:07,618 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:04:07,619 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:04:07,892 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:04:07,988 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:04:07,989 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999942040 for ETHUSDT
+2025-09-01 12:04:08,257 - binance_client - INFO - Order 4999942055 cancelled for ETHUSDT
+2025-09-01 12:04:08,257 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999942055 for ETHUSDT
+2025-09-01 12:04:08,257 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:04:08,544 - data_storage - INFO - Trade 116 updated
+2025-09-01 12:04:08,544 - telegram_bot - INFO - 💰 Trade #116 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:04:08,544 - telegram_bot - INFO -    📈 Entry: $4385.6000 → Close: $4382.8600
+2025-09-01 12:04:08,545 - telegram_bot - INFO -    💎 P&L: -0.0192 USDT (-0.06%)
+2025-09-01 12:04:08,545 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:03:02.684315 → 2025-09-01 12:04:08
+2025-09-01 12:04:08,830 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:04:08,835 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999942040', 'take_profit': '4999942055'}
+2025-09-01 12:04:09,024 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:04:09,131 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:04:09,131 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19122651 for TONUSDT
+2025-09-01 12:04:09,416 - binance_client - INFO - Order 19122678 cancelled for TONUSDT
+2025-09-01 12:04:09,416 - telegram_bot - INFO - ✅ Cancelled take-profit order 19122678 for TONUSDT
+2025-09-01 12:04:09,416 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:04:09,685 - data_storage - INFO - Trade 117 updated
+2025-09-01 12:04:09,686 - telegram_bot - INFO - 💰 Trade #117 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:04:09,686 - telegram_bot - INFO -    📈 Entry: $3.1228 → Close: $3.1218
+2025-09-01 12:04:09,686 - telegram_bot - INFO -    💎 P&L: +0.0096 USDT (+0.03%)
+2025-09-01 12:04:09,686 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:03:05.840420 → 2025-09-01 12:04:09
+2025-09-01 12:04:09,874 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:04:09,878 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19122651', 'take_profit': '19122678'}
+2025-09-01 12:04:10,273 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:10,273 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:04:10,273 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:04:10,273 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:04:10,537 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=37.4 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:04:10,537 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 37.4 < 40.0 (oversold)
+2025-09-01 12:04:10,538 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4246.5824 | TP=$4640.5952
+2025-09-01 12:04:10,538 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (37.4) in down trend
+2025-09-01 12:04:10,746 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:10,746 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:04:10,746 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:04:10,848 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=46.1 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:04:10,848 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (46.1, нужно <40.0 или >60.0)
+2025-09-01 12:04:10,848 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:04:11,224 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:11,224 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:04:11,224 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:04:11,333 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.6 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:04:11,333 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.6, нужно <40.0 или >60.0)
+2025-09-01 12:04:11,333 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:04:11,726 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:11,726 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:04:11,726 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:04:11,827 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.1 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:04:11,828 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.1, нужно <40.0 или >60.0)
+2025-09-01 12:04:11,828 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:04:12,202 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:12,202 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:04:12,202 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:04:12,307 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.5 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:04:12,307 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.5 > 60.0 (overbought)
+2025-09-01 12:04:12,307 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2155 | TP=$2.9345
+2025-09-01 12:04:12,308 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.5) in up trend
+2025-09-01 12:04:12,521 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:04:12,521 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:04:12,521 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:04:12,617 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.3 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:04:12,617 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.3, нужно <40.0 или >60.0)
+2025-09-01 12:04:12,617 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:04:12,618 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:04:12,618 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (37.4) in down trend
+2025-09-01 12:04:12,618 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.5) in up trend
+2025-09-01 12:04:12,618 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:04:12,618 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:04:12,618 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (37.4) in down trend', Is close: False, Type: BUY
+2025-09-01 12:04:12,719 - telegram_bot - INFO - 💰 Current balance: $14787.37 USDT
+2025-09-01 12:04:12,719 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14787.37 | Confidence=60.0%
+2025-09-01 12:04:12,719 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:04:12,719 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14787.37
+2025-09-01 12:04:12,719 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:04:12,720 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:04:12,720 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:04:13,720 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:04:13,720 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.69)
+2025-09-01 12:04:14,256 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:04:14,261 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:04:14,261 - risk_manager - INFO - Daily trades: 9/50
+2025-09-01 12:04:14,261 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4377.92
+2025-09-01 12:04:14,454 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:04:15,186 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:04:15,187 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:04:15,187 - data_storage - INFO - Saved stop-loss order ID 4999943882 for ETHUSDT
+2025-09-01 12:04:15,498 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:04:15,970 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:04:15,970 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:04:15,971 - data_storage - INFO - Saved take-profit order ID 4999943889 for ETHUSDT
+2025-09-01 12:04:16,184 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:04:16,184 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:04:16,184 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.5) in up trend', Is close: False, Type: SELL
+2025-09-01 12:04:16,455 - telegram_bot - INFO - 💰 Current balance: $14784.09 USDT
+2025-09-01 12:04:16,455 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14784.09 | Confidence=60.0%
+2025-09-01 12:04:16,455 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:04:16,455 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14784.09
+2025-09-01 12:04:16,455 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:04:16,455 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:04:16,456 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:04:17,297 - binance_client - INFO - MIN_NOTIONAL filter structure: {'filterType': 'MIN_NOTIONAL', 'notional': '5'}
+2025-09-01 12:04:17,298 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $29.97)
+2025-09-01 12:04:17,825 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:04:17,830 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:04:17,830 - risk_manager - INFO - Daily trades: 10/50
+2025-09-01 12:04:17,831 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.1218
+2025-09-01 12:04:18,047 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.215454
+2025-09-01 12:04:18,615 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.215454
+2025-09-01 12:04:18,615 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.215454
+2025-09-01 12:04:18,616 - data_storage - INFO - Saved stop-loss order ID 19123134 for TONUSDT
+2025-09-01 12:04:18,871 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.9344919999999997
+2025-09-01 12:04:19,432 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.9344919999999997
+2025-09-01 12:04:19,432 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.9344919999999997
+2025-09-01 12:04:19,432 - data_storage - INFO - Saved take-profit order ID 19123135 for TONUSDT
+2025-09-01 12:05:19,757 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:05:19,757 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:05:19,757 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:05:19,757 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:05:20,031 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:05:20,304 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:05:20,304 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999943882 for ETHUSDT
+2025-09-01 12:05:20,408 - binance_client - INFO - Order 4999943889 cancelled for ETHUSDT
+2025-09-01 12:05:20,408 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999943889 for ETHUSDT
+2025-09-01 12:05:20,408 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:05:20,676 - data_storage - INFO - Trade 118 updated
+2025-09-01 12:05:20,677 - telegram_bot - INFO - 💰 Trade #118 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:05:20,677 - telegram_bot - INFO -    📈 Entry: $4377.9200 → Close: $4385.3200
+2025-09-01 12:05:20,677 - telegram_bot - INFO -    💎 P&L: +0.0518 USDT (+0.17%)
+2025-09-01 12:05:20,677 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:04:14.257032 → 2025-09-01 12:05:20
+2025-09-01 12:05:20,947 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:05:20,951 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999943882', 'take_profit': '4999943889'}
+2025-09-01 12:05:21,147 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:05:21,255 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:05:21,256 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19123134 for TONUSDT
+2025-09-01 12:05:21,351 - binance_client - INFO - Order 19123135 cancelled for TONUSDT
+2025-09-01 12:05:21,351 - telegram_bot - INFO - ✅ Cancelled take-profit order 19123135 for TONUSDT
+2025-09-01 12:05:21,352 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:05:21,623 - data_storage - INFO - Trade 119 updated
+2025-09-01 12:05:21,623 - telegram_bot - INFO - 💰 Trade #119 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:05:21,623 - telegram_bot - INFO -    📈 Entry: $3.1218 → Close: $3.1220
+2025-09-01 12:05:21,623 - telegram_bot - INFO -    💎 P&L: -0.0019 USDT (-0.01%)
+2025-09-01 12:05:21,623 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:04:17.825654 → 2025-09-01 12:05:21
+2025-09-01 12:05:21,821 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:05:21,827 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19123134', 'take_profit': '19123135'}
+2025-09-01 12:05:22,662 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:22,663 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:05:22,663 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:05:22,663 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:05:22,928 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=37.4 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:05:22,928 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 37.4 < 40.0 (oversold)
+2025-09-01 12:05:22,928 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4246.5824 | TP=$4640.5952
+2025-09-01 12:05:22,929 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (37.4) in down trend
+2025-09-01 12:05:23,359 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:23,359 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:05:23,359 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:05:23,623 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=46.0 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:05:23,624 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (46.0, нужно <40.0 или >60.0)
+2025-09-01 12:05:23,624 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:05:24,190 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:24,190 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:05:24,190 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:05:24,453 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.5 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:05:24,453 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.5, нужно <40.0 или >60.0)
+2025-09-01 12:05:24,453 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:05:25,017 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:25,017 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:05:25,017 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:05:25,282 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.0 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:05:25,282 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.0, нужно <40.0 или >60.0)
+2025-09-01 12:05:25,282 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:05:25,821 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:25,821 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:05:25,822 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:05:25,924 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.5 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:05:25,924 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.5 > 60.0 (overbought)
+2025-09-01 12:05:25,924 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2157 | TP=$2.9347
+2025-09-01 12:05:25,924 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.5) in up trend
+2025-09-01 12:05:26,221 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:05:26,221 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:05:26,221 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:05:26,486 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.1 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:05:26,486 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.1, нужно <40.0 или >60.0)
+2025-09-01 12:05:26,486 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:05:26,487 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:05:26,487 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (37.4) in down trend
+2025-09-01 12:05:26,487 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.5) in up trend
+2025-09-01 12:05:26,487 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:05:26,487 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:05:26,487 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (37.4) in down trend', Is close: False, Type: BUY
+2025-09-01 12:05:26,781 - telegram_bot - INFO - 💰 Current balance: $14787.30 USDT
+2025-09-01 12:05:26,781 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14787.30 | Confidence=60.0%
+2025-09-01 12:05:26,781 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:05:26,781 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14787.30
+2025-09-01 12:05:26,781 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:05:26,781 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:05:26,781 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:05:27,677 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:05:27,677 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.70)
+2025-09-01 12:05:28,183 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:05:28,187 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:05:28,188 - risk_manager - INFO - Daily trades: 11/50
+2025-09-01 12:05:28,188 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4377.92
+2025-09-01 12:05:28,407 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:05:28,807 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:05:28,807 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4246.5824
+2025-09-01 12:05:28,807 - data_storage - INFO - Saved stop-loss order ID 4999945970 for ETHUSDT
+2025-09-01 12:05:29,011 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:05:29,932 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:05:29,933 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4640.595200000001
+2025-09-01 12:05:29,933 - data_storage - INFO - Saved take-profit order ID 4999946011 for ETHUSDT
+2025-09-01 12:05:30,111 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:05:30,111 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:05:30,111 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.5) in up trend', Is close: False, Type: SELL
+2025-09-01 12:05:30,401 - telegram_bot - INFO - 💰 Current balance: $14784.02 USDT
+2025-09-01 12:05:30,401 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14784.02 | Confidence=60.0%
+2025-09-01 12:05:30,401 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:05:30,401 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14784.02
+2025-09-01 12:05:30,401 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:05:30,401 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:05:30,401 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:05:31,183 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '5', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:05:31,183 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $29.97)
+2025-09-01 12:05:31,763 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:05:31,768 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:05:31,768 - risk_manager - INFO - Daily trades: 12/50
+2025-09-01 12:05:31,768 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.122
+2025-09-01 12:05:31,963 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.21566
+2025-09-01 12:05:32,539 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.21566
+2025-09-01 12:05:32,539 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.21566
+2025-09-01 12:05:32,540 - data_storage - INFO - Saved stop-loss order ID 19123590 for TONUSDT
+2025-09-01 12:05:32,758 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.9346799999999997
+2025-09-01 12:05:33,089 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.9346799999999997
+2025-09-01 12:05:33,090 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.9346799999999997
+2025-09-01 12:05:33,090 - data_storage - INFO - Saved take-profit order ID 19123591 for TONUSDT
+2025-09-01 12:05:59,600 - telegram_bot - ERROR - Error handling callback stats: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: query is too old and response timeout expired or query ID is invalid
+2025-09-01 12:06:33,385 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:06:33,386 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:06:33,386 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:06:33,386 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:06:33,663 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:06:33,928 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:06:33,928 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999945970 for ETHUSDT
+2025-09-01 12:06:34,028 - binance_client - INFO - Order 4999946011 cancelled for ETHUSDT
+2025-09-01 12:06:34,028 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999946011 for ETHUSDT
+2025-09-01 12:06:34,028 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:06:34,129 - data_storage - INFO - Trade 120 updated
+2025-09-01 12:06:34,129 - telegram_bot - INFO - 💰 Trade #120 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:06:34,129 - telegram_bot - INFO -    📈 Entry: $4377.9200 → Close: $4394.5200
+2025-09-01 12:06:34,130 - telegram_bot - INFO -    💎 P&L: +0.1162 USDT (+0.38%)
+2025-09-01 12:06:34,130 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:05:28.183780 → 2025-09-01 12:06:34
+2025-09-01 12:06:34,320 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:06:34,326 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999945970', 'take_profit': '4999946011'}
+2025-09-01 12:06:34,524 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:06:34,789 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:06:34,789 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19123590 for TONUSDT
+2025-09-01 12:06:35,054 - binance_client - INFO - Order 19123591 cancelled for TONUSDT
+2025-09-01 12:06:35,054 - telegram_bot - INFO - ✅ Cancelled take-profit order 19123591 for TONUSDT
+2025-09-01 12:06:35,054 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:06:35,157 - data_storage - INFO - Trade 121 updated
+2025-09-01 12:06:35,157 - telegram_bot - INFO - 💰 Trade #121 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:06:35,157 - telegram_bot - INFO -    📈 Entry: $3.1220 → Close: $3.1270
+2025-09-01 12:06:35,158 - telegram_bot - INFO -    💎 P&L: -0.0480 USDT (-0.16%)
+2025-09-01 12:06:35,158 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:05:31.763831 → 2025-09-01 12:06:35
+2025-09-01 12:06:35,342 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:06:35,346 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19123590', 'take_profit': '19123591'}
+2025-09-01 12:06:35,916 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:35,917 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:06:35,917 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:06:35,917 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:06:36,185 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=38.2 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:06:36,185 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 38.2 < 40.0 (oversold)
+2025-09-01 12:06:36,185 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4253.9253 | TP=$4648.6194
+2025-09-01 12:06:36,185 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (38.2) in down trend
+2025-09-01 12:06:36,574 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:36,574 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:06:36,574 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:06:38,694 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=46.0 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:06:38,695 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (46.0, нужно <40.0 или >60.0)
+2025-09-01 12:06:38,695 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:06:39,076 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:39,076 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:06:39,076 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:06:39,180 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.8 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:06:39,180 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.8, нужно <40.0 или >60.0)
+2025-09-01 12:06:39,180 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:06:39,560 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:39,560 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:06:39,560 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:06:39,661 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.3 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:06:39,662 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.3, нужно <40.0 или >60.0)
+2025-09-01 12:06:39,664 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:06:40,245 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:40,245 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:06:40,245 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:06:40,520 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.6 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:06:40,520 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.6 > 60.0 (overbought)
+2025-09-01 12:06:40,521 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2194 | TP=$2.9381
+2025-09-01 12:06:40,521 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.6) in up trend
+2025-09-01 12:06:40,925 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:06:40,925 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:06:40,925 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:06:41,030 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.1 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:06:41,030 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.1, нужно <40.0 или >60.0)
+2025-09-01 12:06:41,030 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:06:41,031 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:06:41,031 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (38.2) in down trend
+2025-09-01 12:06:41,031 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.6) in up trend
+2025-09-01 12:06:41,031 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:06:41,031 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:06:41,031 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (38.2) in down trend', Is close: False, Type: BUY
+2025-09-01 12:06:41,312 - telegram_bot - INFO - 💰 Current balance: $14787.24 USDT
+2025-09-01 12:06:41,312 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14787.24 | Confidence=60.0%
+2025-09-01 12:06:41,312 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:06:41,312 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14787.24
+2025-09-01 12:06:41,313 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:06:41,313 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:06:41,313 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:06:42,038 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:06:42,048 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.77)
+2025-09-01 12:06:42,435 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:06:42,440 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:06:42,440 - risk_manager - INFO - Daily trades: 13/50
+2025-09-01 12:06:42,440 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4385.49
+2025-09-01 12:06:42,619 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4253.9253
+2025-09-01 12:06:43,542 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4253.9253
+2025-09-01 12:06:43,543 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4253.9253
+2025-09-01 12:06:43,543 - data_storage - INFO - Saved stop-loss order ID 4999948095 for ETHUSDT
+2025-09-01 12:06:43,819 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4648.6194
+2025-09-01 12:06:44,570 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4648.6194
+2025-09-01 12:06:44,570 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4648.6194
+2025-09-01 12:06:44,570 - data_storage - INFO - Saved take-profit order ID 4999948122 for ETHUSDT
+2025-09-01 12:06:44,795 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:06:44,795 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:06:44,795 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.6) in up trend', Is close: False, Type: SELL
+2025-09-01 12:06:45,085 - telegram_bot - INFO - 💰 Current balance: $14783.96 USDT
+2025-09-01 12:06:45,086 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14783.96 | Confidence=60.0%
+2025-09-01 12:06:45,086 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:06:45,086 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14783.96
+2025-09-01 12:06:45,086 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:06:45,086 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:06:45,086 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:06:45,964 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '5', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:06:45,971 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $30.02)
+2025-09-01 12:06:46,179 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:06:46,184 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:06:46,184 - risk_manager - INFO - Daily trades: 14/50
+2025-09-01 12:06:46,184 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.1256
+2025-09-01 12:06:46,406 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.2193680000000002
+2025-09-01 12:06:47,142 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.2193680000000002
+2025-09-01 12:06:47,153 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.2193680000000002
+2025-09-01 12:06:47,153 - data_storage - INFO - Saved stop-loss order ID 19124015 for TONUSDT
+2025-09-01 12:06:47,364 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.938064
+2025-09-01 12:06:48,172 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.938064
+2025-09-01 12:06:48,173 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.938064
+2025-09-01 12:06:48,173 - data_storage - INFO - Saved take-profit order ID 19124019 for TONUSDT
+2025-09-01 12:07:48,412 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 12:07:48,412 - telegram_bot - INFO - 🔍 Loaded user data: {'930901908': {'selected_pairs': ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']}}
+2025-09-01 12:07:48,412 - telegram_bot - INFO - ⚡ No changes in user settings detected
+2025-09-01 12:07:48,412 - telegram_bot - INFO - 🔍 Scanning 6 symbols for trading opportunities...
+2025-09-01 12:07:48,688 - telegram_bot - INFO - 🔍 Position closed for ETHUSDT, cancelling remaining orders...
+2025-09-01 12:07:48,957 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:07:48,957 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 4999948095 for ETHUSDT
+2025-09-01 12:07:49,242 - binance_client - INFO - Order 4999948122 cancelled for ETHUSDT
+2025-09-01 12:07:49,242 - telegram_bot - INFO - ✅ Cancelled take-profit order 4999948122 for ETHUSDT
+2025-09-01 12:07:49,242 - telegram_bot - INFO - 🔄 Updating 1 open trades for ETHUSDT to closed status
+2025-09-01 12:07:49,348 - data_storage - INFO - Trade 122 updated
+2025-09-01 12:07:49,348 - telegram_bot - INFO - 💰 Trade #122 CLOSED: BUY 0.007 ETHUSDT
+2025-09-01 12:07:49,348 - telegram_bot - INFO -    📈 Entry: $4385.4900 → Close: $4398.5400
+2025-09-01 12:07:49,348 - telegram_bot - INFO -    💎 P&L: +0.0914 USDT (+0.30%)
+2025-09-01 12:07:49,348 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:06:42.435913 → 2025-09-01 12:07:49
+2025-09-01 12:07:49,607 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:07:49,611 - data_storage - INFO - Removed active orders for ETHUSDT: {'stop_loss': '4999948095', 'take_profit': '4999948122'}
+2025-09-01 12:07:49,812 - telegram_bot - INFO - 🔍 Position closed for TONUSDT, cancelling remaining orders...
+2025-09-01 12:07:50,095 - binance_client - ERROR - API error cancelling order: APIError(code=-2011): Unknown order sent.
+2025-09-01 12:07:50,096 - telegram_bot - WARNING - ⚠️ Failed to cancel stop-loss order 19124015 for TONUSDT
+2025-09-01 12:07:50,197 - binance_client - INFO - Order 19124019 cancelled for TONUSDT
+2025-09-01 12:07:50,198 - telegram_bot - INFO - ✅ Cancelled take-profit order 19124019 for TONUSDT
+2025-09-01 12:07:50,198 - telegram_bot - INFO - 🔄 Updating 1 open trades for TONUSDT to closed status
+2025-09-01 12:07:50,306 - data_storage - INFO - Trade 123 updated
+2025-09-01 12:07:50,306 - telegram_bot - INFO - 💰 Trade #123 CLOSED: SELL 9.6 TONUSDT
+2025-09-01 12:07:50,306 - telegram_bot - INFO -    📈 Entry: $3.1256 → Close: $3.1285
+2025-09-01 12:07:50,306 - telegram_bot - INFO -    💎 P&L: -0.0278 USDT (-0.09%)
+2025-09-01 12:07:50,306 - telegram_bot - INFO -    ⏰ Duration: 2025-09-01T12:06:46.179650 → 2025-09-01 12:07:50
+2025-09-01 12:07:50,513 - telegram_bot - INFO - 📱 Position closed notification sent to user 930901908
+2025-09-01 12:07:50,517 - data_storage - INFO - Removed active orders for TONUSDT: {'stop_loss': '19124015', 'take_profit': '19124019'}
+2025-09-01 12:07:51,097 - trading_strategy - INFO - 🔍 ETHUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:51,097 - trading_strategy - INFO - 🔍 ETHUSDT Looking for ETHUSDT in Binance: False
+2025-09-01 12:07:51,097 - trading_strategy - INFO - 📊 ETHUSDT Final position status: No position
+2025-09-01 12:07:51,098 - trading_strategy - INFO - 📊 No open positions found on Binance
+2025-09-01 12:07:51,197 - trading_strategy - INFO - 🔍 ETHUSDT Signal Check: Trend=DOWN | RSI=39.6 | Oversold=True(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:07:51,197 - trading_strategy - INFO - ✅ ETHUSDT BUY условие выполнено: RSI 39.6 < 40.0 (oversold)
+2025-09-01 12:07:51,197 - trading_strategy - INFO - ✅ ETHUSDT BUY Signal: Oversold RSI | Trend=DOWN | Confidence=60.0% | SL=$4263.5768 | TP=$4659.1664
+2025-09-01 12:07:51,197 - trading_strategy - INFO - 🎯 ETHUSDT: Signal generated - BUY | Confidence=60.0% | Reason: Oversold RSI (39.6) in down trend
+2025-09-01 12:07:51,591 - trading_strategy - INFO - 🔍 BNBUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:51,592 - trading_strategy - INFO - 🔍 BNBUSDT Looking for BNBUSDT in Binance: False
+2025-09-01 12:07:51,592 - trading_strategy - INFO - 📊 BNBUSDT Final position status: No position
+2025-09-01 12:07:51,698 - trading_strategy - INFO - 🔍 BNBUSDT Signal Check: Trend=SIDEWAYS | RSI=46.0 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:07:51,698 - trading_strategy - INFO - ⏸️ BNBUSDT: HOLD - RSI в нейтральной зоне (46.0, нужно <40.0 или >60.0)
+2025-09-01 12:07:51,698 - trading_strategy - INFO - 🎯 BNBUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:07:52,078 - trading_strategy - INFO - 🔍 ADAUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:52,078 - trading_strategy - INFO - 🔍 ADAUSDT Looking for ADAUSDT in Binance: False
+2025-09-01 12:07:52,078 - trading_strategy - INFO - 📊 ADAUSDT Final position status: No position
+2025-09-01 12:07:52,177 - trading_strategy - INFO - 🔍 ADAUSDT Signal Check: Trend=UP | RSI=49.8 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:07:52,177 - trading_strategy - INFO - ⏸️ ADAUSDT: HOLD - RSI в нейтральной зоне (49.8, нужно <40.0 или >60.0)
+2025-09-01 12:07:52,177 - trading_strategy - INFO - 🎯 ADAUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:07:52,725 - trading_strategy - INFO - 🔍 SOLUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:52,725 - trading_strategy - INFO - 🔍 SOLUSDT Looking for SOLUSDT in Binance: False
+2025-09-01 12:07:52,726 - trading_strategy - INFO - 📊 SOLUSDT Final position status: No position
+2025-09-01 12:07:52,992 - trading_strategy - INFO - 🔍 SOLUSDT Signal Check: Trend=UP | RSI=55.4 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:07:52,993 - trading_strategy - INFO - ⏸️ SOLUSDT: HOLD - RSI в нейтральной зоне (55.4, нужно <40.0 или >60.0)
+2025-09-01 12:07:52,993 - trading_strategy - INFO - 🎯 SOLUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:07:53,219 - trading_strategy - INFO - 🔍 TONUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:53,220 - trading_strategy - INFO - 🔍 TONUSDT Looking for TONUSDT in Binance: False
+2025-09-01 12:07:53,220 - trading_strategy - INFO - 📊 TONUSDT Final position status: No position
+2025-09-01 12:07:53,482 - trading_strategy - INFO - 🔍 TONUSDT Signal Check: Trend=UP | RSI=63.7 | Oversold=False(<40.0) | Overbought=True(>60.0) | HasPosition=False
+2025-09-01 12:07:53,482 - trading_strategy - INFO - ✅ TONUSDT SELL условие выполнено: RSI 63.7 > 60.0 (overbought)
+2025-09-01 12:07:53,482 - trading_strategy - INFO - ✅ TONUSDT SELL Signal: Overbought RSI | Trend=UP | Confidence=60.0% | SL=$3.2224 | TP=$2.9408
+2025-09-01 12:07:53,482 - trading_strategy - INFO - 🎯 TONUSDT: Signal generated - SELL | Confidence=60.0% | Reason: Overbought RSI (63.7) in up trend
+2025-09-01 12:07:53,887 - trading_strategy - INFO - 🔍 XRPUSDT Position Check: Binance has 0 total positions
+2025-09-01 12:07:53,887 - trading_strategy - INFO - 🔍 XRPUSDT Looking for XRPUSDT in Binance: False
+2025-09-01 12:07:53,888 - trading_strategy - INFO - 📊 XRPUSDT Final position status: No position
+2025-09-01 12:07:54,172 - trading_strategy - INFO - 🔍 XRPUSDT Signal Check: Trend=UP | RSI=53.1 | Oversold=False(<40.0) | Overbought=False(>60.0) | HasPosition=False
+2025-09-01 12:07:54,172 - trading_strategy - INFO - ⏸️ XRPUSDT: HOLD - RSI в нейтральной зоне (53.1, нужно <40.0 или >60.0)
+2025-09-01 12:07:54,172 - trading_strategy - INFO - 🎯 XRPUSDT: Signal generated - HOLD | Confidence=50.0% | Reason: No clear signal
+2025-09-01 12:07:54,172 - telegram_bot - INFO - 🎯 Found 2 trading signals: ['ETHUSDT-BUY', 'TONUSDT-SELL']
+2025-09-01 12:07:54,173 - telegram_bot - INFO -   📈 ETHUSDT: BUY (confidence: 60.0%) - Oversold RSI (39.6) in down trend
+2025-09-01 12:07:54,173 - telegram_bot - INFO -   📈 TONUSDT: SELL (confidence: 60.0%) - Overbought RSI (63.7) in up trend
+2025-09-01 12:07:54,173 - telegram_bot - INFO - 🔄 Processing signal for ETHUSDT...
+2025-09-01 12:07:54,173 - telegram_bot - INFO - 💼 Processing BUY signal for ETHUSDT
+2025-09-01 12:07:54,173 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Oversold RSI (39.6) in down trend', Is close: False, Type: BUY
+2025-09-01 12:07:54,293 - telegram_bot - INFO - 💰 Current balance: $14790.81 USDT
+2025-09-01 12:07:54,293 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14790.81 | Confidence=60.0%
+2025-09-01 12:07:54,293 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:07:54,293 - risk_manager - INFO - 🛡️ Risk Check for ETHUSDT: Amount=$30.00 | Balance=$14790.81
+2025-09-01 12:07:54,293 - risk_manager - INFO - Current drawdown: 0.00%
+2025-09-01 12:07:54,293 - risk_manager - INFO - ✅ Risk Check Passed for ETHUSDT: All conditions met
+2025-09-01 12:07:54,293 - binance_client - INFO - 💰 Calculating quantity for ETHUSDT with $30.0 USDT
+2025-09-01 12:07:55,142 - binance_client - INFO - MIN_NOTIONAL filter structure: {'notional': '20', 'filterType': 'MIN_NOTIONAL'}
+2025-09-01 12:07:55,153 - binance_client - INFO - ✅ Calculated quantity: 0.007 ETHUSDT (value: $30.80)
+2025-09-01 12:07:55,379 - binance_client - INFO - Market order placed: BUY 0.007 ETHUSDT
+2025-09-01 12:07:55,383 - data_storage - INFO - Trade saved: ETHUSDT - BUY - open
+2025-09-01 12:07:55,383 - risk_manager - INFO - Daily trades: 15/50
+2025-09-01 12:07:55,384 - telegram_bot - INFO - Trade executed: BUY 0.007 ETHUSDT at 4395.44
+2025-09-01 12:07:55,634 - telegram_bot - INFO - 🛡️ Placing stop-loss: SELL 0.007 ETHUSDT at 4263.5768
+2025-09-01 12:07:56,041 - binance_client - INFO - Stop-loss order placed: SELL 0.007 ETHUSDT at 4263.5768
+2025-09-01 12:07:56,043 - telegram_bot - INFO - ✅ Stop-loss placed: SELL 0.007 ETHUSDT at 4263.5768
+2025-09-01 12:07:56,046 - data_storage - INFO - Saved stop-loss order ID 4999949620 for ETHUSDT
+2025-09-01 12:07:56,319 - telegram_bot - INFO - 🎯 Placing take-profit: SELL 0.007 ETHUSDT at 4659.1664
+2025-09-01 12:07:56,909 - binance_client - INFO - Limit order placed: SELL 0.007 ETHUSDT at 4659.1664
+2025-09-01 12:07:56,909 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.007 ETHUSDT at 4659.1664
+2025-09-01 12:07:56,909 - data_storage - INFO - Saved take-profit order ID 4999949663 for ETHUSDT
+2025-09-01 12:07:57,102 - telegram_bot - INFO - 🔄 Processing signal for TONUSDT...
+2025-09-01 12:07:57,102 - telegram_bot - INFO - 💼 Processing SELL signal for TONUSDT
+2025-09-01 12:07:57,102 - telegram_bot - INFO - 🔍 Signal check - Reason: 'Overbought RSI (63.7) in up trend', Is close: False, Type: SELL
+2025-09-01 12:07:57,209 - telegram_bot - INFO - 💰 Current balance: $14787.49 USDT
+2025-09-01 12:07:57,209 - risk_manager - INFO - 💰 Position Size Calculation: Balance=$14787.49 | Confidence=60.0%
+2025-09-01 12:07:57,210 - risk_manager - INFO - ✅ Final position size: 30.00 USDT (confidence: 60.0%)
+2025-09-01 12:07:57,210 - risk_manager - INFO - 🛡️ Risk Check for TONUSDT: Amount=$30.00 | Balance=$14787.49
+2025-09-01 12:07:57,210 - risk_manager - INFO - Current drawdown: 0.02%
+2025-09-01 12:07:57,210 - risk_manager - INFO - ✅ Risk Check Passed for TONUSDT: All conditions met
+2025-09-01 12:07:57,210 - binance_client - INFO - 💰 Calculating quantity for TONUSDT with $30.0 USDT
+2025-09-01 12:07:58,089 - binance_client - INFO - MIN_NOTIONAL filter structure: {'filterType': 'MIN_NOTIONAL', 'notional': '5'}
+2025-09-01 12:07:58,089 - binance_client - INFO - ✅ Calculated quantity: 9.6 TONUSDT (value: $30.03)
+2025-09-01 12:07:58,468 - binance_client - INFO - Market order placed: SELL 9.6 TONUSDT
+2025-09-01 12:07:58,472 - data_storage - INFO - Trade saved: TONUSDT - SELL - open
+2025-09-01 12:07:58,472 - risk_manager - INFO - Daily trades: 16/50
+2025-09-01 12:07:58,473 - telegram_bot - INFO - Trade executed: SELL 9.6 TONUSDT at 3.1285
+2025-09-01 12:07:58,679 - telegram_bot - INFO - 🛡️ Placing stop-loss: BUY 9.6 TONUSDT at 3.222355
+2025-09-01 12:07:59,238 - binance_client - INFO - Stop-loss order placed: BUY 9.6 TONUSDT at 3.222355
+2025-09-01 12:07:59,239 - telegram_bot - INFO - ✅ Stop-loss placed: BUY 9.6 TONUSDT at 3.222355
+2025-09-01 12:07:59,239 - data_storage - INFO - Saved stop-loss order ID 19124452 for TONUSDT
+2025-09-01 12:07:59,419 - telegram_bot - INFO - 🎯 Placing take-profit: BUY 9.6 TONUSDT at 2.94079
+2025-09-01 12:08:00,181 - binance_client - INFO - Limit order placed: BUY 9.6 TONUSDT at 2.94079
+2025-09-01 12:08:00,182 - telegram_bot - INFO - ✅ Take-profit placed: BUY 9.6 TONUSDT at 2.94079
+2025-09-01 12:08:00,182 - data_storage - INFO - Saved take-profit order ID 19124453 for TONUSDT

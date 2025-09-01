@@ -22380,3 +22380,6 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-01 10:48:29,075 - binance_client - INFO - Limit order placed: SELL 0.03 BNBUSDT at 911.5788000000001
 2025-09-01 10:48:29,077 - telegram_bot - INFO - ✅ Take-profit placed: SELL 0.03 BNBUSDT at 911.5788000000001
 2025-09-01 10:48:29,079 - data_storage - INFO - Saved take-profit order ID 571886363 for BNBUSDT
+2025-09-01 10:54:11,332 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-09-01 10:54:13,260 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-09-01 10:54:22,932 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required

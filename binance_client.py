@@ -366,19 +366,19 @@ class BinanceClient:
             # Round price to proper precision
             rounded_price = self.round_price_to_precision(symbol, price)
             
-            # Validate price is within acceptable range (PERCENT_PRICE filter)
+            # Only validate price is not extremely far (within 20% for take-profit safety)
             current_price = self.get_current_price_sync(symbol)
             if current_price:
                 price_diff_percent = abs(rounded_price - current_price) / current_price * 100
-                if price_diff_percent > 8:  # Keep within 8% of current price to avoid PERCENT_PRICE filter
-                    logger.warning(f"Price {rounded_price} too far from current {current_price} ({price_diff_percent:.1f}%)")
-                    # Adjust price to be within acceptable range
+                if price_diff_percent > 20:  # Only adjust if extremely far (allows up to 20%)
+                    logger.warning(f"Price {rounded_price} extremely far from current {current_price} ({price_diff_percent:.1f}%)")
+                    # Only adjust if really necessary to prevent API errors
                     if rounded_price > current_price:
-                        rounded_price = current_price * 1.05  # 5% above current
+                        rounded_price = current_price * 1.15  # 15% above current
                     else:
-                        rounded_price = current_price * 0.95  # 5% below current
+                        rounded_price = current_price * 0.85  # 15% below current
                     rounded_price = self.round_price_to_precision(symbol, rounded_price)
-                    logger.info(f"Adjusted limit price to {rounded_price}")
+                    logger.info(f"Adjusted limit price to {rounded_price} (was extremely far)")
             
             order = self.sync_client.futures_create_order(
                 symbol=symbol,
@@ -461,16 +461,16 @@ class BinanceClient:
                 logger.error(f"Could not get current price for {symbol}")
                 return None
             
-            # Validate stop price is reasonable (within 10% of current price)
+            # Only validate stop price is not extremely far (within 25% of current price for safety)
             price_diff_percent = abs(stop_price - current_price) / current_price * 100
-            if price_diff_percent > 10:
-                logger.warning(f"Stop price {stop_price} too far from current {current_price} ({price_diff_percent:.1f}%)")
-                # Adjust stop price to be within acceptable range
+            if price_diff_percent > 25:  # Only adjust if extremely far (allows up to 25%)
+                logger.warning(f"Stop price {stop_price} extremely far from current {current_price} ({price_diff_percent:.1f}%)")
+                # Only adjust if really necessary to prevent API errors
                 if side == 'SELL':  # Stop loss for long position
-                    stop_price = current_price * 0.95  # 5% below current
+                    stop_price = current_price * 0.85  # 15% below current (more conservative)
                 else:  # Stop loss for short position  
-                    stop_price = current_price * 1.05  # 5% above current
-                logger.info(f"Adjusted stop price to {stop_price}")
+                    stop_price = current_price * 1.15  # 15% above current
+                logger.info(f"Adjusted stop price to {stop_price} (was extremely far)")
                 
             # Round stop price to proper precision
             rounded_stop_price = self.round_price_to_precision(symbol, stop_price)

@@ -22383,3 +22383,24 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-01 10:54:11,332 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
 2025-09-01 10:54:13,260 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
 2025-09-01 10:54:22,932 - __main__ - ERROR - TELEGRAM_BOT_TOKEN environment variable is required
+2025-09-01 11:02:55,670 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 11:02:55,673 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-09-01 11:02:56,514 - binance_client - INFO - Connected to Binance Testnet
+2025-09-01 11:02:56,675 - risk_manager - INFO - Risk Manager initialized with balance: 14779.84731904 USDT
+2025-09-01 11:02:56,676 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']
+2025-09-01 11:02:56,676 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-09-01 11:02:56,676 - telegram_bot - INFO - Starting Telegram bot...
+2025-09-01 11:07:36,028 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 11:07:36,028 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-09-01 11:07:37,218 - binance_client - INFO - Connected to Binance Testnet
+2025-09-01 11:07:37,532 - risk_manager - INFO - Risk Manager initialized with balance: 14779.84738525 USDT
+2025-09-01 11:07:37,532 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']
+2025-09-01 11:07:37,533 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-09-01 11:07:37,533 - telegram_bot - INFO - Starting Telegram bot...
+2025-09-01 11:09:08,822 - data_storage - INFO - Trading data loaded successfully
+2025-09-01 11:09:08,827 - __main__ - INFO - Starting Telegram Binance Trading Bot...
+2025-09-01 11:09:09,685 - binance_client - INFO - Connected to Binance Testnet
+2025-09-01 11:09:09,834 - risk_manager - INFO - Risk Manager initialized with balance: 14779.84741385 USDT
+2025-09-01 11:09:09,834 - telegram_bot - INFO - Loading user trading pairs: ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT'] -> ['ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'SOLUSDT', 'TONUSDT', 'XRPUSDT']
+2025-09-01 11:09:09,834 - websocket_handler - INFO - Price monitoring started for 6 symbols
+2025-09-01 11:09:09,834 - telegram_bot - INFO - Starting Telegram bot...
